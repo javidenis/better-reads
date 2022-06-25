@@ -8,6 +8,8 @@ class ReadStatus(db.Model):
   user_id =  db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   readStatus = db.Column(db.String(200), nullable=False)
 
+  user = db.relationship("User", back_populates='read_status')
+  books = db.relationship("Book", back_populates='read_status')
 
   def to_dict(self):
         return {

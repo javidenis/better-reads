@@ -1,7 +1,12 @@
-from app.models import db, BookShelf
+from flask import session
+from app.models import db, BookShelf, Book
+
 
 def seed_bookshelves():
-  bookshelf1 = BookShelf(name="Yang", user_id= 1)
+  books = Book.query.all() 
+  
+
+  bookshelf1 = BookShelf(name="Yang", user_id= 1, bookshelves_book=books)
   bookshelf2 = BookShelf(name="Eric ", user_id= 2)
   bookshelf3 = BookShelf(name="Stili ", user_id= 3)
   bookshelf4 = BookShelf(name="Dennis ", user_id= 2)
