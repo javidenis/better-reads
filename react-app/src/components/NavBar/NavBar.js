@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import "./navbar.css";
+import logo from "../images/BetterReads-logos.jpeg";
 const NavBar = () => {
   //Checking login status
   const [logged, setLogged] = useState(false);
@@ -17,6 +18,7 @@ const NavBar = () => {
 
   return (
     <div className="loginbar">
+      <img src={logo} alt="Logo" />
       <nav>
         <ul>
           <li>
@@ -39,7 +41,7 @@ const NavBar = () => {
               Users
             </NavLink>
           </li>
-          <li>{logged && <LogoutButton />}</li>
+          {logged && <LogoutButton />}
         </ul>
       </nav>
     </div>
