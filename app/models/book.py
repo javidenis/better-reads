@@ -1,5 +1,5 @@
 from .db import db
-
+from sqlalchemy.orm import relationship
 class Book(db.Model):
     __tablename__ = 'books'
 
@@ -12,7 +12,10 @@ class Book(db.Model):
     publish_date = db.Column(db.Date, nullable=False),
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    user = db.relationship("User", back_populates='books')
+    user = db.relationship("User", back_populates='books') 
+    readstatus = db.relationship("User", secondary='readstatues', back_populates='books')
+    bookshelf = db.relationship("BookShelf", secondary='bookshelves')    
+    # bookshelfbook = db.relationship('BookShelf', secondary='bookshelvesbooks', back_populates='books')
 
     def to_dict(self):
         return {
