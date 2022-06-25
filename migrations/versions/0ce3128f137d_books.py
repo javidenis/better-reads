@@ -1,8 +1,8 @@
-"""users and books
+"""books
 
-Revision ID: c66485b9993f
+Revision ID: 0ce3128f137d
 Revises: 
-Create Date: 2022-06-24 18:57:57.143399
+Create Date: 2022-06-24 17:23:03.928554
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c66485b9993f'
+revision = '0ce3128f137d'
 down_revision = None
 branch_labels = None
 depends_on = None
