@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.Text)
 
     books = db.relationship("Book", back_populates='user')
+    bookshelves = db.relationship("BookShelf", back_populates='user')
+    readstatues = db.relationship('Book', secondary='readstatues', back_populates='user')
 
     @property
     def password(self):
