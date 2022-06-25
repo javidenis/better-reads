@@ -19,11 +19,11 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
+    seed_genres()
     seed_books()
     seed_bookshelves()
     seed_readstatues()
     seed_reviews()
-    seed_genres()
     # seed_bookshelvesbooks()
     
 
