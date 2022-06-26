@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import NewBook from './components/books/NewBook/NewBook'
+import { getAllBusinesses } from './store/genres';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,6 +18,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getAllBusinesses())
       setLoaded(true);
     })();
   }, [dispatch]);

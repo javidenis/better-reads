@@ -1,6 +1,5 @@
-from turtle import title
-from flask import Blueprint, jsonify, request
-from flask_login import login_required, current_user
+from flask import Blueprint, request
+from flask_login import login_required
 from app.models import Book, db
 from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms import NewBookForm
@@ -71,7 +70,3 @@ def post_book():
         db.session.commit()
         return new_book.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
-
-
-    
