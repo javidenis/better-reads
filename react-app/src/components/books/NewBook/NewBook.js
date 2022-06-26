@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import './new-book.css'
@@ -6,8 +6,9 @@ import {addBookThunk} from '../../../store/books'
 
 const NewBook = () => {
     const sessionUser = useSelector((state) => state.session.user)
-    // Load in Genres here from state and make a multiselect below
+    const genres = Object.values(useSelector((state) => state.genres))
     const [title, setTitle] = useState('')
+    const [books_genre, setBooks_genre] = useState([])
     const [author, setAuthor] = useState('')
     const [sub_heading, setSub_heading] = useState('')
     const [description, setDescription] = useState('')
@@ -16,6 +17,10 @@ const NewBook = () => {
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
+
+    useEffect(()=> {
+        console.log(books_genre)
+    },[books_genre])
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
@@ -33,7 +38,8 @@ const NewBook = () => {
             description,
             cover_url,
             publish_date,
-            user_id
+            user_id,
+            books_genre
         }
 
         const data = await dispatch(addBookThunk(newBook))
@@ -116,6 +122,13 @@ const NewBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
+                <label>Genres (hold CTRL to select more than one):</label>
+                <select
+                    value={books_genre}
+                    onChange={e => setBooks_genre(e.target.value)}
+                    multiple>
+                        {genres.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
+                </select>
                 <button id="book-form-submit" type="submit">Submit</button>
             </form>
         </div>

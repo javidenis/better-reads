@@ -1,8 +1,9 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Book, db
+from app.models import Book, db, Genre, genres
 from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms import NewBookForm
+import json
 
 book_routes = Blueprint('books', __name__)
 
@@ -46,7 +47,7 @@ def post_book():
                 description=form.data['description'],
                 publish_date=form.data['publish_date'],
                 user_id=form.data['user_id'],
-                cover_url=cover_url
+                cover_url=cover_url,
             )
             db.session.add(new_book)
             db.session.commit()
@@ -56,7 +57,10 @@ def post_book():
     form = NewBookForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print(form.data)
+
+        genres = Genre.query.all()
+        books_genre = [genre for genre in genres if genre.id == form.data['books_genre']]
+
         new_book = Book(
             title=form.data['title'],
             author=form.data['author'],
@@ -64,9 +68,13 @@ def post_book():
             description=form.data['description'],
             publish_date=form.data['publish_date'],
             user_id=form.data['user_id'],
+            books_genre=books_genre,
             cover_url='https://i.imgur.com/sJ3CT4V.gif'
         )
+
+
         db.session.add(new_book)
         db.session.commit()
+        #need to figure out how to send back information for genres too. Need to turn to dict before sending back. Otherwise this is working. 
         return new_book.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -38,5 +38,6 @@ class Book(db.Model):
             'sub_heading': self.sub_heading,
             'description': self.description,
             'cover_url': self.cover_url,
-            'publish_date': self.publish_date
+            'publish_date': self.publish_date,
+            # 'books_genre' : self.books_genre
         }

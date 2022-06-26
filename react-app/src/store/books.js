@@ -17,7 +17,8 @@ export const addBookThunk = newBook => async dispatch => {
         description,
         cover_url,
         publish_date,
-        user_id
+        user_id,
+        books_genre
     } = newBook
     
     const formData = new FormData();
@@ -25,9 +26,10 @@ export const addBookThunk = newBook => async dispatch => {
     formData.append('author', author)
     formData.append('sub_heading', sub_heading)
     formData.append('description', description)
-    formData.append('cover_url', cover_url)
     formData.append('publish_date', publish_date)
     formData.append('user_id', user_id)
+    formData.append('books_genre', books_genre)
+    formData.append('cover_url', cover_url)
 
 
     const response = await fetch('/api/books', {
