@@ -40,6 +40,12 @@ def post_book():
         form = NewBookForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
+
+            form_genre_array1 = form.data['books_genre'][0].split(',')
+            form_genre_array = [int(x) for x in form_genre_array1]
+            genres = Genre.query.all()
+            books_genre = [genre for genre in genres if genre.id in form_genre_array]
+
             new_book = Book(
                 title=form.data['title'],
                 author=form.data['author'],
@@ -47,6 +53,7 @@ def post_book():
                 description=form.data['description'],
                 publish_date=form.data['publish_date'],
                 user_id=form.data['user_id'],
+                books_genre=books_genre,
                 cover_url=cover_url,
             )
             db.session.add(new_book)
@@ -57,9 +64,10 @@ def post_book():
     form = NewBookForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-
+        form_genre_array1 = form.data['books_genre'][0].split(',')
+        form_genre_array = [int(x) for x in form_genre_array1]
         genres = Genre.query.all()
-        books_genre = [genre for genre in genres if genre.id == form.data['books_genre']]
+        books_genre = [genre for genre in genres if genre.id in form_genre_array]
 
         new_book = Book(
             title=form.data['title'],
@@ -72,9 +80,7 @@ def post_book():
             cover_url='https://i.imgur.com/sJ3CT4V.gif'
         )
 
-
         db.session.add(new_book)
         db.session.commit()
-        #need to figure out how to send back information for genres too. Need to turn to dict before sending back. Otherwise this is working. 
         return new_book.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

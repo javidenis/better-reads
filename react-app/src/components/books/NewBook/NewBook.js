@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import './new-book.css'
 import {addBookThunk} from '../../../store/books'
+import Multiselect from "multiselect-react-dropdown";
 
 const NewBook = () => {
     const sessionUser = useSelector((state) => state.session.user)
@@ -18,9 +19,6 @@ const NewBook = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-        console.log(books_genre)
-    },[books_genre])
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
@@ -53,6 +51,15 @@ const NewBook = () => {
     const updateImage = (e) => {
         const file = e.target.files[0];
         setCover_url(file);
+    }
+
+    const onSelect = (selectedList, selectedItem) => {
+        const idList = selectedList.map(item => item.id)
+        setBooks_genre(idList)
+    }
+    const onRemove = (selectedList, selectedItem) => {
+        const idList = selectedList.map(item => item.id)
+        setBooks_genre(idList)
     }
 
     return(
@@ -122,13 +129,14 @@ const NewBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
-                <label>Genres (hold CTRL to select more than one):</label>
-                <select
-                    value={books_genre}
-                    onChange={e => setBooks_genre(e.target.value)}
-                    multiple>
-                        {genres.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
-                </select>
+                <label>Genres:</label>
+                <Multiselect
+                    options={genres}
+                    onSelect={onSelect}
+                    onRemove={onRemove}
+                    displayValue="name"
+                    showCheckbox={true}
+                />
                 <button id="book-form-submit" type="submit">Submit</button>
             </form>
         </div>

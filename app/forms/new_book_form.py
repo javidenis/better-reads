@@ -1,6 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, IntegerField
+from wtforms import StringField, DateField, IntegerField, Field
 from wtforms.validators import DataRequired
+
+class ListField(Field):
+    def process_formdata(self, valuelist):
+        self.data = valuelist
 
 
 class NewBookForm(FlaskForm):
@@ -10,4 +14,4 @@ class NewBookForm(FlaskForm):
     description = StringField('description', validators=[DataRequired()])
     publish_date = DateField('publish_date', validators=[DataRequired()])
     user_id = IntegerField('user_id', validators=[DataRequired()])
-    books_genre = IntegerField('books_genre', validators=[DataRequired()])
+    books_genre = ListField('books_genre')
