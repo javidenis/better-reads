@@ -16,8 +16,8 @@ class Book(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship("User", back_populates='books')
-    read_status = db.relationship("ReadStatus", back_populates='books')
-    reviews = db.relationship("Review", back_populates='book')
+    read_status = db.relationship("ReadStatus", back_populates='books', cascade="delete, all")
+    reviews = db.relationship("Review", back_populates='book',cascade="delete, all")
 
     book_bookshelves = db.relationship("BookShelf",
                 secondary=book_shelf_books,
@@ -28,7 +28,6 @@ class Book(db.Model):
                     secondary=book_genres,
                     back_populates='genre_books',
                     lazy="joined",
-                    cascade="delete, all"
                 )
 
 
@@ -43,5 +42,6 @@ class Book(db.Model):
             'cover_url': self.cover_url,
             'publish_date': self.publish_date,
             'books_genre' : [genre.to_dict() for genre in self.books_genre],
-            'book_bookshelves': [bookshelf.to_dict() for bookshelf in self.book_bookshelves]
+            'book_bookshelves': [bookshelf.to_dict() for bookshelf in self.book_bookshelves],
+            'user_id': self.user_id
         }
