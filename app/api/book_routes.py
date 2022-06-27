@@ -87,3 +87,68 @@ def post_book():
         db.session.commit()
         return new_book.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@book_routes.route('/<int:id>', methods=['PUT'])
+@login_required
+def edit_book(id):
+    if 'cover_url' in request.files:
+        image = request.files["cover_url"]
+        
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+        
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            return upload, 400
+
+        cover_url = upload['url']
+        form = NewBookForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            edit_book = Book.query.get(id)
+
+            form_genre_array1 = form.data['books_genre'][0].split(',')
+            form_genre_array = [int(x) for x in form_genre_array1]
+            genres = Genre.query.all()
+            books_genre = [genre for genre in genres if genre.id in form_genre_array]
+
+            
+            edit_book.title=form.data['title'],
+            edit_book.author=form.data['author'],
+            edit_book.sub_heading=form.data['sub_heading'],
+            edit_book.description=form.data['description'],
+            edit_book.publish_date=form.data['publish_date'],
+            edit_book. user_id=form.data['user_id'],
+            edit_book.books_genre=books_genre,
+            edit_book.cover_url=cover_url,
+
+            db.session.commit()
+            return edit_book.to_dict()
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    
+    form = NewBookForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        edit_book = Book.query.get(id)
+        form_genre_array1 = form.data['books_genre'][0].split(',')
+        form_genre_array = [int(x) for x in form_genre_array1]
+        genres = Genre.query.all()
+        books_genre = [genre for genre in genres if genre.id in form_genre_array]
+        print(books_genre)
+
+        
+        edit_book.title=form.data['title'],
+        edit_book.author=form.data['author'],
+        edit_book.sub_heading=form.data['sub_heading'],
+        edit_book.description=form.data['description'],
+        edit_book.publish_date=form.data['publish_date'],
+        edit_book.user_id=form.data['user_id'],
+        edit_book.books_genre=list(books_genre),
+        edit_book.cover_url='https://i.imgur.com/sJ3CT4V.gif',
+
+        db.session.commit()
+        return edit_book.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
