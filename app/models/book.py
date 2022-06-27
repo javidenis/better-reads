@@ -21,11 +21,14 @@ class Book(db.Model):
 
     book_bookshelves = db.relationship("BookShelf",
                 secondary=book_shelf_books,
-                back_populates='bookshelves_book')
+                back_populates='bookshelves_book',
+                lazy="joined")
 
     books_genre = db.relationship("Genre",
                     secondary=book_genres,
-                    back_populates='genre_books'
+                    back_populates='genre_books',
+                    lazy="joined",
+                    cascade="delete, all"
                 )
 
 
@@ -38,5 +41,7 @@ class Book(db.Model):
             'sub_heading': self.sub_heading,
             'description': self.description,
             'cover_url': self.cover_url,
-            'publish_date': self.publish_date
+            'publish_date': self.publish_date,
+            'books_genre' : [genre.to_dict() for genre in self.books_genre],
+            'book_bookshelves': [bookshelf.to_dict() for bookshelf in self.book_bookshelves]
         }

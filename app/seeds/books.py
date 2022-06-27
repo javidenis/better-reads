@@ -4,7 +4,6 @@ from datetime import date
 def seed_books():
 
     genres = Genre.query.all()
-
     book1 = Book(
         title="Dune", 
         author="Frank Herbert", 

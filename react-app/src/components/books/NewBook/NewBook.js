@@ -3,11 +3,13 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import './new-book.css'
 import {addBookThunk} from '../../../store/books'
+import Multiselect from "multiselect-react-dropdown";
 
 const NewBook = () => {
     const sessionUser = useSelector((state) => state.session.user)
-    // Load in Genres here from state and make a multiselect below
+    const genres = Object.values(useSelector((state) => state.genres))
     const [title, setTitle] = useState('')
+    const [books_genre, setBooks_genre] = useState([])
     const [author, setAuthor] = useState('')
     const [sub_heading, setSub_heading] = useState('')
     const [description, setDescription] = useState('')
@@ -16,6 +18,7 @@ const NewBook = () => {
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
+
 
     const handleOnSubmit = async (e) => {
         e.preventDefault()
@@ -33,7 +36,8 @@ const NewBook = () => {
             description,
             cover_url,
             publish_date,
-            user_id
+            user_id,
+            books_genre
         }
 
         const data = await dispatch(addBookThunk(newBook))
@@ -47,6 +51,15 @@ const NewBook = () => {
     const updateImage = (e) => {
         const file = e.target.files[0];
         setCover_url(file);
+    }
+
+    const onSelect = (selectedList, selectedItem) => {
+        const idList = selectedList.map(item => item.id)
+        setBooks_genre(idList)
+    }
+    const onRemove = (selectedList, selectedItem) => {
+        const idList = selectedList.map(item => item.id)
+        setBooks_genre(idList)
     }
 
     return(
@@ -116,6 +129,14 @@ const NewBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
+                <label>Genres:</label>
+                <Multiselect
+                    options={genres}
+                    onSelect={onSelect}
+                    onRemove={onRemove}
+                    displayValue="name"
+                    showCheckbox={true}
+                />
                 <button id="book-form-submit" type="submit">Submit</button>
             </form>
         </div>
