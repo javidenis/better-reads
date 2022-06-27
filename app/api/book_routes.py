@@ -21,7 +21,6 @@ def validation_errors_to_error_messages(validation_errors):
 @book_routes.route('')
 def get_all_books():
     books = Book.query.all()
-    booksDict = [book.to_dict() for book in books]
     return {"books": [book.to_dict() for book in books]}
 
 @book_routes.route('', methods=['POST'])

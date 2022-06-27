@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addReviewThunk } from '../../../store/reviews';
-import './review-form.css'
+import { editReviewThunk, deleteReviewThunk } from '../../../store/reviews';
+import { useParams } from 'react-router-dom';
 
-function ReviewForm({ thisBook, setReviewFormOpen }) {
-    const sessionUser = useSelector(state => state.session.user)
+function EditReviewForm({ setReviewFormOpen, review }) {
+    const bookId = useParams().id
+    const thisBook = useSelector(state => state.books)[bookId]
     const book_id = thisBook.id
+    const sessionUser = useSelector(state => state.session.user)
     const [rating, setRating] = useState('')
     const [content, setContent] = useState('')
     const [errors, setErrors] = useState([]);
@@ -17,17 +19,17 @@ function ReviewForm({ thisBook, setReviewFormOpen }) {
             content,
             user_id: sessionUser.id,
             rating: Number(rating),
-            book_id
+            book_id,
+            reviewId: review.id
+
         }
-        
-        const data = await dispatch(addReviewThunk(newReview))
+
+        const data = await dispatch(editReviewThunk(newReview))
         if (data) {
             setErrors(data)
-        }else {
+        } else {
             setReviewFormOpen(false)
         }
-            
-
     }
 
 
@@ -43,6 +45,10 @@ function ReviewForm({ thisBook, setReviewFormOpen }) {
         setReviewFormOpen(false)
     }
 
+    const handleDelete = async e => {
+        e.preventDefault()
+        await dispatch(deleteReviewThunk(review.id))
+    }
 
     return (
 
@@ -61,6 +67,7 @@ function ReviewForm({ thisBook, setReviewFormOpen }) {
             <textarea onChange={e => setContent(e.target.value)} id='cotent-input' type='text' placeholder='Your Review Here' value={content}></textarea>
             <div id='review-button-holder'>
                 <button id='submit-comment-button'>Submit Review</button>
+                <button id='submit-comment-button' onClick={e => handleDelete(e)}>Delete Review</button>
                 <button id='submit-comment-button' onClick={e => handleCancel(e)}>Cancel</button>
             </div>
 
@@ -70,4 +77,4 @@ function ReviewForm({ thisBook, setReviewFormOpen }) {
     )
 }
 
-export default ReviewForm
+export default EditReviewForm

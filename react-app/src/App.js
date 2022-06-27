@@ -12,6 +12,7 @@ import NewBook from './components/books/NewBook/NewBook'
 import SingleBookDisplay from './components/books/SingleBookDisplay/SingleBookDisplay';
 import { getAllGenres } from './store/genres';
 import { getAllBooksThunk } from './store/books';
+import { getReviewsThunk } from './store/reviews';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +23,7 @@ function App() {
       await dispatch(authenticate());
       await dispatch(getAllGenres())
       await dispatch(getAllBooksThunk())
+      await dispatch(getReviewsThunk())
       setLoaded(true);
     })();
   }, [dispatch]);
