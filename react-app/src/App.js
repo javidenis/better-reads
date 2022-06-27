@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import NewBook from './components/books/NewBook/NewBook'
 import { getAllGenres } from './store/genres';
+import NewBookshelf from './components/bookshelves/NewBookshelf/NewBookshelf';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,6 +43,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bookshelves/new'>
+          <NewBookshelf />
         </ProtectedRoute>
         <ProtectedRoute path='/books/new' exact={true} >
           <NewBook />
