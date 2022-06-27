@@ -1,0 +1,31 @@
+#book-display-full-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+
+#single-book-display {
+    display: flex;
+    gap:20px;
+    padding-left: 100px;
+    width: 40%;
+}
+
+#book-cover-art {
+    height: 300px;
+}
+
+#right-display {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#book-title {
+    font-weight: 700;
+    font-size: 35px;
+    font-family: "Merriweather", "Georgia", serif;
+}
