@@ -1,9 +1,17 @@
 const ADD_BOOKSHELF = '/bookshelf/add'
+const GET_BOOKSHELVES = '/bookshelves/all'
 
 const actionAddBookshelf = bookshelf => {
 	return {
 		type: ADD_BOOKSHELF,
 		bookshelf
+	}
+}
+
+const actionGetAllBookshelves = bookshelves => {
+	return {
+		type: GET_BOOKSHELVES,
+		bookshelves
 	}
 }
 
@@ -36,6 +44,13 @@ export const addBookshelfThunk = newBookshelf => async dispatch => {
 	}
 }
 
+export const getAllBookshelvesThunk = () => async dispatch => {
+	const response = await fetch('/api/bookshelves')
+	const data = await response.json()
+	if (response.ok) {
+		dispatch(actionGetAllBookshelves(data))
+	}
+}
 
 const bookshelfReducer = (state={}, action) => {
 	switch(action.type) {
@@ -43,6 +58,10 @@ const bookshelfReducer = (state={}, action) => {
 			let newAddState = {}
 			newAddState = {...state, [action.bookshelf.id]: action.bookshelf}
 			return newAddState
+		case GET_BOOKSHELVES:
+			let newState = { ...state }
+			console.log(action.bookshelves)
+			return newState
 		default:
 			return state
 	}

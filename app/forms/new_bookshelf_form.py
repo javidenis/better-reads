@@ -6,4 +6,4 @@ from wtforms.validators import DataRequired
 class NewBookShelfForm(FlaskForm):
 	name = StringField('name', validators=[DataRequired()])
 	user_id = IntegerField('user_id', validators=[DataRequired()])
-	
+	bookshelves_book = IntegerField('bookshelves_book')
