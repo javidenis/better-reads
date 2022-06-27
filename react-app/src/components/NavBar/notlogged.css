@@ -1,0 +1,12 @@
+.buttoninfo {
+  position: absolute;
+  background-color: hsl(16, 31%, 74%);
+  top: 2.88rem;
+  width: 10rem;
+  left: -120px;
+  height: 15rem;
+}
+
+.profile_circle div div a {
+  color: white;
+}
