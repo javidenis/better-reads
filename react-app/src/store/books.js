@@ -1,5 +1,6 @@
 const ADD_BOOK = '/book/add'
 const GET_BOOKS = '/books/all'
+const DELETE_BOOK = '/books/delete'
 
 const actionAddBook = book => {
     return {
@@ -15,11 +16,27 @@ const actionAllBook = books => {
     }
 }
 
+const actionDeleteBook = bookId => {
+    return {
+        type: DELETE_BOOK,
+        bookId
+    }
+}
+
 export const getAllBooksThunk = () => async dispatch => {
     const response = await fetch('/api/books')
     const data = await response.json()
     if (response.ok) {
         dispatch(actionAllBook(data))
+    }
+}
+
+export const deleteBookThunk = bookId => async dispatch => {
+    const response = await fetch(`/api/books/${bookId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(actionDeleteBook(bookId))
     }
 }
 
@@ -123,6 +140,10 @@ const bookReducer = (state = {}, action) => {
                 newState[book.id] = book;
             });
             return newState;
+        case DELETE_BOOK:
+            let newDeleteState = {...state}
+            delete newDeleteState[action.bookId]
+            return newDeleteState
         default:
             return state
     }

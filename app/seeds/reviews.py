@@ -2,9 +2,9 @@ from app.models import db, Review
 
 def seed_reviews():
   review1 = Review(book_id=1, rating=4, user_id= 1, content='This was a good book')
-  review2 =  Review(book_id=1, rating=4, user_id= 2, content='This was a good book')
-  review3 =  Review(book_id=1, rating=4, user_id= 3, content='This was a good book')
-  review4 =  Review(book_id=1, rating=4, user_id= 1, content='This was a good book')
+  review2 =  Review(book_id=2, rating=4, user_id= 2, content='This was a good book')
+  review3 =  Review(book_id=3, rating=4, user_id= 3, content='This was a good book')
+  review4 =  Review(book_id=4, rating=4, user_id= 1, content='This was a good book')
 
   db.session.add(review1)
   db.session.add(review2)

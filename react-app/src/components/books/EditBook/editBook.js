@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import './edit-book.css'
-import {editBookThunk} from '../../../store/books'
+import {editBookThunk, deleteBookThunk} from '../../../store/books'
 import Multiselect from "multiselect-react-dropdown";
 
 const EditBook = () => {
@@ -10,16 +10,17 @@ const EditBook = () => {
     const thisBook = useSelector(state => state.books)[bookId]
     const sessionUser = useSelector((state) => state.session.user)
     const genres = Object.values(useSelector((state) => state.genres))
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState(thisBook.title || '')
     const [books_genre, setBooks_genre] = useState([])
-    const [author, setAuthor] = useState('')
-    const [sub_heading, setSub_heading] = useState('')
-    const [description, setDescription] = useState('')
+    const [author, setAuthor] = useState(thisBook.author || '')
+    const [sub_heading, setSub_heading] = useState(thisBook.sub_heading || '')
+    const [description, setDescription] = useState(thisBook.description || '')
     let [cover_url, setCover_url] = useState(null)
-    const [publish_date, setPublish_date] = useState('')
+    const [publish_date, setPublish_date] = useState(thisBook.publish_date || '')
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
+    const [deleteDisplay, setDeleteDisplay] = useState(false)
 
     useEffect(()=> {
         if (thisBook.user_id !== sessionUser.id){
@@ -53,7 +54,7 @@ const EditBook = () => {
         if (data) {
             setErrors(data)
         }else {
-            history.push('/')
+            history.push(`books/${bookId}`)
         }
 
     }
@@ -69,6 +70,16 @@ const EditBook = () => {
     const onRemove = (selectedList, selectedItem) => {
         const idList = selectedList.map(item => item.id)
         setBooks_genre(idList)
+    }
+
+    const handleCancel = () => {
+
+        history.push(`/books/${bookId}`)
+    }
+
+    const handleDelete = async () => {
+        const data = dispatch(deleteBookThunk(bookId))
+        history.push('/')
     }
 
     return(
@@ -147,7 +158,20 @@ const EditBook = () => {
                     showCheckbox={true}
                 />
                 <button id="book-form-submit" type="submit">Submit</button>
+                <button id="book-form-submit" onClick={()=> handleCancel()}>Cancel</button>
+                <button id="book-form-submit" onClick={(e) => {
+                    e.preventDefault()
+                    setDeleteDisplay(!deleteDisplay)
+                    }}>Delete</button>
             </form>
+                {deleteDisplay && 
+                <div>
+                    <p>Are you sure you want to delete this Book?</p>
+                    <button onClick={()=> handleDelete()}>Confirm Delete</button>
+                    <button onClick={() => setDeleteDisplay(!deleteDisplay)}>Cancel Delete</button>
+                </div>
+                
+                }
         </div>
     )
 }
