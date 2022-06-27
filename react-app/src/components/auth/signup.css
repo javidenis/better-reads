@@ -1,0 +1,37 @@
+.pfp {
+  display: none;
+}
+.custom-file-upload {
+  border: 4px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.signupform {
+  background-color: hsl(16, 31%, 74%);
+  width: 25rem;
+  position: absolute;
+  left: 35rem;
+  top: 17rem;
+  border: 2px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+}
+
+.actualform {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actualform div label {
+  color: white;
+  margin: 2em;
+  /* position: absolute; */
+}
+
+.actualform div input {
+  position: absolute;
+  left: 12rem;
+}
