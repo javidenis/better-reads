@@ -1,9 +1,25 @@
 const ADD_BOOK = '/book/add'
+const GET_BOOKS = '/books/all'
 
 const actionAddBook = book => {
     return {
         type: ADD_BOOK,
         book
+    }
+}
+
+const actionAllBook = books => {
+    return {
+        type: GET_BOOKS,
+        books
+    }
+}
+
+export const getAllBooksThunk = () => async dispatch => {
+    const response = await fetch('/api/books')
+    const data = await response.json()
+    if (response.ok) {
+        dispatch(actionAllBook(data))
     }
 }
 
@@ -20,7 +36,7 @@ export const addBookThunk = newBook => async dispatch => {
         user_id,
         books_genre
     } = newBook
-    
+
     const formData = new FormData();
     formData.append('title', title)
     formData.append('author', author)
@@ -38,28 +54,34 @@ export const addBookThunk = newBook => async dispatch => {
     })
 
     const data = await response.json()
-    if (response.ok){
+    if (response.ok) {
         dispatch(actionAddBook(data))
         return null
-    } else if (response.status < 500){
+    } else if (response.status < 500) {
         if (data.errors) {
             return data.errors;
-          }
+        }
     } else {
         return ['An error occurred. Please try again.']
     }
-    
+
 }
 
 
-const bookReducer = (state={}, action) => {
-    switch(action.type) {
+const bookReducer = (state = {}, action) => {
+    switch (action.type) {
         case ADD_BOOK:
             let newAddState = {}
-            newAddState = {...state, [action.book.id]: action.book}
+            newAddState = { ...state, [action.book.id]: action.book }
             return newAddState
+        case GET_BOOKS:
+            let newState = { ...state };
+            action.books.books.forEach((book) => {
+                newState[book.id] = book;
+            });
+            return newState;
         default:
-             return state
+            return state
     }
 }
 
