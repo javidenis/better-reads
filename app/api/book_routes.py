@@ -1,9 +1,9 @@
 from flask import Blueprint, request, jsonify
 from flask_login import login_required
-from app.models import Book, db, Genre, genres
+from app.models import Book, db, Genre
 from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.forms import NewBookForm
-import json
+
 
 book_routes = Blueprint('books', __name__)
 
