@@ -9,16 +9,19 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import NewBook from './components/books/NewBook/NewBook'
+import SingleBookDisplay from './components/books/SingleBookDisplay/SingleBookDisplay';
 import { getAllGenres } from './store/genres';
+import { getAllBooksThunk } from './store/books';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       await dispatch(getAllGenres())
+      await dispatch(getAllBooksThunk())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -38,7 +41,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -46,6 +49,9 @@ function App() {
         <ProtectedRoute path='/books/new' exact={true} >
           <NewBook />
         </ProtectedRoute>
+        <Route path='/books/:id'>
+          <SingleBookDisplay />
+        </Route>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>

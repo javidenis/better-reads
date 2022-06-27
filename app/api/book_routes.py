@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.models import Book, db, Genre, genres
 from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
@@ -18,7 +18,11 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-
+@book_routes.route('')
+def get_all_books():
+    books = Book.query.all()
+    booksDict = [book.to_dict() for book in books]
+    return {"books": [book.to_dict() for book in books]}
 
 @book_routes.route('', methods=['POST'])
 @login_required
