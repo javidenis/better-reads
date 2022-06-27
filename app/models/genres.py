@@ -1,4 +1,3 @@
-from sqlalchemy import table
 from .db import db
 from. bookgenres import book_genres
 
@@ -12,3 +11,9 @@ class Genre(db.Model):
                 secondary=book_genres,
                 back_populates='books_genre'
                 )
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+        }
