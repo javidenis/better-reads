@@ -14,6 +14,8 @@ import SingleBookDisplay from './components/books/SingleBookDisplay/SingleBookDi
 import { getAllGenres } from './store/genres';
 import { getAllBooksThunk } from './store/books';
 import { getReviewsThunk } from './store/reviews';
+import EditBook from './components/books/EditBook/editBook';
+
 
 
 function App() {
@@ -58,9 +60,12 @@ function App() {
           <NewBook />
         </ProtectedRoute>
 
-        <Route path='/books/:id'>
+        <Route exact path='/books/:id'>
           <SingleBookDisplay />
         </Route>
+        <ProtectedRoute exact path='/books/:id/edit'>
+          <EditBook />
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
 
           <h1>My Home Page</h1>

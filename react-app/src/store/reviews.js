@@ -27,7 +27,6 @@ export const deleteReviewThunk = reviewId => async dispatch => {
     const response = await fetch(`/api/reviews/${reviewId}`,
         {
             method: "DELETE",
-            body: {}
         }
     )
     if (response.ok) {
