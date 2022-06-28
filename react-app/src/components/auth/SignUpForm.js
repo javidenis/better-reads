@@ -6,21 +6,34 @@ import { signUp } from "../../store/session";
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [bio, setBio] = useState("")
+  const [picture_url, setPicture_url] = useState(null)
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    if (!picture_url) {
+      picture_url = 'https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg'
+    }
+
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, picture_url, name, bio));
       if (data) {
         setErrors(data);
       }
     }
   };
+
+  const updateImage = (e) => {
+    const file = e.target.files[0]
+    setPicture_url(file)
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -70,6 +83,16 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              onChange={e=>setName(e.target.value)}
+              value={name}
+            >
+            </input>
+          </div>
+          <div>
             <label>Password</label>
             <input
               type="password"
@@ -89,9 +112,22 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div>
+            <label>Bio</label>
+            <textarea
+              name="bio"
+              onChange={e=>setBio(e.target.value)}
+              value={bio}
+            ></textarea>
+          </div>
+          <div>
             <label className="custom-file-upload">
               Profile Picture Upload
-              <input className="pfp" type="file" />
+              <input 
+                className="pfp" 
+                accept="image/*"
+                onChange={updateImage}
+                type="file" 
+              />
             </label>
           </div>
           <button type="submit">Sign Up</button>
