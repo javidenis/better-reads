@@ -5,6 +5,7 @@ import genreReducer from './genres';
 import reviewReducer from './reviews';
 import session from './session'
 import bookshelfReducer from './bookshelves';
+import readStatusReducer from './readstatus';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   genres: genreReducer,
   reviews: reviewReducer,
   bookshelves: bookshelfReducer,
+  readStatus: readStatusReducer
 });
 
 

@@ -1,9 +1,9 @@
 const ADD_BOOKSHELF = '/bookshelf/add'
 const GET_BOOKSHELVES = '/bookshelves/all'
 const ADD_TO_BOOKSHELF = '/bookshelf/addBook'
-const REMOVE_FROM_BOOKSHELF = 'bookshelf/removeBook'
+const REMOVE_FROM_BOOKSHELF = '/bookshelf/removeBook'
 const REMOVE_BOOKSHELF = '/bookshelf/remove'
-const EDIT_BOOKSHELF = '/bookshelf/edit'
+
 
 const actionAddBookshelf = bookshelf => {
 	return {
@@ -125,7 +125,6 @@ export const removeBookshelfThunk = bookshelf_id => async dispatch => {
 }
 
 export const editBookshelfThunk = bookshelf => async dispatch => {
-	console.log(bookshelf)
 	const formData = new FormData()
 	formData.append('name', bookshelf.name)
 	formData.append('user_id', bookshelf.user_id)

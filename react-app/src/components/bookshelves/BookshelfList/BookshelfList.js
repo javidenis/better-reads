@@ -7,10 +7,8 @@ const BookshelfList = () => {
 	const sessionUser = useSelector((state) => state.session.user)
 	const bookshelves = Object.values(useSelector(state => state.bookshelves)).filter(bookshelf => bookshelf.user_id === sessionUser.id)
 	const dispatch = useDispatch()
-	// console.log(bookshelves[0].books)
 
 	const removeBook = async (bookshelf_id, book_id) => {
-		// console.log(bookshelf_id, book_id)
 
 		const data = await dispatch(removeBookFromBookshelfThunk(bookshelf_id, book_id))
 	}

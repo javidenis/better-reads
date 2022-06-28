@@ -5,12 +5,13 @@ import './single-book-display.css'
 import ReviewForm from '../../reviews/review-form/ReviewForm';
 import SingleReviewDisplay from '../../reviews/single-review-display/single-review-display';
 import { addBookToBookshelfThunk } from '../../../store/bookshelves'
+import ReadStatus from '../../readstatus/readstatus';
 
 function SingleBookDisplay() {
   const bookId = useParams().id
   const thisBook = useSelector(state => state.books)[bookId]
   const sessionUser = useSelector(state => state.session.user)
-  const userBookshelves = Object.values(useSelector(state => state.bookshelves)).filter(bookshelf => bookshelf.user_id === sessionUser.id)
+  const userBookshelves = Object.values(useSelector(state => state?.bookshelves)).filter(bookshelf => bookshelf?.user_id === sessionUser?.id)
   const [reviewFormOpen, setReviewFormOpen] = useState(false)
   const [selectedBookshelf, setSelectedBookshelf] = useState('')
   const reviews = Object.values(useSelector(state => state.reviews))
@@ -29,7 +30,7 @@ function SingleBookDisplay() {
 
     const data = await dispatch(addBookToBookshelfThunk(payload))
   }
-  
+
   const handleEditButton = () => {
     history.push(`/books/${bookId}/edit`)
   }
@@ -39,20 +40,21 @@ function SingleBookDisplay() {
       <div id='single-book-display'>
         <div id='left-display'>
           <img alt='cover-art' id='book-cover-art' src={thisBook.cover_url} />
-          {sessionUser.id === thisBook.user_id && <button onClick={()=>handleEditButton()}>Edit Book</button>}
-          {sessionUser.id === thisBook.user_id && 
-            <form onSubmit={(e)=>handleBookshelfSubmit(e)}>
+          {sessionUser?.id === thisBook?.user_id && <button onClick={() => handleEditButton()}>Edit Book</button>}
+          {sessionUser?.id === thisBook?.user_id &&
+            <form onSubmit={(e) => handleBookshelfSubmit(e)}>
               <select
                 value={selectedBookshelf}
-                onChange={e=>setSelectedBookshelf(e.target.value)}
+                onChange={e => setSelectedBookshelf(e.target.value)}
               >
-                {Object.values(userBookshelves).map(bookshelf => 
+                {Object.values(userBookshelves).map(bookshelf =>
                   <option key={bookshelf.id} value={bookshelf.id}>{bookshelf.name}</option>
                 )}
               </select>
               <button type='submit'>Submit</button>
             </form>
           }
+          {sessionUser && <ReadStatus thisBook={thisBook} />}
         </div>
         <div id='right-display'>
           <h1 id='book-title'>{thisBook.title}</h1>
