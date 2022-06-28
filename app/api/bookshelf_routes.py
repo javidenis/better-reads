@@ -51,7 +51,7 @@ def add_book_to_bookshelf(id):
 		return bookshelf.to_dict()
 
 # Remove a book from a shelf
-@bookshelf_routes.route('/<int:id>', methods=['PUT'])
+@bookshelf_routes.route('/<int:id>', methods=['PATCH'])
 @login_required
 def remove_book_from_bookshelf(id):
 	form = NewBookShelfForm()
