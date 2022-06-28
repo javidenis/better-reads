@@ -12,7 +12,6 @@ const EditBookshelf = () => {
 	const dispatch = useDispatch()
 	const history = useHistory()
 
-	// console.log(bookshelf)
 
 	const handleOnSubmit = async (e) => {
 		e.preventDefault()

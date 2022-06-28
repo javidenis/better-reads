@@ -12,6 +12,7 @@ from .api.book_routes import book_routes
 from .api.genre_routes import genre_routes
 from .api.bookshelf_routes import bookshelf_routes
 from .api.review_routes import review_routes
+from .api.readstatus_routes import readstatus_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(book_routes, url_prefix='/api/books')
 app.register_blueprint(genre_routes, url_prefix='/api/genres')
 app.register_blueprint(bookshelf_routes, url_prefix='/api/bookshelves')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
+app.register_blueprint(readstatus_routes, url_prefix='/api/readstatus')
 
 db.init_app(app)
 Migrate(app, db)
