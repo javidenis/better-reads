@@ -6,7 +6,6 @@ from app.forms.readstatus_form import AddReadStatus
 readstatus_routes = Blueprint('readstatus', __name__)
 
 @readstatus_routes.route('', methods=['GET'])
-@login_required
 def get_readstatus():
     status = ReadStatus.query.all()
     return {'readStatus': [readStatus.to_dict() for readStatus in status]}
