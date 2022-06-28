@@ -12,11 +12,13 @@ import { authenticate } from './store/session';
 import NewBook from './components/books/NewBook/NewBook'
 import SingleBookDisplay from './components/books/SingleBookDisplay/SingleBookDisplay';
 import { getAllGenres } from './store/genres';
+import NewBookshelf from './components/bookshelves/NewBookshelf/NewBookshelf';
+import { getAllBookshelvesThunk } from './store/bookshelves';
 import { getAllBooksThunk } from './store/books';
 import { getReviewsThunk } from './store/reviews';
 import EditBook from './components/books/EditBook/editBook';
-
-
+import BookshelfList from './components/bookshelves/BookshelfList/BookshelfList';
+import EditBookshelf from './components/bookshelves/EditBookShelf/EditBookShelf';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,7 +27,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-
+      await dispatch(getAllBookshelvesThunk())
       await dispatch(getAllGenres())
       await dispatch(getAllBooksThunk())
       await dispatch(getReviewsThunk())
@@ -55,6 +57,15 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bookshelves/new'>
+          <NewBookshelf />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bookshelves/all'>
+          <BookshelfList />
+        </ProtectedRoute>
+        <ProtectedRoute path='/bookshelves/:id/edit'>
+          <EditBookshelf />
         </ProtectedRoute>
         <ProtectedRoute path="/books/new" exact={true}>
           <NewBook />

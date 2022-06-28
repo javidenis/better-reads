@@ -21,5 +21,6 @@ class BookShelf(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'user_id': self.user_id
+            'user_id': self.user_id,
+            'books': {book.id: book.to_dict() for book in self.bookshelves_book},
         }
