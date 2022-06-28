@@ -1,8 +1,8 @@
-"""hopefully many to many is working
+""" ok
 
-Revision ID: b6715f6f120d
+Revision ID: 1771850c3402
 Revises: 
-Create Date: 2022-06-25 12:30:15.344726
+Create Date: 2022-06-27 16:52:26.653051
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b6715f6f120d'
+revision = '1771850c3402'
 down_revision = None
 branch_labels = None
 depends_on = None

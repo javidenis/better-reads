@@ -22,7 +22,7 @@ def seed_books():
         description="people in heaven",
         cover_url="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388200541l/3431.jpg",
         publish_date=date(2001,5,9),
-        user_id = 1,
+        user_id = 2,
         books_genre=genres
          )
 
@@ -33,7 +33,7 @@ def seed_books():
         description="A boy wins a $100,000 prize in a box of Frosted Flakes—only to discover that claiming  the winnings might unravel his family. A woman sets out to seduce motivational speaker Tony Robbins—turning for help to the famed motivator himself. A new arrival in Heaven, overwhelmed with options, procrastinates over a long-ago promise to visit his grandmother. We meet Sophia, the first artificially intelligent being capable of love, who falls for a man who might not be ready for it himself; a vengeance-minded hare, obsessed with scoring a rematch against the tortoise who ruined his life; and post-college friends who try to figure out how to host an intervention in the era of Facebook.  Along the way, we learn why wearing a red T-shirt every day is the key to finding love, how February got its name, and why the stock market is sometimes just . . . down. Finding inspiration in questions from the nature of perfection to the icing on carrot cake, One More Thing has at its heart the most human of phenomena: love, fear, hope, ambition, and the inner stirring for the one elusive element just that might make a person complete. Across a dazzling range of subjects, themes, tones, and narrative voices, the many pieces in this collection are like nothing else, but they have one thing in common: they share the playful humor, deep heart, sharp eye, inquisitive mind, and altogether electrifying spirit of a writer with a fierce devotion to the entertainment of the reader.",
         cover_url='https://images-na.ssl-images-amazon.com/images/I/31eHVwcLXdL._SX336_BO1,204,203,200_.jpg',
         publish_date=date(2014, 2, 4),
-        user_id = 1,
+        user_id = 3,
         books_genre=genres
 )
 
