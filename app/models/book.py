@@ -42,6 +42,6 @@ class Book(db.Model):
             'cover_url': self.cover_url,
             'publish_date': self.publish_date,
             'books_genre' : [genre.to_dict() for genre in self.books_genre],
-            'book_bookshelves': [bookshelf.to_dict() for bookshelf in self.book_bookshelves],
+            # 'book_bookshelves': [bookshelf.to_dict() for bookshelf in self.book_bookshelves],
             'user_id': self.user_id
         }

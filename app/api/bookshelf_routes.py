@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import BookShelf, db
+from app.models import BookShelf, db, Book
 from app.forms import NewBookShelfForm
+from app.forms.add_to_bookshelf_form import AddToBookShelfForm
 
 bookshelf_routes = Blueprint('bookshelves', __name__)
 
@@ -40,31 +41,32 @@ def post_bookshelf():
 @bookshelf_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def add_book_to_bookshelf(id):
-	form = NewBookShelfForm()
+	form = AddToBookShelfForm()
 	form['csrf_token'].data = request.cookies['csrf_token']
 	if form.validate_on_submit():
 		bookshelf = BookShelf.query.get(id)
+		book = Book.query.get(form.data['book_id'])
 
-		bookshelf.bookshelves_book.append(form.data['bookshelves_book'])
-
+		bookshelf.bookshelves_book.append(book)
+		# print(bookshelf.bookshelves_book)
 		db.session.commit()
 		return bookshelf.to_dict()
 
 # Remove a book from a shelf
-@bookshelf_routes.route('/<int:id>', methods=['PATCH'])
+@bookshelf_routes.route('/<int:id>/delete', methods=['PUT'])
 @login_required
 def remove_book_from_bookshelf(id):
-	form = NewBookShelfForm()
+	form = AddToBookShelfForm()
 	form['csrf_token'].data = request.cookies['csrf_token']
 	if form.validate_on_submit():
 		bookshelf = BookShelf.query.get(id)
 
-
-		bookshelf.bookshelves_book=[book for book in bookshelf.bookshelves_book if book.bookId != form.data['bookshelves_book']]
+		bookshelf.bookshelves_book=[book for book in bookshelf.bookshelves_book if book.id != form.data['book_id']]
 
 		db.session.commit()
 		return bookshelf.to_dict()
 
+# Delete bookshelf route
 @bookshelf_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_bookshelf(id):
@@ -72,3 +74,15 @@ def delete_bookshelf(id):
 	db.session.delete(bookshelf)
 	db.session.commit()
 	return {"Successful": 'Successful'}
+
+@bookshelf_routes.route('/<int:id>/edit', methods=['PUT'])
+@login_required
+def edit_bookshelf(id):
+	form = NewBookShelfForm()
+	form['csrf_token'].data = request.cookies['csrf_token']
+	if form.validate_on_submit():
+		bookshelf = BookShelf.query.get(id)
+
+		bookshelf.name = form.data['name']
+		db.session.commit()
+		return bookshelf.to_dict()

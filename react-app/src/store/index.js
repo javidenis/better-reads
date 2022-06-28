@@ -4,13 +4,14 @@ import bookReducer from './books';
 import genreReducer from './genres';
 import reviewReducer from './reviews';
 import session from './session'
-
+import bookshelfReducer from './bookshelves';
 
 const rootReducer = combineReducers({
   session,
   books: bookReducer,
   genres: genreReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  bookshelves: bookshelfReducer,
 });
 
 
