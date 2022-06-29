@@ -1,0 +1,12 @@
+#read-status-select > div {
+	display: flex;
+	gap: 5px;
+	background-color: white;
+	cursor: pointer;
+	padding: 3px 0px 3px 5px;
+	font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#read-status-select > div:hover {
+	background-color: lightgrey;
+}

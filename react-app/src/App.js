@@ -19,6 +19,7 @@ import EditBook from "./components/books/EditBook/editBook";
 import BookshelfList from "./components/bookshelves/BookshelfList/BookshelfList";
 import EditBookshelf from "./components/bookshelves/EditBookShelf/EditBookShelf";
 import { getReadStatusThunk } from "./store/readstatus";
+import HomePage from './components/homePage/homePage';
 import Home from "./components/home/Home";
 
 function App() {
@@ -61,8 +62,7 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-
-        <ProtectedRoute path="/users" exact={true}>
+        <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
@@ -80,12 +80,14 @@ function App() {
         <ProtectedRoute path="/books/new" exact={true}>
           <NewBook />
         </ProtectedRoute>
-
         <Route exact path="/books/:id">
           <SingleBookDisplay />
         </Route>
         <ProtectedRoute exact path="/books/:id/edit">
           <EditBook />
+        </ProtectedRoute>
+        <ProtectedRoute path='/home' exact={true} >
+          <HomePage />
         </ProtectedRoute>
         <Route path="/" exact={true}>
           <Home />

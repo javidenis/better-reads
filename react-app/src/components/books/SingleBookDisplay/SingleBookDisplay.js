@@ -28,7 +28,7 @@ function SingleBookDisplay() {
       book: thisBook,
     }
 
-    const data = await dispatch(addBookToBookshelfThunk(payload))
+    await dispatch(addBookToBookshelfThunk(payload))
   }
 
   const handleEditButton = () => {

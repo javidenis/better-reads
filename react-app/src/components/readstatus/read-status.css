@@ -1,0 +1,61 @@
+#read-status-main {
+    display: flex;
+    flex-direction: column;
+}
+
+#read-status-button-container {
+    display: flex;
+    box-shadow: 1px 1px 1px grey;
+    justify-content: space-between;
+    width: 203px;
+    border-radius: 2px;
+    gap: 0px;
+}
+
+#read-status-current {
+    border-right: 1px solid black;
+    width: 163px;
+    padding: 7px;
+    padding-left: 8px;
+    color: white;
+    background-color: #409d69;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#read-status-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 40px;
+    background-color: #409d69;
+}
+
+#read-status-button:hover {
+    background-color: #338155;
+}
+
+#read-status-select {
+    position: absolute;
+    border: 1px solid #767676;
+    width: 192px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15); 
+    gap: 5px;
+    overflow-y: scroll;
+    padding: 3px 0;
+    max-height: 120px;
+}
+
+#read-status-select > option {
+    background-color: white;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-left: 3px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#read-status-select > option:hover {
+    background-color: lightgrey;
+}
