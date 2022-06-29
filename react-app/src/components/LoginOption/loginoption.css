@@ -63,3 +63,8 @@
   top: 2rem;
   right: 8rem;
 }
+
+.current_stuff {
+  position: relative;
+  left: 37rem;
+}
