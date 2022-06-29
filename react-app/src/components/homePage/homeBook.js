@@ -5,7 +5,7 @@ import ReadStatus from '../readstatus/readstatus'
 
 function HomeBook({book}) {
 
-    const bookDescription = book.description.slice(0, 175)
+    const bookDescription = book.description.slice(0, 225)
 
     return (
     <div id="home-book-main">

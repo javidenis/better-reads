@@ -18,7 +18,6 @@ function ReadStatus({ thisBook }) {
 
     useEffect(() => {
         const closeDropdown = e => {
-            // console.log(e.path)
             if (e.path[1].className !== 'dont-close1' && e.path[1].className !== 'dont-close1' && e.path[0].className !== 'fa-solid fa-caret-down dont-close1' && e.path[0].className !== 'dont-close1') {
                 setDropDownOpen(false)
             }
@@ -42,13 +41,6 @@ function ReadStatus({ thisBook }) {
 
     const handleDropDownClick = (e) => {
         setDropDownOpen(!dropDownOpen)
-        
-        // document.addEventListener("click", (e) => {
-        //     if (!e.target.matches('#read-button-container'|| '#read-status-select')) {
-        //         setDropDownOpen(!dropDownOpen)
-        //     }
-        // });
-
     }
 
 
@@ -57,14 +49,12 @@ function ReadStatus({ thisBook }) {
             <div id='read-status-main' className='dont-close1'>
                 <div id='read-status-button-container'>
                     <div id='read-status-current'>{currentStatus}</div>
-                    {/* <div id='read-status-button' onClick={() => setDropDownOpen(!dropDownOpen)}><i class="fa-solid fa-caret-down"></i></div> */}
-                    <div id='read-status-button' className='dont-close1' onClick={(e) => handleDropDownClick(e)}><i class="fa-solid fa-caret-down dont-close1"></i></div>
+                    <div id='read-status-button' className='dont-close1' onClick={(e) => handleDropDownClick(e)}><i className="fa-solid fa-caret-down dont-close1"></i></div>
                 </div>
 
                 {dropDownOpen && 
                 <div>
                     <div id='read-status-select' className='dont-close1'>
-                        {/* <option onClick={() => setDropDownOpen(false)}>Close Drop down</option> */}
                         <option onClick={(e) => handleReadStatus(e)}>Want To Read</option>
                         <option onClick={(e) => handleReadStatus(e)}>Currently Reading</option>
                         <option onClick={(e) => handleReadStatus(e)}>Read</option>

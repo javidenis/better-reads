@@ -1,7 +1,8 @@
 #home-display {
     display: flex;
-    margin-left: 18%;
+    flex-direction: column;
     margin-top: 25px;
+    align-items: center;
     gap: 32px
 }
 
@@ -18,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     width: 300px;
+    margin-right: 50px;
 }
 
 #home-right-header {
@@ -36,7 +38,7 @@
 #home-book-main {
     display: flex;
     align-items: center;
-    width: 580px;
+    width: 595px;
     height: 264px;
     border: 1px solid #d8d8d8;
     border-radius: 2px;
@@ -92,4 +94,106 @@
 #buttons-div {
     display: flex;
     gap: 8px;
+}
+
+#home-main {
+    display: flex;
+    margin-right: 270px;
+}
+
+#full-left-display {
+    width: 100%;
+}
+
+#left-currently-reading-main {
+    border-bottom: 1px grey solid;
+    padding-bottom: 10px;
+}
+
+#left-currently-reading-header {
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+
+#left-book-img {
+    width: auto;
+    max-width: 95px;
+}
+
+#left-book-info {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+#left-book-other {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.left-links {
+    text-decoration: none;
+}
+
+
+.left-links:hover {
+    text-decoration: underline;
+}
+
+#left-book-other-title {
+    color: #333333;
+    font-family: "Merriweather", "Georgia", serif;
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+}
+#left-book-other-title:hover {
+    text-decoration: underline;
+}
+
+#left-want-to-read-main {
+    border-bottom: 1px grey solid;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+#want-read-img {
+    box-shadow: 0 0 5px rgb(0 0 0 / 10%); 
+    width: 96px;
+    height: 96px;
+}
+
+#want-to-read-link {
+    margin-right: 4px;
+}
+
+#left-bookshelves-header {
+    color: #333333;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.15; margin: 12px 0; text-transform: uppercase; 
+}
+
+#left-bookshelves-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    gap: 5px;
+}
+
+.left-bookshelf-links {
+    text-decoration: none;
+    color: #00635D;
+}
+
+.left-bookshelf-links:hover {
+    text-decoration: underline;
 }

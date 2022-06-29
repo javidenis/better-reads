@@ -54,17 +54,15 @@ const BookshelfButton = ({ thisBook }) => {
 			<div id='read-status-main' className='dont-close'>
 				<div id='read-status-button-container'>
 					<div id='read-status-current'>Add to Bookshelf</div>
-					{/* <div id='read-status-button' onClick={() => setDropDownOpen(!dropDownOpen)}><i class="fa-solid fa-caret-down"></i></div> */}
+
 					<div id='read-status-button' className='dont-close' onClick={(e) => handleDropDownClick(e)}><i className="fa-solid fa-caret-down dont-close"></i></div>
 				</div>
-
 				{dropDownOpen && 
 				<div>
 					<div id='read-status-select' className='dont-close'>
-						{/* <option onClick={() => setDropDownOpen(false)}>Close Drop down</option> */}
 						{bookshelves.map(bookshelf => (
 							bookshelf['books'][thisBook.id] 
-								? <div id='bookshelf-option' onClick={e => handleRemoveFromBookshelf(e)} value={bookshelf.id} key={bookshelf.id}><i class="fa-solid fa-check"></i>{bookshelf.name}</div> 
+								? <div id='bookshelf-option' onClick={e => handleRemoveFromBookshelf(e)} value={bookshelf.id} key={bookshelf.id}><i className="fa-solid fa-check"></i>{bookshelf.name}</div> 
 								: <div id='bookshelf-option' onClick={e => handleAddToBookshelf(e)} value={bookshelf.id} key={bookshelf.id}>{bookshelf.name}</div> 
 							
 						))}

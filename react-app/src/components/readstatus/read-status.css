@@ -7,14 +7,14 @@
     display: flex;
     box-shadow: 1px 1px 1px grey;
     justify-content: space-between;
-    width: 193px;
+    width: 203px;
     border-radius: 2px;
     gap: 0px;
 }
 
 #read-status-current {
     border-right: 1px solid black;
-    width: 153px;
+    width: 163px;
     padding: 7px;
     padding-left: 8px;
     color: white;
