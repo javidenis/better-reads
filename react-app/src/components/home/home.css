@@ -1,0 +1,44 @@
+.home_component {
+  display: flex;
+  flex-direction: column;
+}
+
+.first_part {
+  height: 65px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: static;
+  border: 0;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-color: #f4f2e9;
+  width: 100%;
+}
+
+.home_logowe {
+  height: 80px;
+  width: 25rem;
+  position: relative;
+  left: 30rem;
+}
+.first_part_logo {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  /* left: 30rem; */
+  top: 1rem;
+}
+
+.home_word {
+  position: relative;
+  top: 1.5rem;
+  font-size: large;
+}
+
+.home_reading {
+  width: 55rem;
+  height: 20rem;
+  position: relative;
+  z-index: -1;
+  left: 5rem;
+}

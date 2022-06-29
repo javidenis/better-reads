@@ -1,39 +1,44 @@
-
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import LoginForm from "./components/auth/LoginForm";
+import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-import { authenticate } from './store/session';
-import NewBook from './components/books/NewBook/NewBook'
-import SingleBookDisplay from './components/books/SingleBookDisplay/SingleBookDisplay';
-import { getAllGenres } from './store/genres';
-import NewBookshelf from './components/bookshelves/NewBookshelf/NewBookshelf';
-import { getAllBookshelvesThunk } from './store/bookshelves';
-import { getAllBooksThunk } from './store/books';
-import { getReviewsThunk } from './store/reviews';
-import EditBook from './components/books/EditBook/editBook';
-import BookshelfList from './components/bookshelves/BookshelfList/BookshelfList';
-import EditBookshelf from './components/bookshelves/EditBookShelf/EditBookShelf';
-import { getReadStatusThunk } from './store/readstatus';
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UsersList from "./components/UsersList";
+import User from "./components/User";
+import { authenticate } from "./store/session";
+import NewBook from "./components/books/NewBook/NewBook";
+import SingleBookDisplay from "./components/books/SingleBookDisplay/SingleBookDisplay";
+import { getAllGenres } from "./store/genres";
+import NewBookshelf from "./components/bookshelves/NewBookshelf/NewBookshelf";
+import { getAllBookshelvesThunk } from "./store/bookshelves";
+import { getAllBooksThunk } from "./store/books";
+import { getReviewsThunk } from "./store/reviews";
+import EditBook from "./components/books/EditBook/editBook";
+import BookshelfList from "./components/bookshelves/BookshelfList/BookshelfList";
+import EditBookshelf from "./components/bookshelves/EditBookShelf/EditBookShelf";
+import { getReadStatusThunk } from "./store/readstatus";
+import Home from "./components/home/Home";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  //grabbing user
+  const session = useSelector((state) => state.session);
+  const [user, setUser] = useState(true);
+
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      await dispatch(getAllBookshelvesThunk())
-      await dispatch(getAllGenres())
-      await dispatch(getAllBooksThunk())
-      await dispatch(getReviewsThunk())
-      await dispatch(getReadStatusThunk())
+      await dispatch(getAllBookshelvesThunk());
+      await dispatch(getAllGenres());
+      await dispatch(getAllBooksThunk());
+      await dispatch(getReviewsThunk());
+      await dispatch(getReadStatusThunk());
       setLoaded(true);
+      setUser(session.user ? true : false);
     })();
   }, [dispatch]);
 
@@ -43,7 +48,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {user && <NavBar />}
+
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm />
@@ -52,36 +58,34 @@ function App() {
           <SignUpForm />
         </Route>
 
-        <ProtectedRoute path='/users' exact={true} >
-
+        <ProtectedRoute path="/users" exact={true}>
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/bookshelves/new'>
+        <ProtectedRoute path="/bookshelves/new">
           <NewBookshelf />
         </ProtectedRoute>
-        <ProtectedRoute path='/bookshelves/all'>
+        <ProtectedRoute path="/bookshelves/all">
           <BookshelfList />
         </ProtectedRoute>
-        <ProtectedRoute path='/bookshelves/:id/edit'>
+        <ProtectedRoute path="/bookshelves/:id/edit">
           <EditBookshelf />
         </ProtectedRoute>
         <ProtectedRoute path="/books/new" exact={true}>
           <NewBook />
         </ProtectedRoute>
 
-        <Route exact path='/books/:id'>
+        <Route exact path="/books/:id">
           <SingleBookDisplay />
         </Route>
-        <ProtectedRoute exact path='/books/:id/edit'>
+        <ProtectedRoute exact path="/books/:id/edit">
           <EditBook />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
