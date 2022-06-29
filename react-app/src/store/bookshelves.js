@@ -93,7 +93,6 @@ export const addBookToBookshelfThunk = ({bookshelf_id, user_id, book}) => async 
 		method: 'PUT',
 		body: formData
 	})
-	const data = await response.json()
 	if (response.ok) {
 		dispatch(actionAddBookToBookshelf(book, bookshelf_id))
 	}

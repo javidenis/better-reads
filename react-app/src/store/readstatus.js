@@ -35,6 +35,7 @@ export const addReadStatusThunk = newReadStatus => async dispatch => {
     formData.append('book_id', book_id)
     formData.append('readStatus', readStatus)
 
+
     const response = await fetch('/api/readstatus',
         {
             method: 'POST',

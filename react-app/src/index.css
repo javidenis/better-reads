@@ -117,8 +117,9 @@ body {
     align-items: center;
     min-height: 100vh;
     min-width: 100vw;
-    font-family: "Merriweather", "Georgia", serif;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     line-height: 1;
+    background-color: rgb(241, 241, 241);
 
 }
 

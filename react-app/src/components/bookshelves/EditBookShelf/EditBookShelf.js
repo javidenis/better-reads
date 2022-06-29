@@ -33,6 +33,11 @@ const EditBookshelf = () => {
 	return (
 		<div>{bookshelf.name}
 			<form onSubmit={e => handleOnSubmit(e)}>
+				{errors.length > 0 &&
+					<ul>
+						{errors.map((error, idx) => <li key={idx}>{error}</li>)}
+					</ul>
+				}
 				<label>Bookshelf Name: </label>
 				<input
 					name='name'

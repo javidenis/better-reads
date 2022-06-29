@@ -16,11 +16,14 @@ def post_readstatus():
     form = AddReadStatus()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        existing = ReadStatus.query.filter(ReadStatus.book_id == form.data['book_id'] and ReadStatus.user_id == form.data['user_id']).first()
-        if existing:
-            existing.readStatus = form.data['readStatus']
+        print(form.data)
+        read_statuses = ReadStatus.query.all()
+        existing = [status for status in read_statuses if status.book_id == form.data['book_id'] and status.user_id == form.data['user_id']]
+        if len(existing) > 0:
+            existing[0].readStatus = form.data['readStatus']
             db.session.commit()
-            return existing.to_dict()
+            return existing[0].to_dict()
+
         
         new_status = ReadStatus(
             user_id = form.data['user_id'],

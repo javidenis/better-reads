@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeBookFromBookshelfThunk, removeBookshelfThunk } from '../../../store/bookshelves'
 
@@ -10,11 +9,11 @@ const BookshelfList = () => {
 
 	const removeBook = async (bookshelf_id, book_id) => {
 
-		const data = await dispatch(removeBookFromBookshelfThunk(bookshelf_id, book_id))
+		await dispatch(removeBookFromBookshelfThunk(bookshelf_id, book_id))
 	}
 
 	const removeBookshelf = async (bookshelf_id) => {
-		const data = await dispatch(removeBookshelfThunk(bookshelf_id))
+		await dispatch(removeBookshelfThunk(bookshelf_id))
 	}
 
 	return (

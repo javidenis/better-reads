@@ -20,6 +20,7 @@ import EditBook from './components/books/EditBook/editBook';
 import BookshelfList from './components/bookshelves/BookshelfList/BookshelfList';
 import EditBookshelf from './components/bookshelves/EditBookShelf/EditBookShelf';
 import { getReadStatusThunk } from './store/readstatus';
+import HomePage from './components/homePage/homePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -78,9 +79,8 @@ function App() {
         <ProtectedRoute exact path='/books/:id/edit'>
           <EditBook />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/home' exact={true} >
+          <HomePage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

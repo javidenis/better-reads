@@ -1,0 +1,90 @@
+#home-display {
+    display: flex;
+    margin-left: 18%;
+    margin-top: 25px;
+    gap: 32px
+}
+
+#home-right-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 540px;
+    gap: 20px;
+}
+
+#home-left-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+#home-right-header {
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 10px;
+}
+
+#home-right-books-header {
+    font-size: 20px;
+}
+
+#home-book-main {
+    display: flex;
+    align-items: center;
+    width: 520px;
+    height: 264px;
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+    gap: 8px;
+    background-color: white;
+}
+
+#home-book-left {
+    width: 120px;
+    height: 180px;
+    margin-left: 42px;
+}
+
+#home-book-left > img{
+    width: 120px;
+    height: 180px;
+}
+
+#home-book-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+#home-book-title {
+    color: #333333;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#home-book-title:hover {
+    text-decoration: underline;
+}
+
+#home-book-continue-link {
+    margin-left: 4px;
+    color: #00635D;
+    text-decoration: none;
+}
+
+#home-book-continue-link:hover {
+    text-decoration: underline;
+}
+
+#home-book-description {
+    line-height: 1.4;
+    font-size: 14px;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}

@@ -11,7 +11,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [bio, setBio] = useState("")
-  const [picture_url, setPicture_url] = useState(null)
+  let [picture_url, setPicture_url] = useState(null)
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
