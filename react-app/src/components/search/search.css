@@ -1,0 +1,16 @@
+.search_book {
+  display: flex;
+  gap: 10px;
+}
+
+.search_component div input {
+  width: 20rem;
+  position: relative;
+  top: 0.6rem;
+  height: 1.5rem;
+}
+.search_boo_submit {
+  position: relative;
+  right: 2rem;
+  top: 0.6rem;
+}
