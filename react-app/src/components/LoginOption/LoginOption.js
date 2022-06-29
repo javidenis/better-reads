@@ -1,6 +1,13 @@
 import "./loginoption.css";
 import { NavLink } from "react-router-dom";
+import { login } from "../../store/session";
+import { useDispatch } from "react-redux";
+
 const LoginOptions = () => {
+  const dispatch = useDispatch();
+  const demoHandler = () => {
+    return dispatch(login("demo@aa.io", "password"));
+  };
   return (
     <div className="log_component">
       <div>
@@ -18,7 +25,7 @@ const LoginOptions = () => {
       </div>
       <div className="demo_button">
         <span>Want to look around?</span>
-        <button>Demo User</button>
+        <button onClick={demoHandler}>Demo User</button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -38,17 +38,21 @@ function App() {
       await dispatch(getReviewsThunk());
       await dispatch(getReadStatusThunk());
       setLoaded(true);
-      setUser(session.user ? true : false);
     })();
   }, [dispatch]);
 
   if (!loaded) {
     return null;
   }
+  if (session.user) {
+    <Redirect to="/users" />;
+  } else {
+    <Redirect to="/" />;
+  }
 
   return (
     <BrowserRouter>
-      {user && <NavBar />}
+      {session.user ? <NavBar /> : null}
 
       <Switch>
         <Route path="/login" exact={true}>

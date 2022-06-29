@@ -42,3 +42,50 @@
   z-index: -1;
   left: 5rem;
 }
+
+/* .okay .image {
+  width: 10%;
+}
+.over {
+  display: flex;
+  position: relative;
+  top: 2rem;
+  left: 20rem;
+  gap: 20px;
+}
+.okay .over {
+  width: 50%;
+  height: 20rem;
+  overflow: scroll;
+} */
+
+.okay {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  height: 5rem;
+}
+.okay .over {
+  display: flex;
+  width: 40rem;
+  /* width: auto; */
+  position: absolute;
+  bottom: 2.5rem;
+  overflow: auto;
+  height: 20rem;
+  left: 25rem;
+  gap: 4rem;
+}
+
+.current_stuff {
+  position: relative;
+  bottom: 18rem;
+  /* background-color: red; */
+  /* left: rem; */
+  /* width: 100%; */
+  right: 2rem;
+}
+
+.over {
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
