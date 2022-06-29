@@ -33,7 +33,9 @@ const Home = () => {
       <LoginOptions />
 
       <div className="okay">
-        <div className="current_stuff">Our Current Colleciton!</div>
+        <div className="current_stuff">
+          Our Current Collection! It's still growing...!{" "}
+        </div>
         <div className="over">{pics}</div>
       </div>
     </div>
