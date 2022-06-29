@@ -5,9 +5,10 @@
   /* box-shadow: 5px 10px; */
   position: relative;
   width: 20rem;
-  bottom: 20rem;
+  bottom: 18.5rem;
   left: 60rem;
   height: 18rem;
+  z-index: 1;
 }
 
 .login_button_log a {

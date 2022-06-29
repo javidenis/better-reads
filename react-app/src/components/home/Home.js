@@ -1,6 +1,6 @@
 import "./home.css";
 import logo from "../images/Screen Shot 2022-06-29 at 1.34.22 PM.png";
-import reading from "../images/file.jpeg";
+import reading from "../images/alfons-morales-YLSwjSy7stw-unsplash.jpeg";
 import LoginOptions from "../LoginOption/LoginOption";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
