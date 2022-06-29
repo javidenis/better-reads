@@ -1,4 +1,4 @@
-.buttoninfo {
+/* .buttoninfo {
   position: absolute;
   background-color: hsl(16, 31%, 74%);
   top: 2.88rem;
@@ -8,5 +8,33 @@
 }
 
 .profile_circle div div a {
+  color: white;
+} */
+
+.login_info {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(16, 31%, 74%);
+  height: 7rem;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 2.3rem;
+
+  right: 9rem;
+  box-shadow: 10px 10px;
+}
+
+.login_info div {
+  color: #402313;
+  font-size: 18px;
+}
+.login_info div a {
+  text-decoration: none;
+  color: #402313;
+}
+
+.login_info div a:hover {
   color: white;
 }

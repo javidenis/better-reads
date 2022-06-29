@@ -1,4 +1,92 @@
-.loginbar nav ul {
+.advertise {
+  background-color: #ffd766;
+  height: 2.5em;
+}
+.advertise_component {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+.advertise_nav {
+  text-decoration: none;
+  color: black;
+}
+
+.loginbar {
+  display: flex;
+  flex-direction: row;
+  background-color: #edcfc5;
+  height: 3rem;
+}
+.logowe {
+  width: 10rem;
+  position: relative;
+  /* background-color: red; */
+  right: 30px;
+  height: 9rem;
+  bottom: 2.5rem;
+  /* top: -0.5rem; */
+}
+
+.logo_component {
+  margin-left: 5rem;
+  position: relative;
+  bottom: 10px;
+}
+
+.buttoninfo {
+  width: auto;
+}
+
+.nav_component {
+  display: flex;
+  width: 180px;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  position: relative;
+  right: 2rem;
+}
+.nav_component div {
+  flex: 1 1 20px;
+}
+
+.nav_component div a {
+  text-decoration: none;
+  position: relative;
+  top: 18px;
+  left: 15px;
+  color: #402313;
+}
+.nav_component div:hover {
+  background-color: #26150b;
+}
+.nav_component div:hover a {
+  background-color: #26150b;
+  color: white;
+}
+.buttoninfo {
+  margin-left: auto;
+  width: 5rem;
+  height: 2rem;
+}
+
+.profile_circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  top: 0.5rem;
+}
+.nav_component div .mybook_word {
+  left: 8px;
+}
+.nav_component div .home_word {
+  left: 20px;
+}
+
+/* .loginbar nav ul {
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -30,4 +118,4 @@
   position: absolute;
   left: 15px;
   top: -0.5rem;
-}
+} */ ;
