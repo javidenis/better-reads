@@ -36,7 +36,7 @@
 #home-book-main {
     display: flex;
     align-items: center;
-    width: 520px;
+    width: 580px;
     height: 264px;
     border: 1px solid #d8d8d8;
     border-radius: 2px;
@@ -87,4 +87,9 @@
     line-height: 1.4;
     font-size: 14px;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#buttons-div {
+    display: flex;
+    gap: 8px;
 }

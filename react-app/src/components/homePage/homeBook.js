@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BookshelfButton from '../bookshelves/BookshelfButton'
 import ReadStatus from '../readstatus/readstatus'
 
 function HomeBook({book}) {
@@ -14,7 +15,10 @@ function HomeBook({book}) {
         <div id='home-book-right'>
             <Link id='home-book-title' to={`/books/${book.id}`}>{book.title}</Link>
             <p id='home-book-author'> by {book.author}</p>
-            <ReadStatus thisBook={book}></ReadStatus>
+            <div id='buttons-div'>
+                <ReadStatus thisBook={book}></ReadStatus>
+                <BookshelfButton thisBook={book} />
+            </div>
             <p id='home-book-description'>{bookDescription}...<Link id='home-book-continue-link' to={`/books/${book.id}`}>Continue reading</Link></p>
         </div>
     </div>
