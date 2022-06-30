@@ -18,10 +18,15 @@ import EditBook from "./components/books/EditBook/editBook";
 import BookshelfList from "./components/bookshelves/BookshelfList/BookshelfList";
 import EditBookshelf from "./components/bookshelves/EditBookShelf/EditBookShelf";
 import { getReadStatusThunk } from "./store/readstatus";
+
 import HomePage from './components/homePage/homePage';
 import Home from "./components/home/Home";
 import GenrePage from "./components/genrePage/genrePage";
+
+import { getAllUsersThunk } from "./store/users";
+
 import Profile from "./components/profile/profile";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +43,7 @@ function App() {
       await dispatch(getAllBooksThunk());
       await dispatch(getReviewsThunk());
       await dispatch(getReadStatusThunk());
+      await dispatch(getAllUsersThunk())
       setLoaded(true);
     })();
   }, [dispatch]);
