@@ -18,6 +18,7 @@ const BookshelfList = () => {
 	const read = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Read").map(item => item.book_id)
 	const currentlyReading = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Currently Reading").map(item => item.book_id)
 	const wantToRead = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Want To Read").map(item => item.book_id)
+	const [errors, setErrors] = useState([])
 
 	// Get all book objects
 	const allBooks = () => {
@@ -65,8 +66,13 @@ const BookshelfList = () => {
 			name,
 			user_id
 		}
-		await dispatch(addBookshelfThunk(newBookshelf))
-		setName('')
+		const data = await dispatch(addBookshelfThunk(newBookshelf))
+		if (data) {
+            setErrors(data)
+        }else {
+			setName('')
+			setErrors([])
+		}
 	}
 
 	const removeBookshelf = async (bookshelf_id) => {
@@ -101,17 +107,18 @@ const BookshelfList = () => {
 								</div>
 							))}
 							<form id='bookshelf-form' onSubmit={e => handleAddBookshelf(e)}>
-								{/* {errors.length > 0 &&
+								{errors.length > 0 &&
 									<ul>
 										{errors.map((error, idx) => <li key={idx}>{error}</li>)}
 									</ul>
-								} */}
+								}
 								<label>Add a Shelf: </label>
 								<input
 									name='name'
 									value={name}
 									onChange={e => setName(e.target.value)}
 									type='text'
+									required
 								>
 								</input>
 								<button type='submit'>add</button>
