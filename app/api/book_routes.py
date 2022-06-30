@@ -146,7 +146,7 @@ def edit_book(id):
         edit_book.publish_date=form.data['publish_date']
         edit_book.user_id=form.data['user_id']
         edit_book.books_genre=books_genre
-        edit_book.cover_url='https://i.imgur.com/sJ3CT4V.gif'
+        edit_book.cover_url=edit_book.cover_url
 
         db.session.commit()
         return edit_book.to_dict()

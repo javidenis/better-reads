@@ -1,4 +1,40 @@
 #review-form {
     display: flex;
     flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+}
+
+#review-form > label {
+    font-size: 15px;
+}
+
+#review-form > input {
+    width: 50px;
+}
+
+#review-form > textarea {
+    width: 550px;
+    height: 350px;
+}
+
+#review-button-holder {
+    display: flex;
+    gap: 50px;
+}
+
+#review-button-holder > button {
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #dfdbd4;
+    line-height: 1;
+    padding: 8px 12px;
 }

@@ -55,10 +55,10 @@ function ReviewForm({ thisBook, setReviewFormOpen }) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
             }
-            <label>Rating: 1 to 5</label>
+            <label>My Rating</label>
             <input onChange={e => handleSetRating(e)} id='rating-input' type='text' placeholder='1 to 5' value={rating}></input>
-            <label>Review</label>
-            <textarea onChange={e => setContent(e.target.value)} id='cotent-input' type='text' placeholder='Your Review Here' value={content}></textarea>
+            <label>What did you think?</label>
+            <textarea onChange={e => setContent(e.target.value)} id='cotent-input' type='text' placeholder='Enter your review' value={content}></textarea>
             <div id='review-button-holder'>
                 <button id='submit-comment-button'>Submit Review</button>
                 <button id='submit-comment-button' onClick={e => handleCancel(e)}>Cancel</button>
