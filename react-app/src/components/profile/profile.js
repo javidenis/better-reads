@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from "react-redux";
 import LeftDisplay from '../homePage/leftDisplay';
+import ProfileReviewDisplay from '../reviews/profile-review-display/profileReview';
 import './profile.css'
 
 function Profile() {
@@ -10,31 +11,29 @@ function Profile() {
     const books = Object.values(useSelector(state => state.books))
 
     return (
-        < div >
+        < div id='profile-full-page'>
+            <div id='profile-header'>
+                Welcome {sessionUser.name}
+            </div>
             <div id='left-and-profile'>
-                <div>
+                <div id='home-left-display'>
                     <LeftDisplay />
                 </div>
                 <div id='profile-container'>
-                    <div id='profile-description'>
-                        <div><img id='profile-image' src={sessionUser.picture_url} /></div>
-                        <div>
-                            <div>{sessionUser.name}</div>
-                            <div>{sessionUser.bio || <p>No bio was added</p>}</div>
-                        </div>
+                    
+                        <img id='profile-image' src={sessionUser.picture_url} />
+                        <div id='profile-details'>
+                            <div id='profile-name'>{sessionUser.name}</div>
+                            <div id='profile-details-inner'><span id='profile-detail-header'>Details:</span> {sessionUser.bio || 'No bio was added'}</div>
                     </div>
                 </div>
             </div>
-            <div>{`${sessionUser.name}'s Bookshelves`}</div>
-            <div>REVIEWS</div>
+            <div id='profile-reviews-container'>
+                <p id='profile-reviews-header'>REVIEWS</p>
             {userReviews.map(review => (
-                <div>
-                    <img src={books.find(book => book.id === review.book_id).cover_url} />
-                    <div>{books.find(book => book.id === review.book_id).title}</div>
-                    <div>{review.rating}</div>
-                    <div>{review.content}</div>
-                </div>
+                <ProfileReviewDisplay reviewId={review.id}></ProfileReviewDisplay>
             )) || <div>No Reviews</div>}
+            </div>
         </div >
     )
 }
