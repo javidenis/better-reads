@@ -10,20 +10,20 @@ const EditBook = () => {
     const thisBook = useSelector(state => state.books)[bookId]
     const sessionUser = useSelector((state) => state.session.user)
     const genres = Object.values(useSelector((state) => state.genres))
-    const [title, setTitle] = useState(thisBook.title || '')
+    const [title, setTitle] = useState(thisBook?.title || '')
     const [books_genre, setBooks_genre] = useState([])
-    const [author, setAuthor] = useState(thisBook.author || '')
-    const [sub_heading, setSub_heading] = useState(thisBook.sub_heading || '')
-    const [description, setDescription] = useState(thisBook.description || '')
+    const [author, setAuthor] = useState(thisBook?.author || '')
+    const [sub_heading, setSub_heading] = useState(thisBook?.sub_heading || '')
+    const [description, setDescription] = useState(thisBook?.description || '')
     let [cover_url, setCover_url] = useState(null)
-    const [publish_date, setPublish_date] = useState(thisBook.publish_date || '')
+    const [publish_date, setPublish_date] = useState(thisBook?.publish_date || '')
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
     const [deleteDisplay, setDeleteDisplay] = useState(false)
 
     useEffect(()=> {
-        if (thisBook.user_id !== sessionUser.id){
+        if (thisBook?.user_id !== sessionUser.id){
             history.push('/')
         }
     },[history, sessionUser.id, thisBook.user_id])
@@ -78,7 +78,7 @@ const EditBook = () => {
     }
 
     const handleDelete = async () => {
-        await dispatch(deleteBookThunk(bookId))
+        dispatch(deleteBookThunk(bookId))
         history.push('/')
     }
 
