@@ -1,3 +1,9 @@
+.icon {
+    width: 20px;
+    height: 20px;
+    padding: 3px 3px 0px 3px;
+}
+
 #home-display {
     display: flex;
     flex-direction: column;
@@ -196,6 +202,7 @@
 .left-bookshelf-links {
     text-decoration: none;
     color: #00635D;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 .left-bookshelf-links:hover {
@@ -203,10 +210,11 @@
 }
 
 #home-genre-list {
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 #home-genre-list-header {
@@ -217,15 +225,49 @@
     line-height: 1.15;
     text-transform: uppercase;
     margin-bottom: 15px;
-    border-bottom: 1px solid grey
+    border-bottom: 1px solid grey;
 }
 
 #home-genre-list-link {
     text-decoration: none;
     color: #00635D;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 #home-genre-list-link:hover {
     text-decoration: underline;
 
+}
+
+#br {
+    border-bottom: 1px solid grey;
+}
+
+#home-genre-about {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-link-header {
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #00635D;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#footer-link {
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    color: #00635D;
+    cursor: default;
+    display: flex;
+}
+
+#name {
+    padding-top: 6px;
+    padding-left: 3px;
 }
