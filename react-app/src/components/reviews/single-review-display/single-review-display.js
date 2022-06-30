@@ -9,6 +9,7 @@ function SingleReviewDisplay({ reviewId }) {
     const [reviewFormOpen, setReviewFormOpen] = useState(false)
     const [moreOrLess, setMoreOrLess] = useState('...more')
     const [reviewContent, setReviewContent] = useState(review.content.slice(0, 501) || '')
+    const reviewUser = useSelector(state => state.users[review.user_id])
 
     useEffect(()=> {
         setReviewContent(review.content.slice(0, 501))
@@ -27,9 +28,9 @@ function SingleReviewDisplay({ reviewId }) {
 
     return (
         <div id='single-review-full-container'>
-            <img id='single-review-profile-pic' alt='profile' src={sessionUser.picture_url}></img>
+            <img id='single-review-profile-pic' alt='profile' src={reviewUser.picture_url}></img>
             <div id='single-review-content'>
-                <p>{sessionUser.name} rated it {review.rating} / 5</p>
+                <p>{reviewUser.name} rated it {review.rating} / 5</p>
                 <div>{reviewContent}</div>
                 {review.content.length > 501 && <p id='single-book-expand-description' onClick={() => handleDescriptionExpand()}>{moreOrLess}</p>}
 
