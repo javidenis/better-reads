@@ -48,7 +48,7 @@ const NavBar = () => {
             <NavLink to="/" className="home_word">
               Home
             </NavLink>
-          </div>
+          </div> 
           <div>
             <NavLink to="/" className="mybook_word">
               My Books
