@@ -61,7 +61,7 @@ function SingleBookDisplay() {
         <div id='single-book-right-display'>
           <h1 id='single-book-book-title'>{thisBook.title}</h1>
           <h2 id='single-book-book-author'>by {thisBook.author}</h2>
-          <p id='single-book-book-genres'>Genres: {genres.map(genre => <Link id='single-book-genre-links' key={genre.id} to={`/genres/${genre.id}`}> {genre.name} </Link>)}</p>
+          <p id='single-book-book-genres'>Genres: {genres.map(genre => <Link id='single-book-genre-links' key={genre.id} to={`/genre/${genre.id}`}> {genre.name} </Link>)}</p>
           {avgRating >= 0 && <p>Rating: {`${avgRating} / 5`}</p>}
           <p id='single-book-book-genres'>Published: {pubMonth}-{pubDay}-{pubYear}</p>
           <h3 id='single-book-book-subheading'>{thisBook.sub_heading}</h3>
