@@ -71,7 +71,7 @@ function App() {
         <ProtectedRoute path="/bookshelves/new">
           <NewBookshelf />
         </ProtectedRoute>
-        <ProtectedRoute path="/bookshelves/all">
+        <ProtectedRoute path="/bookshelves/all/:id">
           <BookshelfList />
         </ProtectedRoute>
         <ProtectedRoute path="/bookshelves/:id/edit">

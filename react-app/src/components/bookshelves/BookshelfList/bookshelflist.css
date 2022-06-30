@@ -1,0 +1,58 @@
+#bookshelf-display {
+	display: flex;
+	flex-direction: column;
+	margin-top: 25px;
+	align-items: center;
+	gap: 32px
+}
+
+#bookshelf-book-display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 540px;
+	gap: 20px;
+}
+
+#bookshelf-left-display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	margin-right: 50px;
+}
+
+#bookshelves-list {
+	display: flex;
+	flex-direction: column;
+	margin-top: 25px;
+	gap: 5px;
+}
+
+#bookshelf-link {
+	color: #00635d;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+#bookshelf-link:hover {
+	text-decoration: underline;
+}
+
+#br {
+	border-bottom: 1px grey solid;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+#bookshelf-form {
+	margin-top: 15px;
+}
+
+#bookshelf-form > label {
+	display: flex;
+}
+
+#bookshelf-form > button {
+	display: inline-block;
+}
