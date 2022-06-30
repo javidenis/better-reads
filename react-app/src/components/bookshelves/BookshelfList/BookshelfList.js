@@ -118,6 +118,7 @@ const BookshelfList = () => {
 									value={name}
 									onChange={e => setName(e.target.value)}
 									type='text'
+									required
 								>
 								</input>
 								<button type='submit'>add</button>
