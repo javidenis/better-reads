@@ -50,6 +50,7 @@ const NavBar = () => {
             </NavLink>
           </div> 
           <div>
+
             <NavLink to="/bookshelves/all/all" className="mybook_word">
               My Books
             </NavLink>

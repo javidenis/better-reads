@@ -65,14 +65,8 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/bookshelves/new">
-          <NewBookshelf />
-        </ProtectedRoute>
-        <ProtectedRoute path="/bookshelves/all">
+        <ProtectedRoute path="/bookshelves/:id">
           <BookshelfList />
-        </ProtectedRoute>
-        <ProtectedRoute path="/bookshelves/:id/edit">
-          <EditBookshelf />
         </ProtectedRoute>
         <ProtectedRoute path="/books/new" exact={true}>
           <NewBook />
