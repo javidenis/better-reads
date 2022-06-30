@@ -11,7 +11,7 @@ function GenrePage() {
     const genreId = useParams().id
     const allBooks = Object.values(useSelector(state => state.books))
     const genre = Object.values(useSelector(state => state.genres)).find(genre => genre.id === Number(genreId))
-    const genres = Object.values(useSelector(state => state.genres)).slice(0, 20)
+    const genres = Object.values(useSelector(state => state.genres))
     const history = useHistory()
     
     if (!genre) history.push('/404')

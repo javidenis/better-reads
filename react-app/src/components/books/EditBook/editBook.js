@@ -88,6 +88,7 @@ const EditBook = () => {
             <form id='book-form' onSubmit={e => handleOnSubmit(e)}>
                 {errors.length > 0 && 
                     <ul>
+                        <p id="book-creation-errors-header">Please fix the following errors:</p>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 }
@@ -149,26 +150,34 @@ const EditBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
-                <label>Genres:</label>
+                <label>Select Genres:</label>
                 <Multiselect
+                id="book-creation-multi"
                     options={genres}
                     onSelect={onSelect}
                     onRemove={onRemove}
                     displayValue="name"
                     showCheckbox={true}
+                    placeholder={'Click Here to Select Genres'}
                 />
+                <div id="book-creation-buttons">
                 <button id="book-form-submit" type="submit">Submit</button>
                 <button id="book-form-submit" onClick={()=> handleCancel()}>Cancel</button>
                 <button id="book-form-submit" onClick={(e) => {
                     e.preventDefault()
                     setDeleteDisplay(!deleteDisplay)
                     }}>Delete</button>
+
+                </div>
             </form>
                 {deleteDisplay && 
-                <div>
+                <div id="book-creation-delete-dropdown">
                     <p>Are you sure you want to delete this Book?</p>
-                    <button onClick={()=> handleDelete()}>Confirm Delete</button>
-                    <button onClick={() => setDeleteDisplay(!deleteDisplay)}>Cancel Delete</button>
+                    <div id="book-creation-buttons">
+                    <button id="book-form-submit" onClick={()=> handleDelete()}>Confirm Delete</button>
+                    <button id="book-form-submit" onClick={() => setDeleteDisplay(!deleteDisplay)}>Cancel Delete</button>
+
+                    </div>
                 </div>
                 
                 }

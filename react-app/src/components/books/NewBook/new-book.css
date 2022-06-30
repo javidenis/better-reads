@@ -4,6 +4,16 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    gap: 25px;
+}
+
+#book-creation-header {
+    font-size: 45px;
+    font-weight: bolder;
+    padding-bottom: 15px;
+    border-bottom: 1px solid gray;
 }
 
 #book-form {
@@ -13,4 +23,64 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
+}
+
+
+#book-form > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: red;
+    font-size: 15px;
+}
+
+#book-creation-errors-header {
+    font-size: 25px;
+    border-bottom: solid red 2px;
+    margin-bottom: 15px;
+}
+
+#book-form > textarea {
+    width: 400px;
+}
+
+#book-form > input {
+    text-align: center;
+    width: 400px;
+}
+
+#book-creation-multi {
+    text-align: center;
+    background-color: white;
+    width: 400px;
+}
+
+#book-creation-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+#book-form-submit {
+    border-radius: 3px;
+    border: 1px solid #D6D0C4;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 14px;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #333333;
+    background-color: #dfdbd4;
+    line-height: 1;
+    padding: 8px 12px;
+}
+
+#book-creation-delete-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
