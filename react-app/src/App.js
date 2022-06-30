@@ -21,6 +21,7 @@ import { getReadStatusThunk } from "./store/readstatus";
 import HomePage from './components/homePage/homePage';
 import Home from "./components/home/Home";
 import GenrePage from "./components/genrePage/genrePage";
+import Profile from "./components/profile/profile";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -91,6 +92,9 @@ function App() {
         <Route path="/" exact={true}>
           <Home />
         </Route>
+        <ProtectedRoute path='/profile' exact={true} >
+          <Profile />
+        </ProtectedRoute>
         <Route>
           <h1>Page Not Found</h1>
         </Route>

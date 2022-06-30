@@ -20,10 +20,15 @@ const Logged = () => {
     <div>
       <div className="login_component">
         <div className="login_info">
-          <div>{logged}</div>
+          <div>Welcome, {logged}.</div>
           <div>
             <NavLink to="/home" activeClassName="active">
               Home
+            </NavLink>
+          </div>
+          <div>
+            <NavLink to="/profile" activeClassName="active">
+              Profile
             </NavLink>
           </div>
           <div>
