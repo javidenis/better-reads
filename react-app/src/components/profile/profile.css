@@ -1,0 +1,75 @@
+#profile-full-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#profile-header{
+    margin-bottom: 50px;
+    font-size: 45px;
+    font-weight: bolder;
+}
+
+
+#left-and-profile {
+    display: flex;
+    gap: 25px;
+}
+
+#profile-container {
+    display: flex;
+    gap: 10px;
+}
+
+#profile-image {
+    height: 300px;
+    border-radius: 50%;
+}
+
+#profile-details {
+    border: 1px solid black;
+    width: 500px;
+    height: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+#profile-name {
+    font-size: 30px;
+    font-weight: 600;
+    border-bottom: 1px solid grey;
+
+}
+
+#profile-detail-header {
+    font-weight: 600;
+}
+
+
+#profile-details {
+    font-size: 18px;
+}
+
+#profile-reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 1000px;
+}
+
+#profile-reviews-header {
+    width: 90%;
+    /* align-self: center; */
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    
+}
