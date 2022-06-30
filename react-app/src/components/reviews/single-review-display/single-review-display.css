@@ -1,0 +1,28 @@
+#single-review-full-container {
+    display: flex;
+    gap: 10px;
+}
+
+#single-review-profile-pic {
+    width: 50px;
+    height: 66px;
+}
+
+#single-review-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#single-review-content > p{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#single-review-content > div{
+
+    font-family: "Merriweather", "Georgia", serif;
+    line-height: 21px;
+
+
+}

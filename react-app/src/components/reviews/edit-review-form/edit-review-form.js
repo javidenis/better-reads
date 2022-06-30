@@ -8,8 +8,8 @@ function EditReviewForm({ setReviewFormOpen, review }) {
     const thisBook = useSelector(state => state.books)[bookId]
     const book_id = thisBook.id
     const sessionUser = useSelector(state => state.session.user)
-    const [rating, setRating] = useState('')
-    const [content, setContent] = useState('')
+    const [rating, setRating] = useState(review.rating || '')
+    const [content, setContent] = useState(review.content || '')
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch()
 

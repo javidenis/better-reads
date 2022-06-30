@@ -54,7 +54,7 @@ const EditBook = () => {
         if (data) {
             setErrors(data)
         }else {
-            history.push(`books/${bookId}`)
+            history.push(`/books/${bookId}`)
         }
 
     }

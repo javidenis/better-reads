@@ -22,14 +22,8 @@ const Logged = () => {
         <div className="login_info">
           <div>{logged}</div>
           <div>
-            <NavLink to="/" exact={true} activeClassName="active">
+            <NavLink to="/home" activeClassName="active">
               Home
-            </NavLink>
-          </div>
-
-          <div>
-            <NavLink to="/users" exact={true} activeClassName="active">
-              Users
             </NavLink>
           </div>
           <div>

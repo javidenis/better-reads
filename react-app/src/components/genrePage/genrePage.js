@@ -1,21 +1,28 @@
-import './home-page.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import HomeBook from './homeBook'
-import LeftDisplay from './leftDisplay'
-import { Link } from 'react-router-dom'
+import LeftDisplay from '../homePage/leftDisplay'
+import HomeBook from '../homePage/homeBook'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 
 
-function HomePage() {
-    const books = Object.values(useSelector(state => state.books))
+
+function GenrePage() {
+    const genreId = useParams().id
+    const allBooks = Object.values(useSelector(state => state.books))
+    const genre = Object.values(useSelector(state => state.genres)).find(genre => genre.id === Number(genreId))
     const genres = Object.values(useSelector(state => state.genres)).slice(0, 20)
+    const history = useHistory()
+    
+    if (!genre) history.push('/404')
+
+    const books = allBooks.filter(book => book.books_genre.find(genre => genre.id === Number(genreId)))
 
 
     return (
         <div id='home-display'>
             <h1 id='home-right-header'>Welcome to Better Reads</h1>
-            <h2 id='home-right-books-header'>List of Recent Books</h2>
+            <h2 id='home-right-books-header'>Books within the {genre?.name} genre</h2>
             <div id='home-main'>
                 <div id='home-left-display'>
                     <LeftDisplay />
@@ -32,4 +39,4 @@ function HomePage() {
     )
 }
 
-export default HomePage
+export default GenrePage
