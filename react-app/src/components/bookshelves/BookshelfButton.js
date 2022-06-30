@@ -32,7 +32,7 @@ const BookshelfButton = ({ thisBook }) => {
 		}
 
 		await dispatch(addBookToBookshelfThunk(payload))
-		alert(`Added to ${bookshelf.name}!`)
+		setDropDownOpen(false)
 	}
 
 	const handleRemoveFromBookshelf = async (e) => {
@@ -41,7 +41,7 @@ const BookshelfButton = ({ thisBook }) => {
 		console.log(thisBook, bookshelf)
 
 		await dispatch(removeBookFromBookshelfThunk(bookshelf.id, thisBook.id))
-		alert(`Removed from ${bookshelf.name}!`)
+		setDropDownOpen(false)
 
 	}
 
