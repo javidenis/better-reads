@@ -15,7 +15,7 @@ const Home = () => {
   console.log(pics);
 
   if (session.user) {
-    history.push("/users");
+    history.push("/home");
   }
   return (
     <div className="home_component">
