@@ -65,7 +65,7 @@ const BookshelfList = () => {
 			}
 		}
 		//eslint-disable-next-line
-	},[id, read] )
+	},[id] )
 
 
 	const handleAddBookshelf = async (e) => {
@@ -122,7 +122,10 @@ const BookshelfList = () => {
 								<input
 									name='name'
 									value={name}
-									onChange={e => setName(e.target.value)}
+									onChange={e =>{
+										console.log(e.target.value)
+										setName(e.target.value)}
+									} 
 									type='text'
 									required
 								>

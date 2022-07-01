@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import './bookshelfButton.css'
 import { addBookToBookshelfThunk, removeBookFromBookshelfThunk } from "../../store/bookshelves";
+import { Link } from "react-router-dom";
 
 const BookshelfButton = ({ thisBook }) => {
 	const sessionUser = useSelector((state) => state.session.user)
@@ -59,12 +60,12 @@ const BookshelfButton = ({ thisBook }) => {
 				{dropDownOpen && 
 				<div>
 					<div id='read-status-select' className='dont-close'>
-						{bookshelves.map(bookshelf => (
+						{bookshelves.length > 0 ? bookshelves.map(bookshelf => (
 							bookshelf['books'][thisBook.id] 
 								? <div id='bookshelf-option' onClick={e => handleRemoveFromBookshelf(e)} value={bookshelf.id} key={bookshelf.id}><i className="fa-solid fa-check"></i>{bookshelf.name}</div> 
 								: <div id='bookshelf-option' onClick={e => handleAddToBookshelf(e)} value={bookshelf.id} key={bookshelf.id}>{bookshelf.name}</div> 
 							
-						))}
+						)) : <Link to='/bookshelves/all' id='bookshelf-option'>Click Here to go to My Books to make a bookshelf</Link> }
 					</div>
 				</div>
 				}
