@@ -50,17 +50,21 @@ const NavBar = () => {
             </NavLink>
           </div> 
           <div>
-
             <NavLink to="/bookshelves/all" className="mybook_word">
               My Books
             </NavLink>
           </div>
+          {/* <div>
+            <NavLink to="/books/new">
+              Add Book
+            </NavLink>
+          </div> */}
         </div>
-        <div className="search_component">
+        {/* <div className="search_component">
           <div>
             <Search />
           </div>
-        </div>
+        </div> */}
         <div className="buttoninfo">
           <button className="profile_circle" onClick={showProfile}>
             <div>

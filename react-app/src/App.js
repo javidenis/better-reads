@@ -96,7 +96,7 @@ function App() {
           <Profile />
         </ProtectedRoute>
         <Route>
-          <h1>Page Not Found</h1>
+          <h1 id='notfound'>Page Not Found</h1>
         </Route>
       </Switch>
     </BrowserRouter>
