@@ -108,10 +108,8 @@ const BookshelfList = () => {
 							{Object.values(bookshelves).map(bookshelf => (
 								<div key={bookshelf.id} id='link-div'>
 									<Link id='bookshelf-link' to={`/bookshelves/${bookshelf.id}`}>{bookshelf.name} ({Object.values(bookshelf.books).length})</Link>
-
 									<i onClick={() => removeBookshelf(bookshelf.id)} className="fa-solid fa-xmark"></i>
-									{/* <div >Edit</div> */}
-
+									<EditBookshelf bookshelf={bookshelf}></EditBookshelf>
 								</div>
 							))}
 							<form id='bookshelf-form' onSubmit={e => handleAddBookshelf(e)}>

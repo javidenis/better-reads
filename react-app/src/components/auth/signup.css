@@ -8,12 +8,18 @@
   cursor: pointer;
 }
 
+#signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .signupform {
   background-color: hsl(16, 31%, 74%);
   width: 25rem;
-  position: absolute;
+  /* position: absolute;
   left: 35rem;
-  top: 17rem;
+  top: 17rem; */
   border: 2px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
@@ -32,6 +38,6 @@
 }
 
 .actualform div input {
-  position: absolute;
+  /* position: absolute; */
   left: 12rem;
 }

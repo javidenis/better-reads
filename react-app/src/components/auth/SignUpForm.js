@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 
 const SignUpForm = () => {
@@ -14,6 +14,7 @@ const SignUpForm = () => {
   let [picture_url, setPicture_url] = useState(null)
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -51,12 +52,17 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const cancelForm = (e) => {
+    e.preventDefault()
+    history.push('/')
+  }
+
   if (user) {
     return <Redirect to="/" />;
   }
 
   return (
-    <Fragment>
+    <div id='signup-container'>
       <div className="signupform">
         <form onSubmit={onSignUp} className='actualform'>
           <div>
@@ -131,9 +137,10 @@ const SignUpForm = () => {
             </label>
           </div>
           <button type="submit">Sign Up</button>
+          <button onClick={e=>cancelForm(e)} >Cancel</button>
         </form>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

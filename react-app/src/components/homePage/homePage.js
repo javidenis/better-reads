@@ -36,26 +36,24 @@ function HomePage() {
                     <div id='footer-container'>
                         <div id='home-genre-list-header'>About Us</div>
                         <div id='footer-link'>
-
-                            <a href='https://github.com/ericgeagan'><img className='icon' alt='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img alt='icon' className='icon' src={linkedin}></img></a>
-                            <p id='name'>Eric Geagan</p>
+                            <a href='https://github.com/ericgeagan'><img className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img className='icon' src={linkedin}></img></a>
+                            <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
                         </div>
                         <div id='footer-link'>
-                            <a href='https://github.com/stili87'><img alt='icon' className='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' alt='icon' src={linkedin}></img></a>
-                            <p id='name'>Andrew Stilinovic</p>                            
+                            <a href='https://github.com/stili87'><img className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' src={linkedin}></img></a>
+                            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
                         </div>
                         <div id='footer-link'>
-                            <a href='https://github.com/javidenis'><img alt='icon' className='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img alt='icon' className='icon' src={linkedin}></img></a>
-                            <p id='name'>Jorge Denis</p>                            
+                            <a href='https://github.com/javidenis'><img className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
+                            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
                         </div>
-                        <div id='footer-link'>
-                            <a href='https://github.com/IamxiaoSheep'><img alt='icon' className='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com'><img alt='icon' className='icon' src={linkedin}></img></a>
-                            <p id='name'>Jorge Cardenas</p>
-
+                        <div className='bottom-link' id='footer-link'>
+                            <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
+                            <a href=''><img className='icon' src={linkedin}></img></a>
+                            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
                         </div>
                         <div id='home-genre-list-header' className='bottom-link'>Technologies</div>
                         <div id='footer-link'>
