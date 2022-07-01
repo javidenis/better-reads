@@ -16,7 +16,6 @@ def post_readstatus():
     form = AddReadStatus()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print(form.data)
         read_statuses = ReadStatus.query.all()
         existing = [status for status in read_statuses if status.book_id == form.data['book_id'] and status.user_id == form.data['user_id']]
         if len(existing) > 0:

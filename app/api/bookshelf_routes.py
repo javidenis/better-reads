@@ -47,7 +47,7 @@ def add_book_to_bookshelf(id):
 		book = Book.query.get(form.data['book_id'])
 
 		bookshelf.bookshelves_book.append(book)
-		# print(bookshelf.bookshelves_book)
+
 		db.session.commit()
 		return bookshelf.to_dict()
 
