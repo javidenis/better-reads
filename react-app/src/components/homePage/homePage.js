@@ -56,8 +56,8 @@ function HomePage() {
                             <a href='https://www.linkedin.com'><img alt='icon' className='icon' src={linkedin}></img></a>
                             <p id='name'>Jorge Cardenas</p>
 
-
-                        <div id='home-genre-list-header'>Technologies</div>
+                        </div>
+                        <div id='home-genre-list-header' className='bottom-link'>Technologies</div>
                         <div id='footer-link'>
                             <a id='tech-link' href='https://docs.python.org/3/index.html'>Python</a>
                         </div>
@@ -93,6 +93,7 @@ function HomePage() {
                 </div>
             </div>
         </div>
+
     )
 }
 

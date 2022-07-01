@@ -37,14 +37,6 @@ const NavBar = () => {
   //Space
   return (
     <div>
-      {/* <div className="advertise">
-        <NavLink to="/" className="advertise_nav">
-          <div className="advertise_component">
-            <i className="fa fa-book"></i>
-            <div>The Most Popular Books of 2022 (So Far) </div>
-          </div>
-        </NavLink>
-      </div> */}
       <div className="loginbar">
         <div className="logo_component">
           <div>
@@ -62,18 +54,9 @@ const NavBar = () => {
               My Books
             </NavLink>
           </div>
-          {/* <div>
-            <NavLink to="/books/new">
-              Add Book
-            </NavLink>
-          </div> */}
-        </div>
-        {/* <div className="search_component">
-          <div>
-            <Search />
-          </div>
 
         </div>
+        
         <div  className="buttoninfo">
           <div style={sectionStyle} className="profile_circle" onClick={showProfile}>
 
