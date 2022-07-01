@@ -11,7 +11,7 @@ class ListField(Field):
 
 def check_genre(form, field):
     genreList = field.data
-    if len(genreList) < 1:
+    if genreList[0] == '':
         raise ValidationError('Genre is Required')
 
 def check_title_len(form, field):
