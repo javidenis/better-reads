@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./navbar.css";
 import logo from "../images/BetterReads-logos_black.png";
@@ -25,18 +25,26 @@ const NavBar = () => {
   const showProfile = () => {
     setDisplay(display ? false : true);
   };
+  const background = session.user.picture_url
+
+  const sectionStyle = {
+    backgroundImage: `url(${background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }
 
   //Space
   return (
     <div>
-      <div className="advertise">
+      {/* <div className="advertise">
         <NavLink to="/" className="advertise_nav">
           <div className="advertise_component">
-            <i class="fa fa-book"></i>
+            <i className="fa fa-book"></i>
             <div>The Most Popular Books of 2022 (So Far) </div>
           </div>
         </NavLink>
-      </div>
+      </div> */}
       <div className="loginbar">
         <div className="logo_component">
           <div>
@@ -61,12 +69,12 @@ const NavBar = () => {
             <Search />
           </div>
         </div>
-        <div className="buttoninfo">
-          <button className="profile_circle" onClick={showProfile}>
+        <div  className="buttoninfo">
+          <div style={sectionStyle} className="profile_circle" onClick={showProfile}>
             <div>
               {display ? <div></div> : logged ? <Logged /> : <NotLogged />}
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </div>

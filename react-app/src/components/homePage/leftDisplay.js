@@ -69,7 +69,7 @@ function LeftDisplay() {
                     <Link className='left-bookshelf-links' to='/bookshelves/all/want'> {wantToRead.length} &nbsp;&nbsp;&nbsp; Want to Read</Link>
                     <Link className='left-bookshelf-links' to='/bookshelves/all/current'> {currentlyReading.length} &nbsp;&nbsp;&nbsp; Currently Reading</Link>
                     <Link className='left-bookshelf-links' to='/bookshelves/all/read'> {read.length} &nbsp;&nbsp;&nbsp; Read</Link>
-                    {bookshelves && bookshelves.map(bookshelf => <Link className='left-bookshelf-links' to={`/bookshelves/all/${bookshelf.id}`}> {Object.values(bookshelf.books).length} &nbsp;&nbsp;&nbsp;  {bookshelf.name}</Link>)}
+                    {bookshelves && bookshelves.map(bookshelf => <Link key={bookshelf.id} className='left-bookshelf-links' to={`/bookshelves/all/${bookshelf.id}`}> {Object.values(bookshelf.books).length} &nbsp;&nbsp;&nbsp;  {bookshelf.name}</Link>)}
                 </div>
             </div>
         </div>

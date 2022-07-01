@@ -10,13 +10,11 @@ import { authenticate } from "./store/session";
 import NewBook from "./components/books/NewBook/NewBook";
 import SingleBookDisplay from "./components/books/SingleBookDisplay/SingleBookDisplay";
 import { getAllGenres } from "./store/genres";
-import NewBookshelf from "./components/bookshelves/NewBookshelf/NewBookshelf";
 import { getAllBookshelvesThunk } from "./store/bookshelves";
 import { getAllBooksThunk } from "./store/books";
 import { getReviewsThunk } from "./store/reviews";
 import EditBook from "./components/books/EditBook/editBook";
 import BookshelfList from "./components/bookshelves/BookshelfList/BookshelfList";
-import EditBookshelf from "./components/bookshelves/EditBookShelf/EditBookShelf";
 import { getReadStatusThunk } from "./store/readstatus";
 
 import HomePage from './components/homePage/homePage';

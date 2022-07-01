@@ -22,7 +22,7 @@ function GenrePage() {
     return (
         <div id='home-display'>
             <h1 id='home-right-header'>Welcome to Better Reads</h1>
-            <h2 id='home-right-books-header'>Books within the {genre?.name} genre</h2>
+            {books.length > 0 ? <h2 id='home-right-books-header'>Books within the {genre?.name} genre</h2>: <h2 id='home-right-books-header'>No Books in genre {genre?.name}</h2>}
             <div id='home-main'>
                 <div id='home-left-display'>
                     <LeftDisplay />

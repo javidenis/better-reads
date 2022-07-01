@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { removeBookFromBookshelfThunk, removeBookshelfThunk, addBookshelfThunk } from '../../../store/bookshelves'
+import { removeBookshelfThunk, addBookshelfThunk } from '../../../store/bookshelves'
 import './bookshelflist.css'
 import HomeBook from '../../homePage/homeBook'
 
@@ -25,7 +25,7 @@ const BookshelfList = () => {
 		let numBooks = [...books.filter(book => read.includes(book.id)), ...books.filter(book => currentlyReading.includes(book.id)), ...books.filter(book => wantToRead.includes(book.id))]
 		// let numBooks = read + currentlyReading + wantToRead
 		let bookIds = numBooks.map(book => book.id)
-		// console.log(bookIds)
+
 		for (let bookshelf of bookshelves) {
 			// numBooks += Object.values(bookshelf.books)
 			Object.values(bookshelf.books).forEach(book => {
@@ -39,8 +39,8 @@ const BookshelfList = () => {
 		return numBooks
 	}
 
+	
 	const bookList = allBooks()
-
 	useEffect(() => {
 		if (id === 'all') {
 			setBooksToDisplay(bookList)
@@ -54,9 +54,10 @@ const BookshelfList = () => {
 			const thisBookshelf = Object.values(bookshelvesObj[Number(id)].books)
 			setBooksToDisplay(thisBookshelf)
 		}
+		//eslint-disable-next-line
 	},[id] )
-
-
+	
+	
 
 
 	const handleAddBookshelf = async (e) => {
@@ -102,7 +103,7 @@ const BookshelfList = () => {
 							{Object.values(bookshelves).map(bookshelf => (
 								<div key={bookshelf.id} id='link-div'>
 									<Link id='bookshelf-link' to={`/bookshelves/${bookshelf.id}`}>{bookshelf.name} ({Object.values(bookshelf.books).length})</Link>
-									<i onClick={() => removeBookshelf(bookshelf.id)} class="fa-solid fa-xmark"></i>
+									<i onClick={() => removeBookshelf(bookshelf.id)} className="fa-solid fa-xmark"></i>
 									{/* <div >Edit</div> */}
 								</div>
 							))}
