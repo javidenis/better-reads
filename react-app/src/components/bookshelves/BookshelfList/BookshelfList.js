@@ -107,7 +107,7 @@ const BookshelfList = () => {
 							{Object.values(bookshelves).map(bookshelf => (
 								<div key={bookshelf.id} id='link-div'>
 									<Link id='bookshelf-link' to={`/bookshelves/${bookshelf.id}`}>{bookshelf.name} ({Object.values(bookshelf.books).length})</Link>
-									<i onClick={() => removeBookshelf(bookshelf.id)} class="fa-solid fa-xmark"></i>
+									<i onClick={() => removeBookshelf(bookshelf.id)} className="fa-solid fa-xmark"></i>
 									<EditBookshelf bookshelf={bookshelf}></EditBookshelf>
 								</div>
 							))}
