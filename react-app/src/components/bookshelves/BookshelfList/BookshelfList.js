@@ -123,7 +123,6 @@ const BookshelfList = () => {
 									name='name'
 									value={name}
 									onChange={e =>{
-										console.log(e.target.value)
 										setName(e.target.value)}
 									} 
 									type='text'

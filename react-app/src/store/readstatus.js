@@ -19,7 +19,6 @@ export const getReadStatusThunk = () => async dispatch => {
     const response = await fetch('/api/readstatus')
     const data = await response.json()
     if (response.ok) {
-        console.log(data)
         dispatch(actionGetReadStatus(data))
     }
 }
