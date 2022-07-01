@@ -1,12 +1,17 @@
 import "./loginoption.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 
 const LoginOptions = () => {
   const dispatch = useDispatch();
-  const demoHandler = () => {
-    return dispatch(login("demo@aa.io", "password"));
+
+  const history = useHistory()
+
+  const demoHandler = async () => {
+    await dispatch(login("demo@aa.io", "password"));
+    history.push('/home')
+
   };
   return (
     <div className="log_component">
