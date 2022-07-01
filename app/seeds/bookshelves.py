@@ -6,7 +6,7 @@ def seed_bookshelves():
   books = Book.query.all() 
 
 
-  bookshelf1 = BookShelf(name="Yang", user_id= 1, bookshelves_book=books)
+  bookshelf1 = BookShelf(name="Good Books", user_id= 1, bookshelves_book=books)
   bookshelf2 = BookShelf(name="Eric ", user_id= 2, bookshelves_book=books)
   bookshelf3 = BookShelf(name="Stili ", user_id= 3, bookshelves_book=books)
   bookshelf4 = BookShelf(name="Denis ", user_id= 2, bookshelves_book=books)

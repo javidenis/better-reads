@@ -13,11 +13,12 @@ function ReadStatus({ thisBook }) {
     useEffect(() => {
         const found = readStatus.find(status => status.user_id === sessionUser.id && status.book_id === thisBook.id)
         if (found) setCurrentStatus(found.readStatus)
-
+        
     }, [currentStatus, setCurrentStatus, readStatus, sessionUser.id, thisBook.id])
-
+    
     useEffect(() => {
         const closeDropdown = e => {
+            
             if (e.path[1].className !== 'dont-close1' && e.path[1].className !== 'dont-close1' && e.path[0].className !== 'fa-solid fa-caret-down dont-close1' && e.path[0].className !== 'dont-close1') {
                 setDropDownOpen(false)
             }

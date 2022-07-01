@@ -12,6 +12,7 @@ function SingleReviewDisplay({ reviewId }) {
     const reviewUser = useSelector(state => state.users[review.user_id])
 
     useEffect(()=> {
+
         setReviewContent(review.content.slice(0, 501))
     }, [review, setReviewContent])
 

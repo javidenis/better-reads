@@ -45,7 +45,7 @@ const NavBar = () => {
         </div>
         <div className="nav_component">
           <div>
-            <NavLink to="/" className="home_word">
+            <NavLink to="/home" className="home_word">
               Home
             </NavLink>
           </div> 

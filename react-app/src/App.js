@@ -66,6 +66,9 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+        <Route exact path="/" >
+          <Home />
+        </Route>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
@@ -87,15 +90,12 @@ function App() {
         <ProtectedRoute path='/genre/:id' exact={true} >
           <GenrePage />
         </ProtectedRoute>
-        <Route path="/" exact={true}>
-          <Home />
-        </Route>
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
         </ProtectedRoute>
-        <Route>
+        <ProtectedRoute>
           <h1 id='notfound'>Page Not Found</h1>
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

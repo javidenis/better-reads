@@ -4,6 +4,7 @@ import reading from "../images/alfons-morales-YLSwjSy7stw-unsplash.jpeg";
 import LoginOptions from "../LoginOption/LoginOption";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
   const history = useHistory();
@@ -13,10 +14,12 @@ const Home = () => {
     <img  key={el.id} alt="cover" className="collection_images" src={el["cover_url"]} />
   ));
 
-
+useEffect(() => {
   if (session.user) {
     history.push("/home");
   }
+
+},[])
 
   const sectionStyle = {
     backgroundImage: `url(${reading})`,
