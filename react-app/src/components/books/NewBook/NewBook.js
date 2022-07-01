@@ -23,6 +23,18 @@ const NewBook = () => {
     const handleOnSubmit = async (e) => {
         e.preventDefault()
 
+        if(cover_url && !cover_url.name.endsWith("pdf") &&
+        !cover_url.name.endsWith("png") &&
+        !cover_url.name.endsWith("jpg") &&
+        !cover_url.name.endsWith( "pdf") &&
+        !cover_url.name.endsWith("jpeg") &&
+        !cover_url.name.endsWith("gif")
+        ){
+        setErrors(['File type not allowed'])
+        return
+      }
+
+
         if(!cover_url){
             cover_url = 'https://i.imgur.com/sJ3CT4V.gif'
         }

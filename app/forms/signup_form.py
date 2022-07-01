@@ -33,6 +33,10 @@ def check_password(form, field):
     if len(checking) < 7:
         raise ValidationError('Password must be more than 6 characters.')
 
+def check_img(form, field):
+    image = field.data
+    print(image, '!!!!!!!!!!!!!!!!!!!!!!!')
+
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists, username_length])
@@ -40,3 +44,4 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired(), check_length, check_password])
     name = StringField('name', validators=[DataRequired(), check_length])
     bio = TextAreaField('bio')
+    picture_url = StringField('photo_url')

@@ -27,18 +27,29 @@ const EditBook = () => {
     const [deleteDisplay, setDeleteDisplay] = useState(false)
 
     
-
+    
+    
     useEffect(()=> {
         if (thisBook?.user_id !== sessionUser?.id){
             history.push('/')
         }
     },[history, sessionUser?.id, thisBook?.user_id])
-
-
+    
+    
     const handleOnSubmit = async (e) => {
         e.preventDefault()
-
+        
         const books_genreIds = books_genre.map(genre => genre.id)
+        if(cover_url && !cover_url.name.endsWith("pdf") &&
+        !cover_url.name.endsWith("png") &&
+        !cover_url.name.endsWith("jpg") &&
+        !cover_url.name.endsWith( "pdf") &&
+        !cover_url.name.endsWith("jpeg") &&
+        !cover_url.name.endsWith("gif")
+        ){
+        setErrors(['File type not allowed'])
+        return
+      }
         
         if(!cover_url){
             cover_url = 'https://i.imgur.com/sJ3CT4V.gif'

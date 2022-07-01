@@ -19,9 +19,25 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
 
+
+
+    if(picture_url && !picture_url.name.endsWith("pdf") &&
+    !picture_url.name.endsWith("png") &&
+    !picture_url.name.endsWith("jpg") &&
+    !picture_url.name.endsWith( "pdf") &&
+    !picture_url.name.endsWith("jpeg") &&
+    !picture_url.name.endsWith("gif")
+    ){
+    setErrors(['File type not allowed'])
+    return
+  }
+
+
+
     if (!picture_url) {
       picture_url = 'https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg'
     }
+    
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password, picture_url, name, bio));
