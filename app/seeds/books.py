@@ -73,7 +73,7 @@ def seed_books():
         cover_url="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618329605l/56597885.jpg",
         publish_date=date(2021, 9, 7),
         user_id = 2,
-        books_genre=[genres[27],genres[19],genres[24],genres[6]]
+        books_genre=[genres[27],genres[19],genres[24],genres[6],genres[1]]
         )
 
     book6 = Book(
