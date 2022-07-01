@@ -8,8 +8,13 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 
 function HomePage() {
-    const books = Object.values(useSelector(state => state.books)).reverse()
-    const genres = Object.values(useSelector(state => state.genres))
+
+    const books = Object.values(useSelector(state => state.books))
+    const genres = Object.values(useSelector(state => state.genres)).sort((a,b) => {
+                                                                        if(a.name > b.name)return 1
+                                                                        return -1
+                                                                            })
+
 
 
     return (
@@ -31,25 +36,27 @@ function HomePage() {
                     <div id='footer-container'>
                         <div id='home-genre-list-header'>About Us</div>
                         <div id='footer-link'>
-                            <a href='https://github.com/ericgeagan'><img class='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img class='icon' src={linkedin}></img></a>
-                            <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
+
+                            <a href='https://github.com/ericgeagan'><img className='icon' alt='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img alt='icon' className='icon' src={linkedin}></img></a>
+                            <p id='name'>Eric Geagan</p>
                         </div>
                         <div id='footer-link'>
-                            <a href='https://github.com/stili87'><img class='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img class='icon' src={linkedin}></img></a>
-                            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
+                            <a href='https://github.com/stili87'><img alt='icon' className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' alt='icon' src={linkedin}></img></a>
+                            <p id='name'>Andrew Stilinovic</p>                            
                         </div>
                         <div id='footer-link'>
-                            <a href='https://github.com/javidenis'><img class='icon' src={gitHub}></img></a>
-                            <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img class='icon' src={linkedin}></img></a>
-                            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
+                            <a href='https://github.com/javidenis'><img alt='icon' className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img alt='icon' className='icon' src={linkedin}></img></a>
+                            <p id='name'>Jorge Denis</p>                            
                         </div>
-                        <div class='bottom-link' id='footer-link'>
-                            <a href='https://github.com/IamxiaoSheep'><img class='icon' src={gitHub}></img></a>
-                            <a href=''><img class='icon' src={linkedin}></img></a>
-                            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
-                        </div>
+                        <div id='footer-link'>
+                            <a href='https://github.com/IamxiaoSheep'><img alt='icon' className='icon' src={gitHub}></img></a>
+                            <a href='https://www.linkedin.com'><img alt='icon' className='icon' src={linkedin}></img></a>
+                            <p id='name'>Jorge Cardenas</p>
+
+
                         <div id='home-genre-list-header'>Technologies</div>
                         <div id='footer-link'>
                             <a id='tech-link' href='https://docs.python.org/3/index.html'>Python</a>
@@ -80,6 +87,7 @@ function HomePage() {
                         </div>
                         <div id='footer-link'>
                             <a id='tech-link' href='https://www.npmjs.com/package/multiselect-react-dropdown'>Multiselect</a>
+
                         </div>
                     </div>
                 </div>

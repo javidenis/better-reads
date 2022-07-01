@@ -11,7 +11,6 @@ const BookshelfButton = ({ thisBook }) => {
 
 	useEffect(() => {
 		const closeDropdown = e => {
-				// console.log(e.path)
 				if (e.path[1].className !== 'dont-close' && e.path[1].className !== 'dont-close' && e.path[0].className !== 'fa-solid fa-caret-down dont-close' && e.path[0].className !== 'dont-close' ) {
 						setDropDownOpen(false)
 				}
@@ -36,9 +35,9 @@ const BookshelfButton = ({ thisBook }) => {
 	}
 
 	const handleRemoveFromBookshelf = async (e) => {
-		console.log(e.target.attributes[1].value)
+
 		let bookshelf = bookshelves.find(bookshelf => bookshelf.id === Number(e.target.attributes[1].value))
-		console.log(thisBook, bookshelf)
+
 
 		await dispatch(removeBookFromBookshelfThunk(bookshelf.id, thisBook.id))
 		setDropDownOpen(false)
