@@ -11,10 +11,10 @@ function ReadStatus({ thisBook }) {
     const [currentStatus, setCurrentStatus] = useState("Choose Read Status")
 
     useEffect(() => {
-        const found = readStatus.find(status => status.user_id === sessionUser.id && status.book_id === thisBook.id)
+        const found = readStatus.find(status => status.user_id === sessionUser.id && status.book_id === thisBook?.id)
         if (found) setCurrentStatus(found.readStatus)
         
-    }, [currentStatus, setCurrentStatus, readStatus, sessionUser.id, thisBook.id])
+    }, [currentStatus, setCurrentStatus, readStatus, sessionUser.id, thisBook?.id])
     
     useEffect(() => {
         const closeDropdown = e => {
@@ -32,7 +32,7 @@ function ReadStatus({ thisBook }) {
     const handleReadStatus = (e) => {
         const newReadStatus = {
             user_id: sessionUser.id,
-            book_id: thisBook.id,
+            book_id: thisBook?.id,
             readStatus: e.target.value
         }
         setDropDownOpen(false)

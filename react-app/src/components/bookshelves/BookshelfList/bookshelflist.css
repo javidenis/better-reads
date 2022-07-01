@@ -135,3 +135,9 @@
 	line-height: 1;
 	padding: 4px 12px;
 }
+
+
+#bookshelf-display-no-books {
+	font-size: 25px;
+	font-weight: bolder;
+}

@@ -16,7 +16,7 @@ function GenrePage() {
     
     if (!genre) history.push('/404')
 
-    const books = allBooks.filter(book => book.books_genre.find(genre => genre.id === Number(genreId)))
+    const books = allBooks.filter(book => book.books_genre.find(genre => genre.id === Number(genreId))).reverse()
 
 
     return (

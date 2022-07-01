@@ -1,3 +1,6 @@
+import { getAllBookshelvesThunk } from "./bookshelves"
+import { getReadStatusThunk } from "./readstatus"
+
 const ADD_BOOK = '/book/add'
 const GET_BOOKS = '/books/all'
 const DELETE_BOOK = '/books/delete'
@@ -36,7 +39,10 @@ export const deleteBookThunk = bookId => async dispatch => {
         method: 'DELETE'
     })
     if (response.ok) {
-        dispatch(actionDeleteBook(bookId))
+        await dispatch(actionDeleteBook(bookId))
+        await dispatch(getReadStatusThunk())
+        await dispatch(getAllBookshelvesThunk())
+        return 'Success'
     }
 }
 

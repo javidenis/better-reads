@@ -16,6 +16,7 @@ const BookshelfList = () => {
 	const sessionUser = useSelector((state) => state.session.user)
 	const bookshelves = Object.values(useSelector(state => state.bookshelves)).filter(bookshelf => bookshelf.user_id === sessionUser.id)
 	const bookshelvesObj = useSelector(state => state.bookshelves)
+	const readStatuses = useSelector(state => state.readStatus)
 	const read = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Read").map(item => item.book_id)
 	const currentlyReading = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Currently Reading").map(item => item.book_id)
 	const wantToRead = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Want To Read").map(item => item.book_id)
@@ -64,7 +65,7 @@ const BookshelfList = () => {
 			}
 		}
 		//eslint-disable-next-line
-	},[id] )
+	},[id, read] )
 
 
 	const handleAddBookshelf = async (e) => {
@@ -93,7 +94,6 @@ const BookshelfList = () => {
 			<div id='bookshelf-display'>
 				<div id='header-container'>
 					<h1 id='bookshelf-header'>My Books: {defaultShelves.includes(id) ? id.charAt(0).toUpperCase() + id.slice(1) : bookshelvesObj[id]?.name}</h1>
-					{/* <h1 id='bookshelf-header-shelf'></h1> */}
 				</div>
 				<div id='br1'></div>
 				<div id='bookshelf-main'>
@@ -132,22 +132,11 @@ const BookshelfList = () => {
 						</div>
 					</div>
 					<div id='bookshelf-book-display'>
+						{booksToDisplay.length < 1 && <div id='bookshelf-display-no-books'>No Books to Display for Bookshelf { defaultShelves.includes(id) ? id.charAt(0).toUpperCase() + id.slice(1) : bookshelvesObj[id]?.name}</div>}
 						{booksToDisplay.map(book => <HomeBook key={book.id} book={book} />)}
 					</div>
 				</div>
 			</div>
-			{/* {Object.values(bookshelves).map(bookshelf => (
-				<div>
-					<div key={bookshelf.id}>{bookshelf.name}
-						<button onClick={e => removeBookshelf(bookshelf.id)}>Delete Bookshelf</button>
-					</div>
-						{Object.values(bookshelf.books).map(book => (
-							<div key={book.id}>{book.title}
-								<button onClick={e =>removeBook(bookshelf.id, book.id)}>Remove</button>
-							</div>
-						))}
-				</div>
-			))} */}
 		</div>
 	)
 }

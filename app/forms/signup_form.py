@@ -26,12 +26,17 @@ def username_exists(form, field):
 def check_length(form, field):
     checking = field.data
     if len(checking) > 255:
-        raise ValidationError(f'{field.name} is too long. (Maximum length is 255)')
+        raise ValidationError(f'{field.name} is too long. (Maximum length is 255).')
+
+def check_password(form, field):
+    checking = field.data
+    if len(checking) < 7:
+        raise ValidationError('Password must be more than 6 characters.')
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists, username_length])
     email = StringField('email', validators=[DataRequired(), user_exists, check_length])
-    password = StringField('password', validators=[DataRequired(), check_length])
+    password = StringField('password', validators=[DataRequired(), check_length, check_password])
     name = StringField('name', validators=[DataRequired(), check_length])
     bio = TextAreaField('bio')
