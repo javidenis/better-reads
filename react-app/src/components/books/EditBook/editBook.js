@@ -20,7 +20,7 @@ const EditBook = () => {
     const [sub_heading, setSub_heading] = useState(thisBook?.sub_heading || '')
     const [description, setDescription] = useState(thisBook?.description || '')
     let [cover_url, setCover_url] = useState(null)
-    const [publish_date, setPublish_date] = useState(new Date(thisBook?.publish_date).toISOString().substring(0,10) || '')
+    const [publish_date, setPublish_date] = useState(new Date(thisBook?.publish_date || "2022-01-01").toISOString().substring(0,10) || '')
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
