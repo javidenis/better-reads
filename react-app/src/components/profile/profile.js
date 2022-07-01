@@ -30,7 +30,7 @@ function Profile() {
             <div id='profile-reviews-container'>
                 <p id='profile-reviews-header'>REVIEWS</p>
             {userReviews.map(review => (
-                <ProfileReviewDisplay reviewId={review.id}></ProfileReviewDisplay>
+                <ProfileReviewDisplay key={review.id} reviewId={review.id}></ProfileReviewDisplay>
             )) || <div>No Reviews</div>}
             </div>
         </div >

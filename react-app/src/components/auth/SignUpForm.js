@@ -25,9 +25,12 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password, picture_url, name, bio));
+      console.log(data)
       if (data) {
         setErrors(data);
       }
+    } else {
+      setErrors(['Passwords do not match.']);
     }
   };
 
@@ -64,13 +67,12 @@ const SignUpForm = () => {
   return (
     <div id='signup-container'>
       <div className="signupform">
-        <form onSubmit={onSignUp} className='actualform'>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
-          <div>
+        <form id='form-container' onSubmit={onSignUp} className='actualform'>
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
             <label>User Name</label>
             <input
               type="text"
@@ -78,8 +80,6 @@ const SignUpForm = () => {
               onChange={updateUsername}
               value={username}
             ></input>
-          </div>
-          <div>
             <label>Email</label>
             <input
               type="text"
@@ -87,8 +87,6 @@ const SignUpForm = () => {
               onChange={updateEmail}
               value={email}
             ></input>
-          </div>
-          <div>
             <label>Name</label>
             <input
               type="text"
@@ -97,8 +95,6 @@ const SignUpForm = () => {
               value={name}
             >
             </input>
-          </div>
-          <div>
             <label>Password</label>
             <input
               type="password"
@@ -106,8 +102,6 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
             ></input>
-          </div>
-          <div>
             <label>Repeat Password</label>
             <input
               type="password"
@@ -116,16 +110,12 @@ const SignUpForm = () => {
               value={repeatPassword}
               required={true}
             ></input>
-          </div>
-          <div>
             <label>Bio</label>
             <textarea
               name="bio"
               onChange={e=>setBio(e.target.value)}
               value={bio}
             ></textarea>
-          </div>
-          <div>
             <label className="custom-file-upload">
               Profile Picture Upload
               <input 
@@ -135,7 +125,6 @@ const SignUpForm = () => {
                 type="file" 
               />
             </label>
-          </div>
           <button type="submit">Sign Up</button>
           <button onClick={e=>cancelForm(e)} >Cancel</button>
         </form>

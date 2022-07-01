@@ -8,10 +8,29 @@
   cursor: pointer;
 }
 
+#form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#left-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#right-container {
+  display: flex;
+}
+
+#form-item {
+  display: flex;
+}
+
 #signup-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 125px;
 }
 
 .signupform {
@@ -21,23 +40,53 @@
   left: 35rem;
   top: 17rem; */
   border: 2px solid #ccc;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   padding: 6px 12px;
 }
 
 .actualform {
   display: inline-flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  height: 650px;
+  align-items: center;
+  justify-content: center;
 }
 
-.actualform div label {
+#form-container > label {
   color: white;
-  margin: 2em;
-  /* position: absolute; */
+  font-size: 18px;
+  text-decoration: underline;
+  font-weight: bolder;
 }
 
-.actualform div input {
-  /* position: absolute; */
+#form-container > input {
   left: 12rem;
+  border-radius: 25px;
+  height: 20px;
+}
+
+#form-container > textarea {
+  width: 300px;
+  height: 70px;
+}
+
+#form-container > button {
+  border-radius: 3px;
+  border: 1px solid #D6D0C4;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: #333333;
+  background-color: #dfdbd4;
+  line-height: 1;
+  padding: 8px 12px;
+  box-shadow: 1px 1px 1px grey;
 }
