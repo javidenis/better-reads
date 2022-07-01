@@ -32,6 +32,11 @@ const Logged = () => {
             </NavLink>
           </div>
           <div>
+            <NavLink to="/books/new" activeClassName="active">
+              Add a Book
+            </NavLink>
+          </div>
+          <div>
             <LogoutButton />
           </div>
         </div>

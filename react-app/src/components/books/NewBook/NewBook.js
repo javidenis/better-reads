@@ -68,6 +68,7 @@ const NewBook = () => {
             <form id='book-form' onSubmit={e => handleOnSubmit(e)}>
                 {errors.length > 0 && 
                     <ul>
+                        <p id="book-creation-errors-header">Please fix the following errors:</p>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 }
@@ -129,15 +130,23 @@ const NewBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
-                <label>Genres:</label>
+                <label>Select Genres:</label>
                 <Multiselect
+                    id="book-creation-multi"
                     options={genres}
                     onSelect={onSelect}
                     onRemove={onRemove}
                     displayValue="name"
                     showCheckbox={true}
+                    placeholder={'Click Here to Select Genres'}
                 />
+                <div id="book-creation-buttons">
                 <button id="book-form-submit" type="submit">Submit</button>
+                <button id="book-form-submit" type="cancel" onClick={(e)=> {
+                    e.preventDefault()
+                    history.push('/home')
+                    }}>Cancel</button>
+                </div>
             </form>
         </div>
     )

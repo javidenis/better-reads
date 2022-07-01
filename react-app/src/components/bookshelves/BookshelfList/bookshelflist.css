@@ -1,0 +1,137 @@
+#bookshelf-main {
+	display: flex;
+}
+
+#header-container {
+	display: flex;
+}
+
+#bookshelf-header {
+	color: #00635d;
+	font-size: 20px;
+	font-family: "Merriweather", Georgia, "Times New Roman", serif;
+	font-weight: bold;
+	line-height: 1.3;
+	margin-right: 10px;
+}
+
+#bookshelf-header-shelf {
+	background-color: #F4F4EA;
+	border-radius: 5px;
+	padding: 2px 0px 2px 5px;
+	padding-right: 0px;
+	margin: 0 3px;
+	font-size: smaller;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+#bookshelves-left-header {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#bookshelf-display {
+	display: flex;
+	flex-direction: column;
+	margin-top: 25px;
+	align-items: center;
+	gap: 32px
+}
+
+#bookshelf-book-display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 540px;
+	gap: 20px;
+}
+
+#bookshelf-left-display {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	margin-right: 50px;
+}
+
+#bookshelves-list {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	gap: 5px;
+	width: 200px;
+}
+
+#link-div {
+	display: flex;
+}
+
+#bookshelf-link {
+	color: #00635d;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	overflow: hidden;
+	margin-right: 5px;
+}
+
+.fa-solid.fa-xmark {
+	cursor: pointer;
+}
+
+#bookshelf-link:hover {
+	text-decoration: underline;
+}
+
+#br {
+	border-bottom: 1px grey solid;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+#br1 {
+	border-bottom: 1px grey solid;
+	width: 100%;
+}
+
+#bookshelf-form {
+	margin-top: 15px;
+}
+
+#bookshelf-form > label {
+	display: flex;
+	font-weight: bold;
+	font-size: 14px;
+	margin-right: 3px;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 18px;
+}
+
+#bookshelf-form > input {
+	width: 100px;
+	background: #FFFFFF;
+	border-radius: 3px;
+	border: #DCD6CC 1px solid;
+	color: #333333;
+	font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+	resize: none;
+	padding: 2px;
+	margin-right: 3px;
+	height: 15px;
+}
+
+#bookshelf-form > button {
+	display: inline-block;
+	border-radius: 3px;
+	border: 1px solid #D6D0C4;
+	font-size: 11px;
+	font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+	appearance: none;
+	cursor: pointer;
+	text-decoration: none;
+	color: #333333;
+	background-color: #F4F1EA;
+	line-height: 1;
+	padding: 4px 12px;
+}

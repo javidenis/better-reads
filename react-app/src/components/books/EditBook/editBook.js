@@ -10,20 +10,20 @@ const EditBook = () => {
     const thisBook = useSelector(state => state.books)[bookId]
     const sessionUser = useSelector((state) => state.session.user)
     const genres = Object.values(useSelector((state) => state.genres))
-    const [title, setTitle] = useState(thisBook.title || '')
+    const [title, setTitle] = useState(thisBook?.title || '')
     const [books_genre, setBooks_genre] = useState([])
-    const [author, setAuthor] = useState(thisBook.author || '')
-    const [sub_heading, setSub_heading] = useState(thisBook.sub_heading || '')
-    const [description, setDescription] = useState(thisBook.description || '')
+    const [author, setAuthor] = useState(thisBook?.author || '')
+    const [sub_heading, setSub_heading] = useState(thisBook?.sub_heading || '')
+    const [description, setDescription] = useState(thisBook?.description || '')
     let [cover_url, setCover_url] = useState(null)
-    const [publish_date, setPublish_date] = useState(thisBook.publish_date || '')
+    const [publish_date, setPublish_date] = useState(thisBook?.publish_date || '')
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const dispatch = useDispatch()
     const [deleteDisplay, setDeleteDisplay] = useState(false)
 
     useEffect(()=> {
-        if (thisBook.user_id !== sessionUser.id){
+        if (thisBook?.user_id !== sessionUser.id){
             history.push('/')
         }
     },[history, sessionUser.id, thisBook.user_id])
@@ -78,7 +78,7 @@ const EditBook = () => {
     }
 
     const handleDelete = async () => {
-        await dispatch(deleteBookThunk(bookId))
+        dispatch(deleteBookThunk(bookId))
         history.push('/')
     }
 
@@ -88,6 +88,7 @@ const EditBook = () => {
             <form id='book-form' onSubmit={e => handleOnSubmit(e)}>
                 {errors.length > 0 && 
                     <ul>
+                        <p id="book-creation-errors-header">Please fix the following errors:</p>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                 }
@@ -149,26 +150,34 @@ const EditBook = () => {
                     placeholder="Publish Date Here"
                 >
                 </input>
-                <label>Genres:</label>
+                <label>Select Genres:</label>
                 <Multiselect
+                id="book-creation-multi"
                     options={genres}
                     onSelect={onSelect}
                     onRemove={onRemove}
                     displayValue="name"
                     showCheckbox={true}
+                    placeholder={'Click Here to Select Genres'}
                 />
+                <div id="book-creation-buttons">
                 <button id="book-form-submit" type="submit">Submit</button>
                 <button id="book-form-submit" onClick={()=> handleCancel()}>Cancel</button>
                 <button id="book-form-submit" onClick={(e) => {
                     e.preventDefault()
                     setDeleteDisplay(!deleteDisplay)
                     }}>Delete</button>
+
+                </div>
             </form>
                 {deleteDisplay && 
-                <div>
+                <div id="book-creation-delete-dropdown">
                     <p>Are you sure you want to delete this Book?</p>
-                    <button onClick={()=> handleDelete()}>Confirm Delete</button>
-                    <button onClick={() => setDeleteDisplay(!deleteDisplay)}>Cancel Delete</button>
+                    <div id="book-creation-buttons">
+                    <button id="book-form-submit" onClick={()=> handleDelete()}>Confirm Delete</button>
+                    <button id="book-form-submit" onClick={() => setDeleteDisplay(!deleteDisplay)}>Cancel Delete</button>
+
+                    </div>
                 </div>
                 
                 }
