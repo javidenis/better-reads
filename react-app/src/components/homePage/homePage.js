@@ -9,7 +9,7 @@ import linkedin from '../images/linkedin.png'
 
 function HomePage() {
 
-    const books = Object.values(useSelector(state => state.books))
+    const books = Object.values(useSelector(state => state.books)).reverse()
     const genres = Object.values(useSelector(state => state.genres)).sort((a,b) => {
                                                                         if(a.name > b.name)return 1
                                                                         return -1
