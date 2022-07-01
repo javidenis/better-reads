@@ -72,7 +72,7 @@
 	color: #00635d;
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-decoration: none;
-	overflow: hidden;
+	word-break: break-all;
 	margin-right: 5px;
 }
 

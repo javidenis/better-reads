@@ -1,0 +1,32 @@
+#edit-bookshelf {
+	width: 98px;
+	background: #FFFFFF;
+	border-radius: 3px;
+	border: #DCD6CC 1px solid;
+	color: #333333;
+	font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+	resize: none;
+	padding: 2px;
+	margin-right: 3px;
+	height: 15px;
+}
+
+#edit-button {
+	display: inline-block;
+	border-radius: 3px;
+	border: 1px solid #D6D0C4;
+	font-size: 11px;
+	font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+	-webkit-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	text-decoration: none;
+	color: #333333;
+	background-color: #F4F1EA;
+	line-height: 1;
+	padding: 4px 12px;
+}
+
+#edit-container {
+	margin-left: 5px;
+}
