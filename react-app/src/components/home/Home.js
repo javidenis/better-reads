@@ -5,6 +5,8 @@ import LoginOptions from "../LoginOption/LoginOption";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
+import gitHub from '../images/github.png'
+import linkedin from '../images/linkedin.png'
 
 const Home = () => {
   const history = useHistory();
@@ -38,6 +40,24 @@ useEffect(() => {
       <div className="collection-header">Our Book Collection!</div>
       <div className="okay">
         <div className="over">{pics}</div>
+      </div>
+      <div id='splash-genre-list-title'>Developers</div>
+      <div id='splash-genre-list-header'>
+        <div id='footer-link'>
+            <a href='https://github.com/ericgeagan'><img className='icon' src={gitHub}></img></a>
+            <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img className='icon' src={linkedin}></img></a>
+            <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
+        </div>
+        <div id='footer-link'>
+            <a href='https://github.com/stili87'><img className='icon' src={gitHub}></img></a>
+            <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' src={linkedin}></img></a>
+            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
+        </div>
+        <div id='footer-link'>
+            <a href='https://github.com/javidenis'><img className='icon' src={gitHub}></img></a>
+            <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
+            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
+        </div>
       </div>
     </div>
 
