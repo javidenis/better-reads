@@ -23,13 +23,13 @@ Better Reads is a full stack application that allows users to keep tracks on boo
   1. Clone this repository 
   `git clone git@github.com:stili87/Better-Reads.git`
   
-  2. Install all packages in both the frontend and backend folders: `npm install` for frontend and 'pipenv install' for backend.
+  2. Install all packages in both the frontend and backend folders: `npm install` for frontend and `pipenv install` for backend.
   
   3. Create a new .env file in the backend to access the database.  Follow the example .env in the backend. 
   
   4. Setup a PSQL user to match your .env file.
   
-  5. Migrate and seed the database in the backend with `flask db migrate`, 'flask db upgrade', 'flask seed all'.
+  5. Migrate and seed the database in the backend with `flask db migrate`, `flask db upgrade`, `flask seed all`.
   
   6. Run `pipenv shell` then `flask run` in the backend folder and `npm start` in the frontend folder. 
   
