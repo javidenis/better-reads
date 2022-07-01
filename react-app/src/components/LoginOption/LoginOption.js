@@ -10,22 +10,15 @@ const LoginOptions = () => {
   };
   return (
     <div className="log_component">
+      <div className="log_component_header">Login or Signup Here</div>
       <div>
-        <button className="login_button_log">
-          <NavLink to="/login">Login</NavLink>
-        </button>
+          <NavLink to="/login"><button className="login_button_log">Login</button></NavLink>
       </div>
       <div>
-        <button className="signup_button_log">
-          <NavLink to="/sign-up">Sign Up</NavLink>
-        </button>
+          <NavLink to="/sign-up"><button className="signup_button_log">Sign Up</button></NavLink>
       </div>
-      <div>
-        <div className="line"></div>
-      </div>
-      <div className="demo_button">
-        <span>Want to look around?</span>
-        <button onClick={demoHandler}>Demo User</button>
+      <div className="demo_button_container">
+        <button className="demo_button" onClick={demoHandler}>Demo User</button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from "react-redux";
 import LeftDisplay from '../homePage/leftDisplay';
 import ProfileReviewDisplay from '../reviews/profile-review-display/profileReview';
@@ -8,7 +8,6 @@ function Profile() {
     const sessionUser = useSelector(state => state.session.user);
     const reviews = Object.values(useSelector(state => state.reviews))
     const userReviews = reviews.filter(review => review.user_id === sessionUser.id)
-    const books = Object.values(useSelector(state => state.books))
 
     return (
         < div id='profile-full-page'>
@@ -21,7 +20,7 @@ function Profile() {
                 </div>
                 <div id='profile-container'>
                     
-                        <img id='profile-image' src={sessionUser.picture_url} />
+                        <img alt='user' id='profile-image' src={sessionUser.picture_url} />
                         <div id='profile-details'>
                             <div id='profile-name'>{sessionUser.name}</div>
                             <div id='profile-details-inner'><span id='profile-detail-header'>Details:</span> {sessionUser.bio || 'No bio was added'}</div>

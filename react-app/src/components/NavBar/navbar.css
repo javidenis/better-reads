@@ -19,7 +19,9 @@
   display: flex;
   flex-direction: row;
   background-color: #edcfc5;
-  height: 3rem;
+  justify-content: center;
+  height: 70px;
+  padding-top: 15px;
 }
 .logowe {
   width: 10rem;

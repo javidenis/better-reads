@@ -21,9 +21,8 @@
   justify-content: center;
   position: relative;
   top: 2.3rem;
-
   right: 9rem;
-  box-shadow: 10px 10px;
+  box-shadow: 3px 2px 3px hsl(17, 15%, 28%);
 }
 
 .login_info div {
@@ -37,4 +36,11 @@
 
 .login_info div a:hover {
   color: white;
+}
+
+#logout-button {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }

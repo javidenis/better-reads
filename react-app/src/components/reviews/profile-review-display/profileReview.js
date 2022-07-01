@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import EditReviewForm from '../edit-review-form/edit-review-form'
 
 
 function ProfileReviewDisplay({ reviewId }) {
-    const sessionUser = useSelector(state => state.session.user)
+
     const review = useSelector(state =>state.reviews[reviewId])
-    const [reviewFormOpen, setReviewFormOpen] = useState(false)
+
     const [moreOrLess, setMoreOrLess] = useState('...more')
     const [reviewContent, setReviewContent] = useState(review.content.slice(0, 501) || '')
     const books = Object.values(useSelector(state => state.books))

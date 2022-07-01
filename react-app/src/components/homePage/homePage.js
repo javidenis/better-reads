@@ -8,8 +8,13 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 
 function HomePage() {
-    const books = Object.values(useSelector(state => state.books)).reverse()
-    const genres = Object.values(useSelector(state => state.genres))
+
+    const books = Object.values(useSelector(state => state.books))
+    const genres = Object.values(useSelector(state => state.genres)).sort((a,b) => {
+                                                                        if(a.name > b.name)return 1
+                                                                        return -1
+                                                                            })
+
 
 
     return (
@@ -50,7 +55,7 @@ function HomePage() {
                             <a href=''><img className='icon' src={linkedin}></img></a>
                             <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
                         </div>
-                        <div id='home-genre-list-header'>Technologies</div>
+                        <div id='home-genre-list-header' className='bottom-link'>Technologies</div>
                         <div id='footer-link'>
                             <a id='tech-link' href='https://docs.python.org/3/index.html'>Python</a>
                         </div>
@@ -80,11 +85,13 @@ function HomePage() {
                         </div>
                         <div id='footer-link'>
                             <a id='tech-link' href='https://www.npmjs.com/package/multiselect-react-dropdown'>Multiselect</a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }
 
