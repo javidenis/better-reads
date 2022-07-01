@@ -8,7 +8,7 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 
 function HomePage() {
-    const books = Object.values(useSelector(state => state.books))
+    const books = Object.values(useSelector(state => state.books)).reverse()
     const genres = Object.values(useSelector(state => state.genres))
 
 
