@@ -1,7 +1,7 @@
 # Better Reads.
     A GoodReads Clone. 
     
- ![betterreads-website](https://better-reads-aa.herokuapp.com/)
+ <p align=center><a href='https://better-reads-aa.herokuapp.com/'>Better Reads Live Link</a></p>
 
 ## Splash Page
 
