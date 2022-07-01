@@ -4,6 +4,7 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { removeBookshelfThunk, addBookshelfThunk } from '../../../store/bookshelves'
 import './bookshelflist.css'
 import HomeBook from '../../homePage/homeBook'
+import EditBookshelf from '../EditBookShelf/EditBookShelf'
 
 const BookshelfList = () => {
 	const { id } = useParams()
@@ -19,6 +20,12 @@ const BookshelfList = () => {
 	const currentlyReading = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Currently Reading").map(item => item.book_id)
 	const wantToRead = Object.values(useSelector(state => state.readStatus)).filter(status => status.user_id === sessionUser.id && status.readStatus === "Want To Read").map(item => item.book_id)
 	const [errors, setErrors] = useState([])
+
+	const defaultShelves = ['all', 'read', 'current', 'want']
+
+	if (!bookshelvesObj[id] && !defaultShelves.includes(id)) {
+		history.push('/bookshelves/all')
+	}
 
 	// Get all book objects
 	const allBooks = () => {
@@ -42,22 +49,22 @@ const BookshelfList = () => {
 	
 	const bookList = allBooks()
 	useEffect(() => {
-		if (id === 'all') {
-			setBooksToDisplay(bookList)
-		} else if (id === 'read') {
-			setBooksToDisplay(books.filter(book => read.includes(book.id)))
-		} else if (id === 'current') {
-			setBooksToDisplay(books.filter(book => currentlyReading.includes(book.id)))
-		} else if (id === 'want') {
-			setBooksToDisplay(books.filter(book => wantToRead.includes(book.id)))
-		} else {
-			const thisBookshelf = Object.values(bookshelvesObj[Number(id)].books)
-			setBooksToDisplay(thisBookshelf)
+		if (bookshelvesObj[id] || defaultShelves.includes(id)) {
+			if (id === 'all') {
+				setBooksToDisplay(bookList)
+			} else if (id === 'read') {
+				setBooksToDisplay(books.filter(book => read.includes(book.id)))
+			} else if (id === 'current') {
+				setBooksToDisplay(books.filter(book => currentlyReading.includes(book.id)))
+			} else if (id === 'want') {
+				setBooksToDisplay(books.filter(book => wantToRead.includes(book.id)))
+			} else {
+				const thisBookshelf = Object.values(bookshelvesObj[Number(id)]?.books)
+				setBooksToDisplay(thisBookshelf)
+			}
 		}
 		//eslint-disable-next-line
 	},[id] )
-	
-	
 
 
 	const handleAddBookshelf = async (e) => {
@@ -78,16 +85,14 @@ const BookshelfList = () => {
 
 	const removeBookshelf = async (bookshelf_id) => {
 		await dispatch(removeBookshelfThunk(bookshelf_id))
-		history.push('/bookshelves/all/all')
+		history.push('/bookshelves/all')
 	}
-
-	const defaultShelves = ['all', 'read', 'current', 'want']
 
 	return (
 		<div>
 			<div id='bookshelf-display'>
 				<div id='header-container'>
-					<h1 id='bookshelf-header'>My Books: {defaultShelves.includes(id) ? id.charAt(0).toUpperCase() + id.slice(1) : bookshelvesObj[id].name}</h1>
+					<h1 id='bookshelf-header'>My Books: {defaultShelves.includes(id) ? id.charAt(0).toUpperCase() + id.slice(1) : bookshelvesObj[id]?.name}</h1>
 					{/* <h1 id='bookshelf-header-shelf'></h1> */}
 				</div>
 				<div id='br1'></div>
@@ -103,8 +108,10 @@ const BookshelfList = () => {
 							{Object.values(bookshelves).map(bookshelf => (
 								<div key={bookshelf.id} id='link-div'>
 									<Link id='bookshelf-link' to={`/bookshelves/${bookshelf.id}`}>{bookshelf.name} ({Object.values(bookshelf.books).length})</Link>
+
 									<i onClick={() => removeBookshelf(bookshelf.id)} className="fa-solid fa-xmark"></i>
 									{/* <div >Edit</div> */}
+
 								</div>
 							))}
 							<form id='bookshelf-form' onSubmit={e => handleAddBookshelf(e)}>
