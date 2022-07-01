@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 
 
 function HomePage() {
-    const books = Object.values(useSelector(state => state.books))
-    const genres = Object.values(useSelector(state => state.genres)).slice(0, 20)
+    const books = Object.values(useSelector(state => state.books)).reverse()
+    const genres = Object.values(useSelector(state => state.genres))
 
 
     return (
