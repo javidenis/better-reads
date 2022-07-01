@@ -8,11 +8,13 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 
 function HomePage() {
+
     const books = Object.values(useSelector(state => state.books))
     const genres = Object.values(useSelector(state => state.genres)).sort((a,b) => {
                                                                         if(a.name > b.name)return 1
                                                                         return -1
                                                                             })
+
 
 
     return (
@@ -34,6 +36,7 @@ function HomePage() {
                     <div id='footer-container'>
                         <div id='home-genre-list-header'>About Us</div>
                         <div id='footer-link'>
+
                             <a href='https://github.com/ericgeagan'><img className='icon' alt='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img alt='icon' className='icon' src={linkedin}></img></a>
                             <p id='name'>Eric Geagan</p>
@@ -52,6 +55,39 @@ function HomePage() {
                             <a href='https://github.com/IamxiaoSheep'><img alt='icon' className='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com'><img alt='icon' className='icon' src={linkedin}></img></a>
                             <p id='name'>Jorge Cardenas</p>
+
+
+                        <div id='home-genre-list-header'>Technologies</div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://docs.python.org/3/index.html'>Python</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask.palletsprojects.com/en/1.1.x/'>Flask</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://wtforms.readthedocs.io/en/2.3.x/'>WTForms</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-wtf.readthedocs.io/en/stable/'>FlaskWTF</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-migrate.readthedocs.io/en/latest/'>Flask-Migrate</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-sqlalchemy.palletsprojects.com/en/2.x/'>FlaskSQLAlchemy</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://alembic.sqlalchemy.org/en/latest/'>Alembic</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://reactjs.org/docs/getting-started.html'>React</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://github.com/boto/boto3'>Boto3 AWS</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://www.npmjs.com/package/multiselect-react-dropdown'>Multiselect</a>
+
                         </div>
                     </div>
                 </div>
