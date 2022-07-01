@@ -7,13 +7,13 @@ def seed_users():
         username='Demo', email='demo@aa.io', password='password', picture_url = 'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png', name='Demo-lition', bio='I am the first test user.')
 
     stili = User(
-        username='Stili', email='stili@aa.io', password='password', picture_url = 'https://images.avvo.com/avvo/ugc/images/head_shot/standard/lawyer_andrew_stilinovic_4797224_1522963435.jpg', name='Test User 1', bio='I am the second test user.')
+        username='Stili', email='stili@aa.io', password='password', picture_url = 'https://images.avvo.com/avvo/ugc/images/head_shot/standard/lawyer_andrew_stilinovic_4797224_1522963435.jpg', name='Andrew Stilinovic', bio='I am the second test user.')
 
     eric = User(
-        username='Eric', email='eric@aa.io', password='password', picture_url ='https://ca.slack-edge.com/T03GU501J-U032DHC0TJ5-934f7a79f795-512', name='Test User 2', bio='I am the third test user.')
+        username='Eric', email='eric@aa.io', password='password', picture_url ='https://ca.slack-edge.com/T03GU501J-U032DHC0TJ5-934f7a79f795-512', name='Eric Geagan', bio='I am the third test user.')
 
     jorge = User(
-        username='Jorge', email='jorge@aa.io', password='password', picture_url ='https://www.yoh.com/hubfs/Thoughtful%20young%20programmer%20coding%20on%20computer%20in%20the%20evening%20at%20home.jpeg', name='Test User 3', bio='I am the fourth test user.')
+        username='Jorge', email='jorge@aa.io', password='password', picture_url ='https://www.yoh.com/hubfs/Thoughtful%20young%20programmer%20coding%20on%20computer%20in%20the%20evening%20at%20home.jpeg', name='Jorge Denis', bio='I am the fourth test user.')
 
 
     db.session.add(demo)
