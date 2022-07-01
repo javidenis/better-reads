@@ -236,7 +236,6 @@
 
 #home-genre-list-link:hover {
     text-decoration: underline;
-
 }
 
 #br {
@@ -267,7 +266,31 @@
     display: flex;
 }
 
+.bottom-link {
+    margin-bottom: 15px;
+}
+
+#tech-link {
+    text-decoration: none;
+    color: #00635D;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+    margin-bottom: 5px;
+}
+
+#tech-link:hover {
+    text-decoration: underline;
+}
+
+
 #name {
     padding-top: 6px;
     padding-left: 3px;
+    text-decoration: none;
+    color: #00635D;
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+#name:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

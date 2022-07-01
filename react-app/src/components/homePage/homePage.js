@@ -33,22 +33,53 @@ function HomePage() {
                         <div id='footer-link'>
                             <a href='https://github.com/ericgeagan'><img class='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Eric Geagan</p>
+                            <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
                         </div>
                         <div id='footer-link'>
                             <a href='https://github.com/stili87'><img class='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Andrew Stilinovic</p>
+                            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
                         </div>
                         <div id='footer-link'>
                             <a href='https://github.com/javidenis'><img class='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Jorge Denis</p>
+                            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
                         </div>
-                        <div id='footer-link'>
+                        <div class='bottom-link' id='footer-link'>
                             <a href='https://github.com/IamxiaoSheep'><img class='icon' src={gitHub}></img></a>
                             <a href=''><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Jorge Cardenas</p>
+                            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
+                        </div>
+                        <div id='home-genre-list-header'>Technologies</div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://docs.python.org/3/index.html'>Python</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask.palletsprojects.com/en/1.1.x/'>Flask</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://wtforms.readthedocs.io/en/2.3.x/'>WTForms</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-wtf.readthedocs.io/en/stable/'>FlaskWTF</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-migrate.readthedocs.io/en/latest/'>Flask-Migrate</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://flask-sqlalchemy.palletsprojects.com/en/2.x/'>FlaskSQLAlchemy</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://alembic.sqlalchemy.org/en/latest/'>Alembic</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://reactjs.org/docs/getting-started.html'>React</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://github.com/boto/boto3'>Boto3 AWS</a>
+                        </div>
+                        <div id='footer-link'>
+                            <a id='tech-link' href='https://www.npmjs.com/package/multiselect-react-dropdown'>Multiselect</a>
                         </div>
                     </div>
                 </div>
