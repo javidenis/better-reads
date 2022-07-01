@@ -8,7 +8,7 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 
 function HomePage() {
-    const books = Object.values(useSelector(state => state.books))
+    const books = Object.values(useSelector(state => state.books)).reverse()
     const genres = Object.values(useSelector(state => state.genres))
 
 
@@ -38,12 +38,12 @@ function HomePage() {
                         <div id='footer-link'>
                             <a href='https://github.com/stili87'><img class='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Andrew Stilinovic</p>                            
+                            <p id='name'>Andrew Stilinovic</p>
                         </div>
                         <div id='footer-link'>
                             <a href='https://github.com/javidenis'><img class='icon' src={gitHub}></img></a>
                             <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img class='icon' src={linkedin}></img></a>
-                            <p id='name'>Jorge Denis</p>                            
+                            <p id='name'>Jorge Denis</p>
                         </div>
                         <div id='footer-link'>
                             <a href='https://github.com/IamxiaoSheep'><img class='icon' src={gitHub}></img></a>
