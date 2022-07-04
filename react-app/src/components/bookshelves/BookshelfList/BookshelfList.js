@@ -65,7 +65,7 @@ const BookshelfList = () => {
 			}
 		}
 		//eslint-disable-next-line
-	},[id] )
+	},[id, bookshelvesObj, readStatuses] )
 
 
 	const handleAddBookshelf = async (e) => {
