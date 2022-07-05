@@ -13,7 +13,7 @@ function SingleBookDisplay() {
   const sessionUser = useSelector(state => state.session.user)
   const [reviewFormOpen, setReviewFormOpen] = useState(false)
   const history = useHistory()
-  if(!thisBook) {
+  if(!thisBook || !sessionUser) {
     history.push('/')
   }
   const [description, setDescription] = useState(thisBook?.description.slice(0, 137) || '')
@@ -77,9 +77,9 @@ function SingleBookDisplay() {
       <div id='single-book-reviews-display'>
         <p id='single-book-reviews-header'>Community Reviews</p>
         <div id='single-book-create-review-container'>
-          <img alt='profile' id='single-book-create-review-profile-pic' src={sessionUser.picture_url}></img>
+          <img alt='profile' id='single-book-create-review-profile-pic' src={sessionUser?.picture_url}></img>
           <div id='single-book-create-review-profile-container'>
-            <p> {sessionUser.name}, start your review of {thisBook?.title.slice(0, 43)} ...</p>
+            <p> {sessionUser?.name}, start your review of {thisBook?.title.slice(0, 43)} ...</p>
             {sessionUser && <button id='single-book-create-review-button' onClick={() => setReviewFormOpen(!reviewFormOpen)}>Write a Review</button>}
 
             {reviewFormOpen && sessionUser && <ReviewForm thisBook={thisBook} setReviewFormOpen={setReviewFormOpen} />}
