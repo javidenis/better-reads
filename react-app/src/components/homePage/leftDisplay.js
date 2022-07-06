@@ -62,12 +62,12 @@ function LeftDisplay() {
                     <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' src={linkedin}></img></a>
                     <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
                 </div>
-                <div className='bottom-link' id='footer-link'>
+                <div  id='footer-link'>
                     <a href='https://github.com/javidenis'><img className='icon' src={gitHub}></img></a>
                     <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
                     <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
                 </div>
-                <div id='footer-link'>
+                <div className='bottom-link' id='footer-link'>
                     <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
                     <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
                     <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>                            
