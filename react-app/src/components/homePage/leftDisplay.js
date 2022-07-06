@@ -67,6 +67,11 @@ function LeftDisplay() {
                     <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
                     <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
                 </div>
+                <div className='bottom-link' id='footer-link'>
+                    <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
+                    <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
+                    <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>                            
+                </div>
                 <p id='left-currently-reading-header'>CURRENTLY READING</p>
                 {currentBooks?.length > 0 ? currentBooks?.map(book => book && 
                     <div key={book?.id} id='left-book-info'>

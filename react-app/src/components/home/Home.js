@@ -58,6 +58,11 @@ useEffect(() => {
             <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
             <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
         </div>
+        <div id='footer-link'>
+            <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
+            <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
+            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>                            
+        </div>
       </div>
     </div>
 
