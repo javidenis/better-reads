@@ -4,7 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import "./signup.css";
 
-const LoginForm = () => {
+const LoginForm = ({setShowLogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +30,7 @@ const LoginForm = () => {
 
   const handleCancel= e => {
     e.preventDefault()
-    history.push('/')
+    setShowLogin(false)
   }
 
   if (user) {

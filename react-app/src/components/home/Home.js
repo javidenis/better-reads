@@ -1,14 +1,16 @@
 import "./home.css";
-import logo from "../images/Screen Shot 2022-06-29 at 1.34.22 PM.png";
-import reading from "../images/alfons-morales-YLSwjSy7stw-unsplash.jpeg";
+import reading from "../images/Splash-Page-Image.png";
 import LoginOptions from "../LoginOption/LoginOption";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
+import {Modal} from '../../context/Modal'
+import LoginForm from '../auth/LoginForm'
 
 const Home = () => {
+  const [showLogin, setShowLogin] = useState(false)
   const history = useHistory();
   const session = useSelector((state) => state.session);
   const books = useSelector((state) => state.books);
@@ -33,9 +35,16 @@ useEffect(() => {
 
   return (
     <div className="home_component">
-      <img alt="bookshelf background" className="top-logo" src={logo}></img>
+            {showLogin && 
+        <Modal>
+          <LoginForm  setShowLogin={setShowLogin}/>
+        </Modal>
+      }
+      <div id="splash-nav-bar">
+        <a href="/" id="splash-nav-bar-title">Better<span id="splash-nav-bar-title-mid">Reads</span></a>
+      </div>
       <div className="middle-image-streach" style={sectionStyle}>
-        <LoginOptions />
+        <LoginOptions setShowLogin={setShowLogin} />
       </div>
       <div className="collection-header">Our Book Collection!</div>
       <div className="okay">

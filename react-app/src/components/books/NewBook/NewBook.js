@@ -23,7 +23,7 @@ const NewBook = () => {
     const handleOnSubmit = async (e) => {
         e.preventDefault()
 
-        if(cover_url && !cover_url.name.endsWith("pdf") &&
+        if(cover_url && 
         !cover_url.name.endsWith("png") &&
         !cover_url.name.endsWith("jpg") &&
         !cover_url.name.endsWith( "pdf") &&

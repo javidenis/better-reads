@@ -97,7 +97,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
 }
 
 #login-form-full {
@@ -142,4 +141,3 @@ border-radius: 3px;
   #login-form-full > button:hover {
     box-shadow: 1px 1px 1px grey;
       }
-

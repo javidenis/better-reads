@@ -5,7 +5,6 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import User from "./components/User";
 import { authenticate } from "./store/session";
 import NewBook from "./components/books/NewBook/NewBook";
 import SingleBookDisplay from "./components/books/SingleBookDisplay/SingleBookDisplay";
@@ -58,7 +57,6 @@ function App() {
   return (
     <BrowserRouter>
       {session.user ? <NavBar /> : null}
-
       <Switch>
         <Route path="/login" exact={true}>
           <LoginForm />
@@ -69,9 +67,6 @@ function App() {
         <Route exact path="/" >
           <Home />
         </Route>
-        <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path="/bookshelves/:id">
           <BookshelfList />
         </ProtectedRoute>
@@ -93,6 +88,9 @@ function App() {
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
         </ProtectedRoute>
+        <Route path={'/about'}>
+          <h1>About Page Here</h1>
+        </Route>
         <ProtectedRoute>
           <h1 id='notfound'>Page Not Found</h1>
         </ProtectedRoute>
