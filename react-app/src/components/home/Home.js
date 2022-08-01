@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
-import {Modal} from '../../context/Modal'
+import { Modal } from '../../context/Modal'
 import LoginForm from '../auth/LoginForm'
 
 const Home = () => {
@@ -15,15 +15,15 @@ const Home = () => {
   const session = useSelector((state) => state.session);
   const books = useSelector((state) => state.books);
   const pics = Object.values(books).map((el) => (
-    <img  key={el.id} alt="cover" className="collection_images" src={el["cover_url"]} />
+    <img key={el.id} alt="cover" className="collection_images" src={el["cover_url"]} />
   ));
 
-useEffect(() => {
-  if (session.user) {
-    history.push("/home");
-  }
+  useEffect(() => {
+    if (session.user) {
+      history.push("/home");
+    }
 
-},[])
+  }, [])
 
   const sectionStyle = {
     backgroundImage: `url(${reading})`,
@@ -35,9 +35,9 @@ useEffect(() => {
 
   return (
     <div className="home_component">
-            {showLogin && 
+      {showLogin &&
         <Modal>
-          <LoginForm  setShowLogin={setShowLogin}/>
+          <LoginForm setShowLogin={setShowLogin} />
         </Modal>
       }
       <div id="splash-nav-bar">
@@ -46,31 +46,39 @@ useEffect(() => {
       <div className="middle-image-streach" style={sectionStyle}>
         <LoginOptions setShowLogin={setShowLogin} />
       </div>
-      <div className="collection-header">Our Book Collection!</div>
-      <div className="okay">
-        <div className="over">{pics}</div>
+      <div id="splash-page-text-full-container">
+        <div id='splash-page-text-inner'>
+          <p id="splash-page-text-head">Deciding what to read next?</p>
+          <p id="splash-page-text-sub">You’re in the right place. Take a look at our titles or genres to find the perfect book for you..</p>
+        </div>
+        <div id='splash-page-text-inner'>
+          <p id="splash-page-text-head">Keep Track of your Books</p>
+          <p id="splash-page-text-sub">If you need help keeping track of what books you are reading or want read, we can help you organize your book records. </p>
+        </div>
       </div>
-      <div id='splash-genre-list-title'>Developers</div>
-      <div id='splash-genre-list-header'>
-        <div id='footer-link'>
+      <div id="splash-page-footer-container">
+        <div id='splash-genre-list-title'>Developers</div>
+        <div id='splash-footer-developer-container'>
+          <div id='footer-link'>
             <a href='https://github.com/ericgeagan'><img className='icon' src={gitHub}></img></a>
             <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img className='icon' src={linkedin}></img></a>
             <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
-        </div>
-        <div id='footer-link'>
+          </div>
+          <div id='footer-link'>
             <a href='https://github.com/stili87'><img className='icon' src={gitHub}></img></a>
             <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' src={linkedin}></img></a>
-            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
-        </div>
-        <div id='footer-link'>
+            <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>
+          </div>
+          <div id='footer-link'>
             <a href='https://github.com/javidenis'><img className='icon' src={gitHub}></img></a>
             <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
-            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
-        </div>
-        <div id='footer-link'>
+            <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>
+          </div>
+          <div id='footer-link'>
             <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
             <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
-            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>                            
+            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
+          </div>
         </div>
       </div>
     </div>
