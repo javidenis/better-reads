@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, Link, useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { signUp } from "../../store/session";
 import { getAllUsersThunk } from "../../store/users";
 
-const SignUpForm = () => {
+const SignUpForm = ({setShowSignup}) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [name, setName] = useState("")
@@ -22,7 +22,7 @@ const SignUpForm = () => {
 
 
 
-    if(picture_url && !picture_url.name.endsWith("pdf") &&
+    if(picture_url && 
     !picture_url.name.endsWith("png") &&
     !picture_url.name.endsWith("jpg") &&
     !picture_url.name.endsWith( "pdf") &&
@@ -75,7 +75,7 @@ const SignUpForm = () => {
 
   const cancelForm = (e) => {
     e.preventDefault()
-    history.push('/')
+    setShowSignup(false)
   }
 
   if (user) {

@@ -8,9 +8,12 @@ import gitHub from '../images/github.png'
 import linkedin from '../images/linkedin.png'
 import { Modal } from '../../context/Modal'
 import LoginForm from '../auth/LoginForm'
+import SignUpForm from "../auth/SignUpForm";
+import logo from "../images/BetterReads-logos_black.png";
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
   const history = useHistory();
   const session = useSelector((state) => state.session);
   const books = useSelector((state) => state.books);
@@ -40,11 +43,17 @@ const Home = () => {
           <LoginForm setShowLogin={setShowLogin} />
         </Modal>
       }
+        {showSignup &&
+        <Modal>
+          <SignUpForm setShowSignup={setShowSignup} />
+        </Modal>
+      }
       <div id="splash-nav-bar">
-        <a href="/" id="splash-nav-bar-title">Better<span id="splash-nav-bar-title-mid">Reads</span></a>
+        {/* <a href="/" id="splash-nav-bar-title">Better<span id="splash-nav-bar-title-mid">Reads</span></a> */}
+        <a href="/" ><img alt="logo" id="splash-logo" src={logo}></img></a>
       </div>
       <div className="middle-image-streach" style={sectionStyle}>
-        <LoginOptions setShowLogin={setShowLogin} />
+        <LoginOptions setShowLogin={setShowLogin} setShowSignup={setShowSignup} />
       </div>
       <div id="splash-page-text-full-container">
         <div id='splash-page-text-inner'>
@@ -52,7 +61,7 @@ const Home = () => {
           <p id="splash-page-text-sub">You’re in the right place. Take a look at our titles or genres to find the perfect book for you..</p>
         </div>
         <div id='splash-page-text-inner'>
-          <p id="splash-page-text-head">Keep Track of your Books</p>
+          <p id="splash-page-text-head">What are you reading?</p>
           <p id="splash-page-text-sub">If you need help keeping track of what books you are reading or want read, we can help you organize your book records. </p>
         </div>
       </div>
@@ -74,11 +83,7 @@ const Home = () => {
             <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
             <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>
           </div>
-          <div id='footer-link'>
-            <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
-            <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
-            <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>
-          </div>
+
         </div>
       </div>
     </div>

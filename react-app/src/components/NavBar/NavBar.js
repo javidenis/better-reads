@@ -5,7 +5,6 @@ import logo from "../images/BetterReads-logos_black.png";
 import Logged from "./Logged";
 import NotLogged from "./NotLogged";
 import { NavLink } from "react-router-dom";
-import Search from "../search/Search";
 const NavBar = () => {
   //Checking login status
   const [logged, setLogged] = useState(false);

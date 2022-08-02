@@ -14,6 +14,9 @@
   min-width: 100vw;
   align-items: center;
   background-color: #f4f2e9;
+  padding-left: 50px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 #splash-nav-bar-title {
@@ -113,7 +116,11 @@
 #splash-footer-developer-container {
   min-width: 100vw;
   display: flex;
-  height: 100px;
+  height: 75px;
   align-items: center;
   justify-content: space-around;
+}
+
+#splash-logo {
+  max-height: 55px;
 }

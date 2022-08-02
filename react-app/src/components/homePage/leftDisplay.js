@@ -32,6 +32,7 @@ function LeftDisplay() {
         } else if (currentBooksArr.length >= 2) {
             setCurrentBooks([currentBooksArr[0], currentBooksArr[1]])
         }
+        // eslint-disable-next-line
     }, [books, readStatus])
 
     const wantBookIds = wantToRead.map(status => status.book_id)
@@ -53,24 +54,19 @@ function LeftDisplay() {
             <div id='left-currently-reading-main'>
                 <div id='home-genre-list-header'>Developers</div>
                 <div id='footer-link'>
-                    <a href='https://github.com/ericgeagan'><img className='icon' src={gitHub}></img></a>
-                    <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img className='icon' src={linkedin}></img></a>
-                    <a id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
+                    <a href='https://github.com/ericgeagan'><img alt='github' className='icon' src={gitHub}></img></a>
+                    <a href='https://www.linkedin.com/in/eric-geagan-462323195/'><img  alt='linkedin' className='icon' src={linkedin}></img></a>
+                    <a  id='name' href='https://github.com/ericgeagan'>Eric Geagan</a>
                 </div>
                 <div id='footer-link'>
-                    <a href='https://github.com/stili87'><img className='icon' src={gitHub}></img></a>
-                    <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img className='icon' src={linkedin}></img></a>
+                    <a  href='https://github.com/stili87'><img alt='github' className='icon' src={gitHub}></img></a>
+                    <a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'><img  alt='linkedin' className='icon' src={linkedin}></img></a>
                     <a id='name' href='https://github.com/stili87'>Andrew Stilinovic</a>                            
                 </div>
-                <div  id='footer-link'>
-                    <a href='https://github.com/javidenis'><img className='icon' src={gitHub}></img></a>
-                    <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img className='icon' src={linkedin}></img></a>
-                    <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
-                </div>
                 <div className='bottom-link' id='footer-link'>
-                    <a href='https://github.com/IamxiaoSheep'><img className='icon' src={gitHub}></img></a>
-                    <a href='https://www.linkedin.com/'><img className='icon' src={linkedin}></img></a>
-                    <a id='name' href='https://github.com/IamxiaoSheep'>Jorge Cardenas</a>                            
+                    <a href='https://github.com/javidenis'><img alt='github' className='icon' src={gitHub}></img></a>
+                    <a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'><img alt='linkedin' className='icon' src={linkedin}></img></a>
+                    <a id='name' href='https://github.com/javidenis'>Jorge Denis</a>                            
                 </div>
                 <p id='left-currently-reading-header'>CURRENTLY READING</p>
                 {currentBooks?.length > 0 ? currentBooks?.map(book => book && 

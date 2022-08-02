@@ -1,12 +1,10 @@
 import "./loginoption.css";
-import { NavLink, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
-import {Modal} from '../../context/Modal'
-import LoginForm from '../auth/LoginForm'
 
-const LoginOptions = ({setShowLogin}) => {
+
+const LoginOptions = ({setShowLogin, setShowSignup}) => {
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -26,7 +24,7 @@ const LoginOptions = ({setShowLogin}) => {
     <div className="log_component">
       <div className="log_component_header">Discover & read more</div>
       <div>
-          <NavLink to="/sign-up"><button className="signup_button_log">Sign up with email</button></NavLink>
+          <button onClick={() => setShowSignup(true)} className="signup_button_log">Sign up with email</button>
       </div>
       <p id="login-form-terms">By creating an account, you agree to the Goodreads Terms of Service and Privacy Policy.</p>
       <div id="login-form-signin-container">
