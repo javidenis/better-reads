@@ -20,6 +20,7 @@
 
 #splash-nav-bar {
   min-height: 85px;
+  max-height: 85px;
   display: flex;
   min-width: 100vw;
   align-items: center;

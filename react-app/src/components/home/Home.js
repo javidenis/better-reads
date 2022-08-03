@@ -59,41 +59,41 @@ const Home = () => {
   return (
     <div id='splash-outer-wrapper'>
 
-    
-    <div className="home_component">
-      {showLogin &&
-        <Modal>
-          <LoginForm setShowLogin={setShowLogin} />
-        </Modal>
-      }
-      {showSignup &&
-        <Modal>
-          <SignUpForm setShowSignup={setShowSignup} />
-        </Modal>
-      }
-      <div id="splash-nav-bar">
-        <a href="/" ><img alt="logo" id="splash-logo" src={logo}></img></a>
-      </div>
-      <div className="middle-image-streach" style={sectionStyle}>
-        <LoginOptions setShowLogin={setShowLogin} setShowSignup={setShowSignup} />
-      </div>
-      <div id="splash-page-text-full-container">
-        <div id='splash-page-text-inner'>
-          <p id="splash-page-text-head">Deciding what to read next?</p>
-          <p id="splash-page-text-sub">You’re in the right place. Take a look at our titles or genres to find the perfect book for you..</p>
+
+      <div className="home_component">
+        {showLogin &&
+          <Modal>
+            <LoginForm setShowLogin={setShowLogin} />
+          </Modal>
+        }
+        {showSignup &&
+          <Modal>
+            <SignUpForm setShowSignup={setShowSignup} />
+          </Modal>
+        }
+        <div id="splash-nav-bar">
+          <a href="/" ><img alt="logo" id="splash-logo" src={logo}></img></a>
         </div>
-        <div id='splash-page-text-inner'>
-          <p id="splash-page-text-head">What are you reading?</p>
-          <p id="splash-page-text-sub">If you need help keeping track of what books you are reading or want read, we can help you organize your book records. </p>
+        <div className="middle-image-streach" style={sectionStyle}>
+          <LoginOptions setShowLogin={setShowLogin} setShowSignup={setShowSignup} />
+        </div>
+        <div id="splash-page-text-full-container">
+          <div id='splash-page-text-inner'>
+            <p id="splash-page-text-head">Deciding what to read next?</p>
+            <p id="splash-page-text-sub">You’re in the right place. Take a look at our titles or genres to find the perfect book for you..</p>
+          </div>
+          <div id='splash-page-text-inner'>
+            <p id="splash-page-text-head">What are you reading?</p>
+            <p id="splash-page-text-sub">If you need help keeping track of what books you are reading or want read, we can help you organize your book records. </p>
+          </div>
+        </div>
+        <div id="splash-book-collection-container">
+          <p id="splask-book-container-header">What will you discover?</p>
+          <div id="spalsh-book-collection-cards">
+            {pics}
+          </div>
         </div>
       </div>
-      <div id="splash-book-collection-container">
-        <p id="splask-book-container-header">What will you discover?</p>
-        <div id="spalsh-book-collection-cards">
-          {pics}
-        </div>
-      </div>
-    </div>
       <div id="splash-page-footer-container">
         <div id='splash-genre-list-title'>Developers</div>
         <div id='splash-footer-developer-container'>

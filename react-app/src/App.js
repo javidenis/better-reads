@@ -21,6 +21,7 @@ import GenrePage from "./components/genrePage/genrePage";
 import { getAllUsersThunk } from "./store/users";
 
 import Profile from "./components/profile/profile";
+import About from "./components/about/about";
 
 
 function App() {
@@ -81,7 +82,7 @@ function App() {
           <Profile />
         </ProtectedRoute>
         <Route path={'/about'}>
-          <h1>About Page Here</h1>
+          <About />
         </Route>
         <ProtectedRoute>
           <h1 id='notfound'>Page Not Found</h1>
