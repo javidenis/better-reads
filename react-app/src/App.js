@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import User from "./components/User";
 import { authenticate } from "./store/session";
 import NewBook from "./components/books/NewBook/NewBook";
 import SingleBookDisplay from "./components/books/SingleBookDisplay/SingleBookDisplay";
@@ -24,6 +21,7 @@ import GenrePage from "./components/genrePage/genrePage";
 import { getAllUsersThunk } from "./store/users";
 
 import Profile from "./components/profile/profile";
+import About from "./components/about/about";
 
 
 function App() {
@@ -58,20 +56,10 @@ function App() {
   return (
     <BrowserRouter>
       {session.user ? <NavBar /> : null}
-
       <Switch>
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
         <Route exact path="/" >
           <Home />
         </Route>
-        <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path="/bookshelves/:id">
           <BookshelfList />
         </ProtectedRoute>
@@ -93,6 +81,9 @@ function App() {
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
         </ProtectedRoute>
+        <Route path={'/about'}>
+          <About />
+        </Route>
         <ProtectedRoute>
           <h1 id='notfound'>Page Not Found</h1>
         </ProtectedRoute>

@@ -1,10 +1,6 @@
-from turtle import title
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, IntegerField, Field
 from wtforms.validators import DataRequired, ValidationError
-
-from app.models import genres
-
 class ListField(Field):
     def process_formdata(self, valuelist):
         self.data = valuelist

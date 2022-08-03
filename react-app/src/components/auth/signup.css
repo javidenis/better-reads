@@ -1,16 +1,20 @@
 .pfp {
   display: none;
 }
+
 .custom-file-upload {
   border: 4px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+  text-align: center;
 }
 
 #form-container {
   display: flex;
   flex-direction: column;
+  gap: 7px;
+  padding-top: 15px;
 }
 
 #left-container {
@@ -30,49 +34,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 125px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #f4f2e9;
+  min-width: 300px;
 }
 
-.signupform {
-  background-color: hsl(16, 31%, 74%);
-  width: 25rem;
-  /* position: absolute;
-  left: 35rem;
-  top: 17rem; */
-  border: 2px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 6px 12px;
+#signup-header {
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 15px;
 }
 
-.actualform {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 15px;
-  height: 650px;
-  align-items: center;
-  justify-content: center;
-}
 
 #form-container > label {
-  color: white;
   font-size: 18px;
-  text-decoration: underline;
-  font-weight: bolder;
+
+  
 }
 
 #form-container > input {
-  left: 12rem;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 20px;
 }
 
 #form-container > textarea {
   width: 300px;
+  border-radius: 5px;
   height: 70px;
+  resize: none;
 }
 
 
@@ -85,8 +76,8 @@
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  color: #333333;
-  background-color: #dfdbd4;
+  color: white;
+  background-color: #402313;
   line-height: 1;
   padding: 8px 12px;
   box-shadow: 1px 1px 1px grey;
@@ -97,7 +88,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 250px;
 }
 
 #login-form-full {
@@ -142,4 +132,3 @@ border-radius: 3px;
   #login-form-full > button:hover {
     box-shadow: 1px 1px 1px grey;
       }
-

@@ -128,22 +128,17 @@ body {
     min-width: 100vw;
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
     line-height: 1;
-    background-color: rgb(241, 241, 241);
+    /* background-color: rgb(241, 241, 241); */
 
 }
 
 #root {
-  /* display: flex;
-    flex-direction: column; */
-
-    /* align-items: center; */
-    /* justify-content: center; */
     min-height: 100vh;
     min-width: 100vw;
-    font-family: "Merriweather", "Georgia", serif;
     line-height: 1;
-    background-color: #f4f2e9
-
+    background-color: rgba(244,241,234,0.5);
+    display: flex;
+    flex-direction: column;
 }
 
 ol,

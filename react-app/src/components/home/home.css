@@ -1,12 +1,44 @@
-.home_component {
+#splash-outer-wrapper{
   display: flex;
   flex-direction: column;
-  background-color: #f4f2e9;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.home_component {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  gap: 20px;
-  /* padding-bottom: 100px; */
+
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 25px;
+}
+
+#splash-nav-bar {
+  min-height: 85px;
+  max-height: 85px;
+  display: flex;
+  min-width: 100vw;
+  align-items: center;
+  background-color: #f4f2e9;
+  padding-left: 50px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#splash-nav-bar-title {
+  font-size: 35px;
+  padding-left: 25px;
+  text-decoration: none;
+  color: black;
+}
+
+#splash-nav-bar-title-mid {
+  font-weight: 600;
 }
 
 .top-logo {
@@ -17,8 +49,13 @@
 .middle-image-streach {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
+  background-color: white;
+  min-height: 275px;
+  max-height: 275px;
+  margin-bottom: 50px;
+  
 }
 
 .collection-header {
@@ -47,6 +84,79 @@
 }
 
 .collection_images {
-  height: 80%;
+  height: 200px;
   box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#splash-page-text-full-container {
+  display: flex;
+  gap: 50px;
+  align-self: flex-start;
+  margin-left: 25px;
+  margin-top: 45px;
+  margin-bottom: 30px;
+  align-self: center;
+}
+
+#splash-page-text-inner {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  gap: 15px;
+
+}
+
+#splash-page-text-head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#splash-page-text-sub {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+#splash-page-footer-container {
+  background-color: #f4f2e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  justify-content: center;
+  padding-top: 25px;
+  flex-shrink: 0;
+}
+
+#splash-footer-developer-container {
+  min-width: 100vw;
+  display: flex;
+  height: 75px;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+#splash-logo {
+  max-height: 55px;
+}
+
+#splash-book-collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 35px;
+  background-color: #f4f2e9;
+  border-radius: 25px;
+  
+}
+
+#splask-book-container-header {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#spalsh-book-collection-cards {
+  display: flex;
+  gap: 15px;
 }
