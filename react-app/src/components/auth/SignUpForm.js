@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import { signUp } from "../../store/session";
 import { getAllUsersThunk } from "../../store/users";
+import logo from "../images/BetterReads-logos_black.png";
 
 const SignUpForm = ({setShowSignup}) => {
   const [errors, setErrors] = useState([]);
@@ -15,7 +16,6 @@ const SignUpForm = ({setShowSignup}) => {
   let [picture_url, setPicture_url] = useState(null)
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory()
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -84,13 +84,22 @@ const SignUpForm = ({setShowSignup}) => {
 
   return (
     <div id='signup-container'>
-      <div className="signupform">
-        <form id='form-container' onSubmit={onSignUp} className='actualform'>
+      <img alt="logo" id="splash-logo" src={logo}></img>
+      <p id='signup-header'>Create Account</p>
+        <form id='form-container' onSubmit={onSignUp} >
             <div>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
             </div>
+            <label>Your name</label>
+            <input
+              type="text"
+              name="name"
+              onChange={e=>setName(e.target.value)}
+              value={name}
+            >
+            </input>
             <label>User Name</label>
             <input
               type="text"
@@ -105,14 +114,6 @@ const SignUpForm = ({setShowSignup}) => {
               onChange={updateEmail}
               value={email}
             ></input>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              onChange={e=>setName(e.target.value)}
-              value={name}
-            >
-            </input>
             <label>Password</label>
             <input
               type="password"
@@ -128,14 +129,14 @@ const SignUpForm = ({setShowSignup}) => {
               value={repeatPassword}
               required={true}
             ></input>
-            <label>Bio</label>
+            <label>Short Biography</label>
             <textarea
               name="bio"
               onChange={e=>setBio(e.target.value)}
               value={bio}
             ></textarea>
             <label className="custom-file-upload">
-              Profile Picture Upload
+              {!picture_url ? 'Profile Picture Upload (optional)': 'Uploaded!'}
               <input 
                 className="pfp" 
                 accept="image/*"
@@ -146,7 +147,7 @@ const SignUpForm = ({setShowSignup}) => {
           <button type="submit">Sign Up</button>
           <button onClick={e=>cancelForm(e)} >Cancel</button>
         </form>
-      </div>
+
     </div>
   );
 };

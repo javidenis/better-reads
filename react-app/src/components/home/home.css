@@ -1,11 +1,21 @@
+#splash-outer-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
 .home_component {
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   background-color: white;
   align-items: center;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 25px;
 }
 
 #splash-nav-bar {
@@ -42,7 +52,9 @@
   align-items: center;
   background-color: white;
   min-height: 275px;
+  max-height: 275px;
   margin-bottom: 50px;
+  
 }
 
 .collection-header {
@@ -71,7 +83,7 @@
 }
 
 .collection_images {
-  height: 80%;
+  height: 200px;
   box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -82,6 +94,7 @@
   margin-left: 25px;
   margin-top: 45px;
   margin-bottom: 30px;
+  align-self: center;
 }
 
 #splash-page-text-inner {
@@ -107,10 +120,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100px;
   justify-content: center;
   padding-top: 25px;
-  position: absolute;
-  bottom: 0;
+  flex-shrink: 0;
 }
 
 #splash-footer-developer-container {
@@ -119,8 +132,30 @@
   height: 75px;
   align-items: center;
   justify-content: space-around;
+
 }
 
 #splash-logo {
   max-height: 55px;
+}
+
+#splash-book-collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 35px;
+  background-color: #f4f2e9;
+  border-radius: 25px;
+  
+}
+
+#splask-book-container-header {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#spalsh-book-collection-cards {
+  display: flex;
+  gap: 15px;
 }

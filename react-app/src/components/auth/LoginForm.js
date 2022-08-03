@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect} from "react-router-dom";
 import { login } from "../../store/session";
 import "./signup.css";
+import logo from "../images/BetterReads-logos_black.png";
 
 const LoginForm = ({setShowLogin}) => {
   const [errors, setErrors] = useState([]);
@@ -36,10 +37,17 @@ const LoginForm = ({setShowLogin}) => {
     return <Redirect to="/home" />;
   }
 
-  return (
-    <div id="login-form-container">
-    <form id="login-form-full" onSubmit={onLogin}>
+  const demoHandler = async (e) => {
+    e.preventDefault()
+    await dispatch(login("demo@aa.io", "password"));
+    
+  };
 
+  return (
+    <div id="signup-container">
+      <img alt="logo" id="splash-logo" src={logo}></img>
+      <p id='signup-header'>Login</p>
+    <form id="form-container" onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -65,6 +73,7 @@ const LoginForm = ({setShowLogin}) => {
           onChange={updatePassword}
         />
         <button type="submit">Login</button>
+        <button onClick={(e) => demoHandler(e)}>Demo User</button>
         <button onClick={(e) => handleCancel(e)}>Cancel</button>
     </form>
     </div>

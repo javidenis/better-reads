@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { editBookshelfThunk } from '../../../store/bookshelves'
 import './editbookshelf.css'
 
 const EditBookshelf = ({ bookshelf }) => {
-	const bookshelf_id = useParams().id
 	const sessionUser = useSelector((state) => state.session.user)
-	// const bookshelf = useSelector(state => state.bookshelves[bookshelf_id])
 	const [name, setName] = useState(bookshelf.name || '')
 	const [errors, setErrors] = useState([])
 	const [openForm, setOpenForm] = useState(false)
 	const dispatch = useDispatch()
-	const history = useHistory()
 
 	const handleClose = e => {
 		e.preventDefault()
