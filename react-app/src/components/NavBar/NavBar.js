@@ -3,73 +3,50 @@ import { useSelector } from "react-redux";
 import "./navbar.css";
 import logo from "../images/BetterReads-logos_black.png";
 import Logged from "./Logged";
-import NotLogged from "./NotLogged";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const NavBar = () => {
-  //Checking login status
-  const [logged, setLogged] = useState(false);
-
-  //Checking display
-  const [display, setDisplay] = useState(true);
-
-  // Current Session
+  const [display, setDisplay] = useState(false);
   const session = useSelector((state) => state.session);
 
-  //Controlling the logout button
   useEffect(() => {
-    setLogged(session?.user ? true : false);
-  }, [session]);
+		const closeDropdown = e => {
+				if (e.path[1].className !== 'dont-close' && e.path[1].className !== 'dont-close' && e.path[0].className !== 'fa-solid fa-caret-down dont-close' && e.path[0].className !== 'dont-close' ) {
+          setDisplay(false)
+				}
+		}
 
-  //control profile
-  const showProfile = () => {
-    setDisplay(display ? false : true);
-  };
-  const background = session.user.picture_url
+		document.body.addEventListener('click', closeDropdown)
 
-  const sectionStyle = {
-    backgroundImage: `url(${background})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  }
+		return () => document.body.removeEventListener('click', closeDropdown)
+	}, [])
 
-  //Space
-  return (
-    <div>
-      <div className="loginbar">
-        <div className="logo_component">
-          <div>
-            <img src={logo} alt="Logo" className="logowe" />
-          </div>
+
+    return (
+      <div id="nav-bar-full">
+        <div id="nav-bar-left-container">
+          <Link to="/home">
+            <img src={logo} alt="Logo" id="splash-logo" />
+          </Link>
+          <Link id="nav-bar-link" to="/home" ><p>Home</p></Link>
+          <Link to="/bookshelves/all" id="nav-bar-link">My Books</Link>
         </div>
-        <div className="nav_component">
-          <div>
-            <NavLink to="/home" className="home_word">
-              Home
-            </NavLink>
-          </div> 
-          <div>
-            <NavLink to="/bookshelves/all" className="mybook_word">
-              My Books
-            </NavLink>
+        <div id="nav-bar-left-container">
+          <Link to="/about" id="nav-bar-link">About</Link>
+          <Link to="/books/new" id="nav-bar-link">Add a Book</Link>
+          <div className="dont-close" id="nav-bar-profile-div" onClick={() => setDisplay(!display)}>
+            <i class="fa-solid fa-bars"></i>
+            <img alt="profile" id="nav-bar-profile-pic" src={session?.user?.picture_url} />
+
           </div>
+          {display && <Logged />}
 
         </div>
-        
-        <div  className="buttoninfo">
-          <div style={sectionStyle} className="profile_circle" onClick={showProfile}>
 
-            <div>
-              {display ? <div></div> : logged ? <Logged /> : <NotLogged />}
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-export default NavBar;
+  export default NavBar;
 
 // <nav>
 //   <ul>

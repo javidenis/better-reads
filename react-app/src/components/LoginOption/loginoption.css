@@ -27,6 +27,11 @@
   height: 3rem;
   background-color: #402313;
 }
+
+.login_button_log:hover {
+  background-color: #402313;
+}
+
 .signup_button_log {
   text-decoration: none;
   color: white;
@@ -37,6 +42,10 @@
   background-color: #402313;
   border: none;
   border-radius: 3px;
+}
+
+.signup_button_log:hover{
+  background-color: #5a321f;
 }
 
 .demo_button {

@@ -17,31 +17,16 @@ const Logged = () => {
   }, [session]);
 
   return (
-    <div>
-      <div className="login_component">
-        <div className="login_info">
-          <div>Welcome, {logged}.</div>
-          <div>
-            <NavLink to="/home" activeClassName="active">
-              Home
-            </NavLink>
-          </div>
-          <div>
-            <NavLink to="/profile" activeClassName="active">
+      <div id="nav-bar-drop-down">
+          <div id="nav-bar-drop-down-header" className="dont-close">Welcome, {logged}.</div>
+
+            <NavLink className="nav-bar-drop-down-link" to="/profile" activeClassName="active" >
               Profile
-            </NavLink>
-          </div>
-          <div>
-            <NavLink to="/books/new" activeClassName="active">
-              Add a Book
-            </NavLink>
-          </div>
-          <div>
+              </NavLink>
             <LogoutButton />
-          </div>
+
         </div>
-      </div>
-    </div>
+
   );
 };
 

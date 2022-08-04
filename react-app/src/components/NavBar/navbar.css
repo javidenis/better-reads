@@ -1,18 +1,92 @@
-.advertise {
-  background-color: #ffd766;
-  height: 2.5em;
-}
-.advertise_component {
+#nav-bar-full {
+  min-height: 85px;
+  max-height: 85px;
   display: flex;
-  gap: 10px;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 10px;
+  background-color: #f4f2e9;
+  padding-left: 50px;
+  padding-right: 100px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  
+  justify-content: space-between;
 }
-.advertise_nav {
+
+#nav-bar-link {
+  font-size: 20px;
   text-decoration: none;
   color: black;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+}
+
+#nav-bar-link:hover {
+  background-color: #402313;
+  color: white;
+}
+
+#nav-bar-left-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#nav-bar-profile-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+#nav-bar-profile-div {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px lightgray solid;
+    border-radius: 25px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#nav-bar-drop-down {
+  position: absolute;
+  top: 71px;
+  right: 125px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 0px 10px ;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.nav-bar-drop-down-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  width: 180px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.nav-bar-drop-down-link:hover {
+  background-color: #402313;
+  color: white;
+}
+
+#nav-bar-drop-down-header {
+  font-size: 18px;
 }
 
 .loginbar {
@@ -23,6 +97,7 @@
   height: 70px;
   padding-top: 15px;
 }
+
 .logowe {
   width: 10rem;
   position: relative;
@@ -87,37 +162,3 @@
 .nav_component div .home_word {
   left: 20px;
 }
-
-/* .loginbar nav ul {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
-
-.loginbar {
-  display: flex;
-  width: auto;
-  height: 4rem;
-  background-color: #edcfc5;
-}
-
-.profile_circle {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-top: 1rem;
-
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  position: absolute;
-  right: 2rem;
-}
-
-.logowe {
-  width: 5rem;
-  position: absolute;
-  left: 15px;
-  top: -0.5rem;
-} */ ;
