@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+.custom-file-upload:hover {
+  text-decoration: underline;
+}
+
 #form-container {
   display: flex;
   flex-direction: column;
@@ -81,6 +85,10 @@
   line-height: 1;
   padding: 8px 12px;
   box-shadow: 1px 1px 1px grey;
+}
+
+#form-container > button:hover {
+  background-color: #5a321f;
 }
 
 #login-form-container {

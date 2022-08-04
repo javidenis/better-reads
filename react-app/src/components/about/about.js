@@ -5,6 +5,7 @@ import logo from "../images/BetterReads-logos_black.png";
 import andrew from "../images/andrew-pic.png"
 import eric from "../images/eric-pic.jpg"
 import jorge from "../images/jorge-pic.jpeg"
+import { Link } from 'react-router-dom';
 
 
 const About = () => {
@@ -14,8 +15,8 @@ const About = () => {
         <div className='about-outer-container'>
             {!sessionUser &&
                 <div id="splash-nav-bar">
-                    <a href="/" ><img alt="logo" id="splash-logo" src={logo}></img></a>
-                    <a id="about-nav-home-link"href="/" ><p>Home</p></a>
+                    <Link to="/" ><img alt="logo" id="splash-logo" src={logo}></img></Link>
+                    <Link id="about-nav-home-link" to="/" ><p>Home</p></Link>
                 </div>
             }
             <p className='about-header'>About BetterReads</p>
