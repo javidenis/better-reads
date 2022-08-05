@@ -17,6 +17,7 @@
 #review-form > textarea {
     width: 550px;
     height: 350px;
+    resize: none;
 }
 
 #review-button-holder {

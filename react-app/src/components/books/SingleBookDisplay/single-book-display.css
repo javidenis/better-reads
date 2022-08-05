@@ -137,6 +137,7 @@
 #single-book-create-review-profile-pic {
     height: 66px;
     width: 50px;
+    object-fit: cover;
 }
 
 
