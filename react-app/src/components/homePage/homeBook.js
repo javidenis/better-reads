@@ -7,10 +7,15 @@ function HomeBook({book}) {
 
     const bookDescription = book.description.slice(0, 225)
 
+    const handleError = (e) => {
+        e.target.src = ''
+        e.target.src = book?.cover_url
+    }
+
     return (
     <div id="home-book-main">
         <Link to={`/books/${book.id}`} id='home-book-left'>
-            <img alt='book cover' src={book.cover_url}></img>
+            <img onError={(e) => handleError(e)} alt='book cover' src={book.cover_url}></img>
         </Link>
         <div id='home-book-right'>
             <Link id='home-book-title' to={`/books/${book.id}`}>{book.title}</Link>

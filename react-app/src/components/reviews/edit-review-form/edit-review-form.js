@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { editReviewThunk, deleteReviewThunk } from '../../../store/reviews';
 import { useParams } from 'react-router-dom';
+import { Rating } from 'react-simple-star-rating'
 
 function EditReviewForm({ setReviewFormOpen, review }) {
     const bookId = useParams().id
@@ -41,6 +42,10 @@ function EditReviewForm({ setReviewFormOpen, review }) {
         }
     }
 
+    const handleStarRating = rate => {
+        setRating(rate / 20)
+    }
+
     const handleCancel = e => {
         setReviewFormOpen(false)
     }
@@ -61,8 +66,9 @@ function EditReviewForm({ setReviewFormOpen, review }) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
             }
-            <label>Rating: 1 to 5</label>
-            <input onChange={e => handleSetRating(e)} id='rating-input' type='text' placeholder='1 to 5' value={rating}></input>
+            <label>Rating: </label>
+            {/* <input onChange={e => handleSetRating(e)} id='rating-input' type='text' placeholder='1 to 5' value={rating}></input> */}
+            <Rating transition onClick={handleStarRating} ratingValue={rating * 20}/>
             <label>Review</label>
             <textarea onChange={e => setContent(e.target.value)} id='cotent-input' type='text' placeholder='Your Review Here' value={content}></textarea>
             <div id='review-button-holder'>
