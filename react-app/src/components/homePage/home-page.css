@@ -183,6 +183,7 @@
     box-shadow: 0 0 5px rgb(0 0 0 / 10%); 
     width: 96px;
     height: 96px;
+    object-fit: cover;
 }
 
 #want-to-read-link {

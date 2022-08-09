@@ -56,9 +56,12 @@ function ReadStatus({ thisBook }) {
                 {dropDownOpen && 
                 <div>
                     <div id='read-status-select' className='dont-close1'>
-                        <option onClick={(e) => handleReadStatus(e)}>Want To Read</option>
-                        <option onClick={(e) => handleReadStatus(e)}>Currently Reading</option>
-                        <option onClick={(e) => handleReadStatus(e)}>Read</option>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Want To Read' && <i className="fa-solid fa-check"></i>}Want to Read</div>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Currently Reading' && <i className="fa-solid fa-check"></i>}Currently Reading</div>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Read' && <i className="fa-solid fa-check"></i>}Read</div>
+                        {/* <option onClick={(e) => handleReadStatus(e)}>Want To Read</option> */}
+                        {/* <option onClick={(e) => handleReadStatus(e)}>Currently Reading</option>
+                        <option onClick={(e) => handleReadStatus(e)}>Read</option> */}
                     </div>
                 </div>
                 }

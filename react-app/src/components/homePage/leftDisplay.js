@@ -49,6 +49,11 @@ function LeftDisplay() {
         }
     }
 
+    const handleError = (e, book) => {
+        e.target.src = ''
+        e.target.src = book?.cover_url
+    }
+
     return (
         <div id='full-left-display'>
             <div id='left-currently-reading-main'>
@@ -72,7 +77,7 @@ function LeftDisplay() {
                 {currentBooks?.length > 0 ? currentBooks?.map(book => book && 
                     <div key={book?.id} id='left-book-info'>
                         <div id='left-full-book'>
-                            <Link to={`/books/${book?.id}`}><img id='left-book-img' alt='book-cover' src={book?.cover_url}></img></Link>
+                            <Link to={`/books/${book?.id}`}><img id='left-book-img' alt='book-cover' onError={(e) => handleError(e, book)} src={book?.cover_url}></img></Link>
                         </div>
                         <div id='left-book-other'>
                             <Link id='left-book-other-title' to={`/books/${book?.id}`}>{book?.title}</Link>
@@ -84,7 +89,7 @@ function LeftDisplay() {
             <div id='left-want-to-read-main'>
                 <p id='left-currently-reading-header'>WANT TO READ</p>
                 {wantBooks.length > 0 ?
-                    wantBooks.map(book => book && <Link id='want-to-read-link' key={book.id} to={`/books/${book.id}`}><img alt='book cover' id='want-read-img' src={book.cover_url}></img></Link>)
+                    wantBooks.map(book => book && <Link id='want-to-read-link' key={book.id} to={`/books/${book.id}`}><img onError={(e) => handleError(e, book)} alt='book cover' id='want-read-img' src={book.cover_url}></img></Link>)
 
 
                     : <div>No Books you want to read</div>}

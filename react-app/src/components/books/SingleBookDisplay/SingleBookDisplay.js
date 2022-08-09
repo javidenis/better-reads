@@ -6,6 +6,7 @@ import ReviewForm from '../../reviews/review-form/ReviewForm';
 import SingleReviewDisplay from '../../reviews/single-review-display/single-review-display';
 import ReadStatus from '../../readstatus/readstatus';
 import BookshelfButton from '../../bookshelves/BookshelfButton';
+import { Rating } from 'react-simple-star-rating'
 
 function SingleBookDisplay() {
   const bookId = useParams().id
@@ -47,7 +48,10 @@ function SingleBookDisplay() {
     }
   }
 
-
+  const handleError = (e) => {
+    e.target.src = ''
+    e.target.src = thisBook?.cover_url
+  }
 
   const handleEditButton = () => {
     history.push(`/books/${bookId}/edit`)
@@ -57,7 +61,7 @@ function SingleBookDisplay() {
     <div id='book-display-full-page'>
       <div id='single-book-display'>
         <div id='single-book-left-display'>
-          <img alt='cover-art' id='single-book-cover-art' src={thisBook?.cover_url} />
+          <img onError={(e) => handleError(e)} alt='cover-art' id='single-book-cover-art' src={thisBook?.cover_url} />
           {sessionUser?.id === thisBook?.user_id && <div id='single-book-edit-button' onClick={() => handleEditButton()}>Edit Book</div>}
           {sessionUser && <ReadStatus thisBook={thisBook} />}
           {sessionUser && <BookshelfButton thisBook={thisBook} />}
@@ -66,7 +70,8 @@ function SingleBookDisplay() {
           <h1 id='single-book-book-title'>{thisBook?.title}</h1>
           <h2 id='single-book-book-author'>by {thisBook?.author}</h2>
           <p id='single-book-book-genres'>Genres: {genres?.map(genre => <Link id='single-book-genre-links' key={genre.id} to={`/genre/${genre.id}`}> {genre.name} </Link>)}</p>
-          {avgRating >= 0 && <p>Rating: {`${avgRating} / 5`}</p>}
+          {/* {avgRating >= 0 && <p>Rating: {`${avgRating} / 5`}</p>} */}
+          {avgRating >= 0 && <p><Rating size={25} readonly ratingValue={avgRating * 20}/>{avgRating}</p>}
           <p id='single-book-book-genres'>Published: {pubMonth}-{pubDay}-{pubYear}</p>
           <h3 id='single-book-book-subheading'>{thisBook?.sub_heading}</h3>
           <h4 id='single-book-book-description'>{description}</h4>
