@@ -33,7 +33,7 @@ function ReadStatus({ thisBook }) {
         const newReadStatus = {
             user_id: sessionUser.id,
             book_id: thisBook?.id,
-            readStatus: e.target.value
+            readStatus: e
         }
         setDropDownOpen(false)
         dispatch(addReadStatusThunk(newReadStatus))
@@ -56,9 +56,9 @@ function ReadStatus({ thisBook }) {
                 {dropDownOpen && 
                 <div>
                     <div id='read-status-select' className='dont-close1'>
-                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Want To Read' && <i className="fa-solid fa-check"></i>}Want to Read</div>
-                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Currently Reading' && <i className="fa-solid fa-check"></i>}Currently Reading</div>
-                        <div id='bookshelf-option' onClick={(e) => handleReadStatus(e)}>{currentStatus === 'Read' && <i className="fa-solid fa-check"></i>}Read</div>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus('Want To Read')}>{currentStatus === 'Want To Read' && <i className="fa-solid fa-check"></i>}Want to Read</div>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus('Currently Reading')}>{currentStatus === 'Currently Reading' && <i className="fa-solid fa-check"></i>}Currently Reading</div>
+                        <div id='bookshelf-option' onClick={(e) => handleReadStatus('Read')}>{currentStatus === 'Read' && <i className="fa-solid fa-check"></i>}Read</div>
                         {/* <option onClick={(e) => handleReadStatus(e)}>Want To Read</option> */}
                         {/* <option onClick={(e) => handleReadStatus(e)}>Currently Reading</option>
                         <option onClick={(e) => handleReadStatus(e)}>Read</option> */}
