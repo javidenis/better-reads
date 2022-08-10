@@ -34,13 +34,6 @@ function EditReviewForm({ setReviewFormOpen, review }) {
     }
 
 
-    const handleSetRating = e => {
-        if (e.target.value > 0 && e.target.value <= 5) {
-            setRating(e.target.value)
-        } else {
-            setRating('')
-        }
-    }
 
     const handleStarRating = rate => {
         setRating(rate / 20)

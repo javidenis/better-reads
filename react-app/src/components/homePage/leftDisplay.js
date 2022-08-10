@@ -20,17 +20,16 @@ function LeftDisplay() {
     
     useEffect(()=> {
         const bookIds = currentlyReading.map(status => status.book_id)
-        
-        
         const currentBooksArr = bookIds?.map(id => {
             return books[id]
         })
-
 
         if (currentBooksArr.length > 0 && currentBooksArr.length < 2) {
             setCurrentBooks([currentBooksArr[0]])
         } else if (currentBooksArr.length >= 2) {
             setCurrentBooks([currentBooksArr[0], currentBooksArr[1]])
+        } else if (currentBooksArr.length === 0){
+            setCurrentBooks([])
         }
         // eslint-disable-next-line
     }, [books, readStatus])

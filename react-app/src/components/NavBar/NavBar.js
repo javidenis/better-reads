@@ -34,7 +34,7 @@ const NavBar = () => {
           <Link to="/about" id="nav-bar-link">About</Link>
           <Link to="/books/new" id="nav-bar-link">Add a Book</Link>
           <div className="dont-close" id="nav-bar-profile-div" onClick={() => setDisplay(!display)}>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
             <img alt="profile" id="nav-bar-profile-pic" src={session?.user?.picture_url} />
 
           </div>
