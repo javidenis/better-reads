@@ -5,11 +5,15 @@
 
 ## Splash Page
 
-![betterreads-login](https://user-images.githubusercontent.com/59179145/176922294-ba016cbb-40db-4559-929b-172f286d4e58.png)
+![BetterReads HomePage](https://user-images.githubusercontent.com/59978288/184771763-49df30f6-cf2f-438d-a60f-212b3c99d410.png)
+
+
 
 ## Entry Page
 
-![betterreads-home](https://user-images.githubusercontent.com/59179145/176922356-261c9058-0f33-41fd-8701-ef02f1313149.png)
+
+![Home Page](https://user-images.githubusercontent.com/59978288/184771059-a22ed255-7f26-499a-969e-eedad04d2324.png)
+
 
 ## Single Book Display
 
