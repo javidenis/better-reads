@@ -1,19 +1,24 @@
-# Better Reads.
-    A GoodReads Clone. 
+<h1 align="center"> Better Reads</h1>
+
+<h3 align='center'> The perfect place to track your books! </h3>
     
- <p align=center><a href='https://better-reads-aa.herokuapp.com/'>Better Reads Live Link</a></p>
+## [Link to Live Site](https://better-reads-aa.herokuapp.com/)</h2>
 
-## Splash Page
-
-![betterreads-login](https://user-images.githubusercontent.com/59179145/176922294-ba016cbb-40db-4559-929b-172f286d4e58.png)
+### Splash Page
+You can sign up for an account or just use the demo user's creditials.
+![BetterReads HomePage](https://user-images.githubusercontent.com/59978288/184771763-49df30f6-cf2f-438d-a60f-212b3c99d410.png)
 
 ## Entry Page
+View all the books in the collection and sort by genre. 
 
-![betterreads-home](https://user-images.githubusercontent.com/59179145/176922356-261c9058-0f33-41fd-8701-ef02f1313149.png)
+![Home Page](https://user-images.githubusercontent.com/59978288/184771059-a22ed255-7f26-499a-969e-eedad04d2324.png)
 
-## Single Book Display
 
-![betterreads-singlebook](https://user-images.githubusercontent.com/59179145/176922437-e6499994-0a06-4c48-8129-cc17c8069bd3.png)
+### Single Book Display
+Check out all the information about a single book and rate and review it. 
+
+![Single Book](https://user-images.githubusercontent.com/59978288/184772876-dd09a4bc-a9eb-4f6e-81a6-a55155632a1e.png)
+
 
 ## About
 
@@ -35,15 +40,43 @@ Better Reads is a full stack application that allows users to keep tracks on boo
   
   7. Navigate your browser to `localhost:3000`
 
-# Technologies Used
+## Application Technologies
 
-- Python
-- Flask
-- WTForms
-- FlaskWTF
-- Flask-Migrate
-- FlaskSQLAlchemy
-- Alembic
-- React
-- Boto3 AWS
-- Multiselect
+Clear Bnb is built on React and Redux frontend with Python/Flask backend, using PostgresSQL as a database and SQL Alchmeny to access the database.
+
+### Technologies Used
+
+- [Docker](https://www.docker.com/)
+- [React.js](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Javascript](https://www.javascript.com/)
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/en/2.1.x/)
+- [Flask SQL Alchmeny](https://flask-sqlalchemy.palletsprojects.com/en/2.x/)
+- [Flask Alembic](https://flask-alembic.readthedocs.io/en/stable/)
+- [PostgresSQL](https://www.postgresql.org/)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+Andrew Stilinovic
+
+<a href='https://www.linkedin.com/in/andrew-stilinovic-94277180/'>Linked-in</a>
+
+<a href='https://github.com/stili87'>Github</a>
+
+stili87@gmail.com
+
+Eric Geagan
+
+<a href='https://www.linkedin.com/in/eric-geagan-462323195/'>Linked-in</a>
+
+<a href='https://github.com/ericgeagan'>Github</a>
+
+ericgeagan@gmail.com
+
+Jorge Denis
+
+<a href='https://www.linkedin.com/in/jorge-denis-9749b1198/'>Linked-in</a>
+
+<a href='https://github.com/javidenis'>Github</a>
+
+jjavierdenis@gmail.com
