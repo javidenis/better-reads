@@ -22,6 +22,7 @@ import { getAllUsersThunk } from "./store/users";
 
 import Profile from "./components/profile/profile";
 import About from "./components/about/about";
+import SearchResults from "./components/searchResults/searchResults";
 
 
 function App() {
@@ -80,6 +81,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search/:terms'>
+          <SearchResults/>
         </ProtectedRoute>
         <Route path={'/about'}>
           <About />
