@@ -8,7 +8,8 @@ import { Link, useParams } from 'react-router-dom'
 
 
 function SearchResults() {
-    const terms = useParams().terms.toLowerCase()
+    const originalTerms = useParams().terms
+    const terms = originalTerms.toLowerCase()
     const allBooks = Object.values(useSelector(state => state.books))
     const genres = Object.values(useSelector(state => state.genres)).sort((a,b) => {
         if(a.name > b.name)return 1
@@ -31,7 +32,7 @@ function SearchResults() {
     return (
         <div id='home-display'>
             <h1 id='home-right-header'>Welcome to Better Reads</h1>
-            {books.length > 0 ? <h2 id='home-right-books-header'>Search Results for {terms}</h2>: <h2 id='home-right-books-header'>No Results for {terms}</h2>}
+            {books.length > 0 ? <h2 id='home-right-books-header'>Search Results for {originalTerms}</h2>: <h2 id='home-right-books-header'>No Results for {originalTerms}</h2>}
             <div id='home-main'>
                 <div id='home-left-display'>
                     <LeftDisplay />

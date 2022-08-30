@@ -4,6 +4,7 @@ import "./navbar.css";
 import logo from "../images/BetterReads-logos_black.png";
 import Logged from "./Logged";
 import { Link } from "react-router-dom";
+import Search from "../search/Search";
 const NavBar = () => {
   const [display, setDisplay] = useState(false);
   const session = useSelector((state) => state.session);
@@ -30,13 +31,13 @@ const NavBar = () => {
           <Link id="nav-bar-link" to="/home" ><p>Home</p></Link>
           <Link to="/bookshelves/all" id="nav-bar-link">My Books</Link>
         </div>
+        <Search/>
         <div id="nav-bar-left-container">
           <Link to="/about" id="nav-bar-link">About</Link>
           <Link to="/books/new" id="nav-bar-link">Add a Book</Link>
           <div className="dont-close" id="nav-bar-profile-div" onClick={() => setDisplay(!display)}>
             <i className="fa-solid fa-bars"></i>
             <img alt="profile" id="nav-bar-profile-pic" src={session?.user?.picture_url} />
-
           </div>
           {display && <Logged />}
 
