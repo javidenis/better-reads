@@ -1,7 +1,7 @@
 from this import s
 from app.seeds.books import seed_books, undo_books
 from flask.cli import AppGroup
-
+from app.models.db import db, environment, SCHEMA
 from app.seeds.genres import seed_genres, undo_seedgenres
 from .readstatues import seed_readstatues, undo_seedreadstatues
 from .users import seed_users, undo_users
@@ -18,6 +18,11 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
+    if environment == 'production':
+        # Before seeding, truncate all tables prefixed with schema name
+        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        # Add a truncate command here for every table that will be seeded.
+        db.session.commit()
     seed_users()
     seed_genres()
     seed_books()
