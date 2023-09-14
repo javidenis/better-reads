@@ -1,4 +1,4 @@
-from this import s
+# from this import s
 from app.seeds.books import seed_books, undo_books
 from flask.cli import AppGroup
 from app.models.db import db, environment, SCHEMA

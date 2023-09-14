@@ -18,7 +18,7 @@ class Book(db.Model):
     description = db.Column(db.Text, nullable=False)
     cover_url = db.Column(db.Text, nullable=False)
     publish_date = db.Column(db.Date, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(f'{SCHEMA}.users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 
     user = db.relationship("User", back_populates='books')
     read_status = db.relationship("ReadStatus", back_populates='books', cascade="delete, all")
